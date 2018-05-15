@@ -74,6 +74,9 @@ class Content extends Component {
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><Input type="checkbox" />Japanese/Chinese</Label>
                     </Col>
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Label check><Input type="checkbox" />not hungry</Label>
+                    </Col>
 
                     <FormGroup check row>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>

@@ -59,7 +59,7 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>Generate Next</DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                 </DropdownMenu>
@@ -74,8 +74,9 @@ class Content extends Component {
                     </Col>
 
                     <Row>
-                        <Col sm={{ size: 4, offset: 2 }}><Link to = "/map"><img src ="http://unsplash.it/200/300" alt="img1"/></Link></Col>
-                        <Col sm={{ size: 4 }}><Link to = "/map"><img src ="http://unsplash.it/200/300" alt="img2"/></Link></Col>
+                        <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img1" /></Link></Col>
+                        <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img2" /></Link></Col>
+                        {/*use the toggle button method in bootstrap to reveal more text*/}
                         <Col sm={{ size: 2 }} />
                     </Row>
                 </Form>

@@ -14,7 +14,6 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem, Form,
-    FormGroup,
     Label,
     Input,
     Col,
@@ -68,27 +67,25 @@ class Content extends Component {
                 </Navbar>
 
                 <Form>
-                    <Col sm={{ size: 8, offset: 2 }}>
-                        <Label for="ventureWelcome">Welcome to venture</Label>
-                    </Col>
-                    <Col sm={{ size: 8, offset: 2 }}>
-                        <Label for="ventureWelcome2">A choose your own...</Label>
-                    </Col>
-                    <Col sm={{ size: 8, offset: 2 }}>
-                        <Label for="ventureWelcome3">Enter your name:</Label>
-                    </Col>
-                    <Col sm={{ size: 4, offset: 4 }}>
-                        <Input type="name" name="name" />
-                    </Col>
-
-                    <FormGroup check row>
-                        <Row>
-                            <Col sm={{ size: 'auto', offset: 5 }}><Button onClick={this.handleName} >Submit</Button></Col>
-                            <Col sm={{ size: 0.5 }} />
-                            <Col sm={{ size: 'auto' }}><Button onClick={this.handleRandom}>Feeling lucky?</Button></Col>
-                            <Col sm={{ size: 4.5 }} />
-                        </Row>
-                    </FormGroup>
+                    <Row>
+                        <Col sm={{ size: 8, offset: 2 }}>
+                            <Label for="ventureWelcome">Welcome to venture</Label>
+                        </Col>
+                        <Col sm={{ size: 8, offset: 2 }}>
+                            <Label for="ventureWelcome2">A choose your own...</Label>
+                        </Col>
+                        <Col sm={{ size: 8, offset: 2 }}>
+                            <Label for="ventureWelcome3">Enter your name:</Label>
+                        </Col>
+                        <Col sm={{ size: 4, offset: 4 }}>
+                            <Input type="name" name="name" />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <div className="col-xl-5 col-sm-4"/>
+                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleName} >Submit</Button></div>
+                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div> 
+                    </Row>
                 </Form>
             </div >
         );

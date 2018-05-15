@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import './App.css';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
@@ -26,7 +27,10 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem, Form,
+  Label,
+  Col,
+  Row
 } from 'reactstrap';
 
 export default class Map extends Component {
@@ -58,6 +62,7 @@ export default class Map extends Component {
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
     })
   }
+
   handleNavigation = ({ map, maps }) => {
     var directionsService = new maps.DirectionsService();
     var directionsDisplay = new maps.DirectionsRenderer();
@@ -112,8 +117,46 @@ export default class Map extends Component {
         </div>
       );
     } else {
-      return (<button onClick={() => { this.setState({ display: true }) }}>Show</button>)
+      
+      return (
+        
+        <div>
+        <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">venture</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                    <NavItem><NavLink href="/choices">FR</NavLink></NavItem>
+                    <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>Options</DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem>About</DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
+                </Nav>
+            </Collapse>
+        </Navbar>
+
+        <Form>
+            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                <Label>A choose your own!</Label>
+            </Col>
+
+            <Row>
+                <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img1" /></Link></Col>
+                <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img2" /></Link></Col>
+                {/*use the toggle button method in bootstrap to reveal more text*/}
+                <Col sm={{ size: 2 }} />
+            </Row>
+        </Form>
+    </div>
+      
+        
+    )
       //the show button allows for the coordinates to render before the map load
+      //<button onClick={() => { this.setState({ display: true }) }}>Show</button>
     }
   }
 }
