@@ -7,9 +7,9 @@ import Intro from './Intro.js';
 import Food from './Food.js';
 import Fun from './Fun.js';
 import Price from './Price.js';
+import Choices from './Choices.js';
 import Map from './Map.js';
 
-import './App.css'
 import 'react-notifications/lib/notifications.css';
 
 class App extends Component {
@@ -39,6 +39,11 @@ class App extends Component {
     return <Price historyPush={routeProps.history.push} />;
   }
 
+  renderChoices = (routeProps) => {
+
+    return <Choices historyPush={routeProps.history.push} />;
+  }
+
   renderMap = (routeProps) => {
 
     return <Map historyPush={routeProps.history.push} />;
@@ -52,6 +57,7 @@ class App extends Component {
           <Route exact={true} path='/food' render={this.renderFood} />
           <Route exact={true} path='/fun' render={this.renderFun} />
           <Route exact={true} path='/price' render={this.renderPrice} />
+          <Route exact={true} path='/choices' render={this.renderChoices} />
           <Route exact={true} path='/map' render={this.renderMap} />
           <NotificationContainer />
         </div>

@@ -11,9 +11,9 @@ class Content extends Component {
         }
     }
 
-    handlePrice = () => {
+    handleChoices = () => {
 
-        this.props.history.push('/choices') // THIS IS THE KEY LINE
+        this.props.history.push('/map') // THIS IS THE KEY LINE
 
         fetch('/userPrefencesFirstActivity')
             .then(response => response.text())
@@ -24,12 +24,9 @@ class Content extends Component {
     render() {
         return (
             <div>
-                <div>
-                    A choose your price range!
-                        </div>
-                <form onSubmit={this.handlePrice} >
-                    <input type="checkbox" value="$" />$<br />
-                    <input type="checkbox" value="$$" />$$<br />
+                <form onSubmit={this.handleChoices} >
+                    <input type="checkbox" value="first" />first
+                    <input type="checkbox" value="second" />second<br />
                     <input type="submit" />
                 </form>
             </div>
@@ -37,6 +34,6 @@ class Content extends Component {
     }
 }
 
-let Price = withRouter(Content);
+let Choices = withRouter(Content);
 
-export default Price;
+export default Choices;

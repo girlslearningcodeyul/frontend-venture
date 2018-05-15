@@ -24,12 +24,11 @@ class Content extends Component {
                     A choose your food!
                         </div>
                 <form onSubmit={this.handleFood} >
-                    <div>
-                        <button>Tex/Mex</button><br/>
-                        <button>Italian/French</button><br/>
-                        <button>Japanese/Chinese</button><br/>
+                    
+                        <input type="checkbox" value="Tex/Mex"/>Tex/Mex<br/>
+                        <input type="checkbox" value="Japanese/Chinese"/>Japanese/Chinese<br/>
                         <input type="submit" />
-                    </div>
+                    
                 </form>
             </div>
         );

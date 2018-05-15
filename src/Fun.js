@@ -24,13 +24,15 @@ class Content extends Component {
                     A choose your fun!
                         </div>
                 <form onSubmit={this.handleFun} >
-                    <div>
-                        <button>museum/art</button><br/>
-                        <button>theatre/dance</button><br/>
-                        <button>outdoor</button><br/>
-                        <button>bar/club</button><br/>
-                        <input type="submit" />
-                    </div>
+
+                    <input type="checkbox" value="museum/art" />museum/art<br />
+                    <input type="checkbox" value="outdoor" />outdoor/parks<br />
+                    <input type="checkbox" value="bar/club" />nightlife<br />
+                    <input type="checkbox" value="theatre/dance" />historical<br />
+
+                    
+                    <input type="submit" />
+
                 </form>
             </div>
         );
