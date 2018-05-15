@@ -1,3 +1,8 @@
-.myLocation{
- text-align: center;
+
+Form {
+  text-align: center;
+}
+
+button.btn.btn-secondary {
+  margin:10px;
 }
