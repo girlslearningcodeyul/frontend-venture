@@ -13,7 +13,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, Form,
+    DropdownItem,
     Label,
     Input,
     Col,
@@ -80,7 +80,7 @@ class Content extends Component {
                     </Collapse>
                 </Navbar>
 
-                <Form>
+                <div className="introContainer">
                     <Row>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome">Welcome to venture</Label>
@@ -102,7 +102,7 @@ class Content extends Component {
                         <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Submit</Button></div>
                         <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div>
                     </Row>
-                </Form>
+                </div>
             </div >
         );
 

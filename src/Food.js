@@ -13,8 +13,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, Form,
-    FormGroup,
+    DropdownItem, 
     Label,
     Input,
     Col,
@@ -62,7 +61,7 @@ class Content extends Component {
                     </Collapse>
                 </Navbar>
 
-                <Form>
+                <div className="foodContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>{this.props.username}, A choose your food</Label>
                     </Col>
@@ -70,29 +69,27 @@ class Content extends Component {
                         <Label>Hungry for?</Label>
                     </Col>
                     {this.props.foods && (
-                    <div>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input onChange={() => this.props.setFood("latinMex")} 
-                        value={this.props.foods.latinMex} 
-                        type="checkbox"/> Tex/Mex</Label>
+                        <div>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label check><Input onChange={() => this.props.setFood("latinMex")}
+                                    value={this.props.foods.latinMex}
+                                    type="checkbox" /> Tex/Mex</Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label check><Input onChange={() => this.props.setFood("asian")}
+                                    value={this.props.foods.asian}
+                                    type="checkbox" />Japanese/Chinese</Label>
+                            </Col>
+                        </div>)}
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Label check><Input onChange={this.props.setHungry}
+                            type="checkbox" />Not Hungry</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input onChange={() => this.props.setFood("asian")} 
-                        value={this.props.foods.asian} 
-                        type="checkbox"/>Japanese/Chinese</Label>
-                    </Col>
-                    </div>)}
-                    <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input onChange={this.props.setHungry} 
-                        type="checkbox"/>not hungry</Label>
+                        <Button onClick={this.handleFood} >Submit</Button>
                     </Col>
 
-                    <FormGroup check row>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Button onClick={this.handleFood} >Submit</Button>
-                        </Col>
-                    </FormGroup>
-                </Form>
+                </div>
             </div>
         );
     }

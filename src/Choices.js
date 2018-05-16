@@ -15,7 +15,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, Form,
+    DropdownItem,
     Label,
     Col,
     Row
@@ -44,7 +44,7 @@ class Content extends Component {
         fetch('/userPrefencesFirstActivity')
             .then(response => response.text())
             .then(responseBody => {
-
+                console.log("you sent something");
             })
     }
     render() {
@@ -69,18 +69,19 @@ class Content extends Component {
                     </Collapse>
                 </Navbar>
 
-                <Form>
+                <div className="choicesContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>{this.props.username}, A choose your own!</Label>
                     </Col>
-
                     <Row>
-                        <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/300/200" alt="img1" /></Link></Col>
-                        <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/300/200" alt="img2" /></Link></Col>
+                        <Col sm={{ size: 4, offset: 2 }}><Link onClick={this.handleChoices}
+                            to="/map"><img src="http://unsplash.it/300/200" alt="img1" /></Link></Col>
+                        <Col sm={{ size: 4 }}><Link onClick={this.handleChoices}
+                            to="/map"><img src="http://unsplash.it/300/200" alt="img2" /></Link></Col>
                         {/*use the toggle button method in bootstrap to reveal more text*/}
                         <Col sm={{ size: 2 }} />
                     </Row>
-                </Form>
+                </div>
             </div>
         );
     }

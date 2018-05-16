@@ -15,8 +15,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, Form,
-    FormGroup,
+    DropdownItem, 
     Label,
     Input,
     Col,
@@ -64,7 +63,7 @@ class Content extends Component {
                     </Collapse>
                 </Navbar>
 
-                <Form>
+                <div className="funContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>{this.props.username}, A choose your fun!</Label>
                     </Col>
@@ -79,22 +78,20 @@ class Content extends Component {
                         />outdoor/parks</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" 
-                        onChange={() => this.props.toggleState("bars")} 
+                        <Label check><Input type="checkbox"
+                            value={this.props.bars}
+                            onChange={() => this.props.toggleState("bars")}
                         />nightlife</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" 
-                        onChange={() => this.props.toggleState("historical")}  
+                        <Label check><Input type="checkbox"
+                            onChange={() => this.props.toggleState("historical")}
                         />historical</Label>
                     </Col>
-
-                    <FormGroup check row>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleFun} >Submit</Button>
                         </Col>
-                    </FormGroup>
-                </Form>
+                </div>
             </div>
         );
     }

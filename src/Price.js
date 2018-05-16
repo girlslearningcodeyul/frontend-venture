@@ -15,8 +15,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, Form,
-    FormGroup,
+    DropdownItem,
     Label,
     Input,
     Col,
@@ -40,6 +39,8 @@ class Content extends Component {
     }
 
     handlePrice = (e) => {
+
+        //add logic for the case where everything is set to false and null, in that case return a random generation of the listing
         e.preventDefault();
         console.log(this.state)
         let body = JSON.stringify({ //sending this to the backend and names have to match
@@ -55,7 +56,7 @@ class Content extends Component {
                 barsCheap: this.props.barsCheap,
                 barsExpensive: this.props.barsExpensive
             },
-            museums: this.props.name,
+            museums: this.props.museums,
             parks: this.props.parks,
             historical: this.props.historical
         })
@@ -89,23 +90,25 @@ class Content extends Component {
                     </Collapse>
                 </Navbar>
 
-                <Form>
+                <div className="priceContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>{this.props.username}, A choose your price range!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />$</Label>
+                        <Label check><Input type="checkbox"
+                            value={this.props.cheap}
+                            onChange={() => this.props.togglePrice("cheap")} />$</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />$$</Label>
+                        <Label check><Input type="checkbox"
+                            value={this.props.expensive}
+                            onChange={() => this.props.togglePrice("expensive")} />$$</Label>
+                    </Col>
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Button onClick={this.handlePrice} >Submit</Button>
                     </Col>
 
-                    <FormGroup check row>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Button onClick={this.handlePrice} >Submit</Button>
-                        </Col>
-                    </FormGroup>
-                </Form>
+                </div>
             </div>
         );
     }
