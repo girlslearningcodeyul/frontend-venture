@@ -43,9 +43,16 @@ class Content extends Component {
 
     }
 
-    handleRandom = () => {
+    handleRandom = (e) => {
+        e.preventDefault();
+        fetch('/feelingLucky')
+            .then(response => response.text())
+            .then(responseBody => {
+                console.log("successfully sent");
+                this.props.history.push('/map');
+            })
         //this is where the random function will generate the random location and send me the latitude and longitude
-        this.props.history.push('/map')
+        
     }
 
     handleUsername = (e) => {
@@ -85,15 +92,15 @@ class Content extends Component {
                             <Label for="ventureWelcome3">Enter your name:</Label>
                         </Col>
                         <Col sm={{ size: 4, offset: 4 }}>
-                            <Input onChange = {this.handleUsername}
-                             name="name"
-                             value={this.inputUsername} />
+                            <Input onChange={this.handleUsername}
+                                name="name"
+                                value={this.inputUsername} />
                         </Col>
                     </Row>
                     <Row>
-                        <div className="col-xl-5 col-sm-4"/>
+                        <div className="col-xl-5 col-sm-4" />
                         <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Submit</Button></div>
-                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div> 
+                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div>
                     </Row>
                 </Form>
             </div >

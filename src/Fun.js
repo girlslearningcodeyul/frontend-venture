@@ -69,16 +69,24 @@ class Content extends Component {
                         <Label>{this.props.username}, A choose your fun!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />museum/art</Label>
+                        <Label check><Input type="checkbox"
+                            onChange={() => this.props.toggleState("museums")}
+                        />museum/art</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />outdoor/parks</Label>
+                        <Label check><Input type="checkbox"
+                            onChange={() => this.props.toggleState("parks")}
+                        />outdoor/parks</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />nightlife</Label>
+                        <Label check><Input type="checkbox" 
+                        onChange={() => this.props.toggleState("bars")} 
+                        />nightlife</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />historical</Label>
+                        <Label check><Input type="checkbox" 
+                        onChange={() => this.props.toggleState("historical")}  
+                        />historical</Label>
                     </Col>
 
                     <FormGroup check row>

@@ -39,14 +39,35 @@ class Content extends Component {
         });
     }
 
-    handlePrice = () => {
-        this.props.history.push('/choices') // THIS IS THE KEY LINE
-        // fetch('/userPrefencesFirstActivity') //this is the part where I will be sending the big map to the front
-        //     .then(response => response.text())
-        //     .then(responseBody => {
+    handlePrice = (e) => {
+        e.preventDefault();
+        console.log(this.state)
+        let body = JSON.stringify({ //sending this to the backend and names have to match
+            latinMex: {
+                latinMexCheap: this.props.latinMexCheap,
+                latinMexExpensive: this.props.latinMexExpensive
+            },
+            asian: {
+                asianCheap: this.props.asianCheap,
+                asianExpensive: this.props.asianExpensive
+            },
+            bars: {
+                barsCheap: this.props.barsCheap,
+                barsExpensive: this.props.barsExpensive
+            },
+            museums: this.props.name,
+            parks: this.props.parks,
+            historical: this.props.historical
+        })
 
-        //     })
+        fetch('/userPreferencesFirstActivity', { method: "POST", body: body })
+            .then(response => response.text())
+            .then(responseBody => {
+                console.log("successfully sent");
+                this.props.history.push('/choices');
+            })
     }
+
     render() {
         return (
             <div>

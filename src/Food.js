@@ -18,7 +18,8 @@ import {
     Label,
     Input,
     Col,
-    Button
+    Button,
+
 } from 'reactstrap';
 
 class Content extends Component {
@@ -68,14 +69,22 @@ class Content extends Component {
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>Hungry for?</Label>
                     </Col>
-                    <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" /> Tex/Mex</Label>
+                    {this.props.foods && (
+                    <div>
+                        <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Label check><Input onChange={() => this.props.setFood("latinMex")} 
+                        value={this.props.foods.latinMex} 
+                        type="checkbox"/> Tex/Mex</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />Japanese/Chinese</Label>
+                        <Label check><Input onChange={() => this.props.setFood("asian")} 
+                        value={this.props.foods.asian} 
+                        type="checkbox"/>Japanese/Chinese</Label>
                     </Col>
+                    </div>)}
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox" />not hungry</Label>
+                        <Label check><Input onChange={this.props.setHungry} 
+                        type="checkbox"/>not hungry</Label>
                     </Col>
 
                     <FormGroup check row>

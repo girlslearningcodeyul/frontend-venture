@@ -77,7 +77,7 @@ export default class Map extends Component {
       }
     });
     this.directionsService = directionsService;
-    this.directionsDisplay = directionsDisplay
+    this.directionsDisplay = directionsDisplay;
   }
 
   render() {
