@@ -74,8 +74,8 @@ class Content extends Component {
                     </Col>
 
                     <Row>
-                        <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img1" /></Link></Col>
-                        <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img2" /></Link></Col>
+                        <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/300/200" alt="img1" /></Link></Col>
+                        <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/300/200" alt="img2" /></Link></Col>
                         {/*use the toggle button method in bootstrap to reveal more text*/}
                         <Col sm={{ size: 2 }} />
                     </Row>

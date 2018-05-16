@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
 import './App.css';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
@@ -27,10 +26,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem, Form,
-  Label,
-  Col,
-  Row
+  DropdownItem
 } from 'reactstrap';
 
 export default class Map extends Component {
@@ -38,13 +34,8 @@ export default class Map extends Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      center: {
-        lat: 99.95, //source latitude
-        lng: -10.33, //source longitude
-        latD: 99.95, //destination latitude
-        lngD: -10.33, //destination longitude
-        isOpen: false
-      },
+      center: null,
+      isOpen: false,
       zoom: 15,
       display: false
     }
@@ -56,11 +47,16 @@ export default class Map extends Component {
     });
   }
 
-  componentDidMount() {
+  getGeoLocation() {
+
     navigator.geolocation.getCurrentPosition((s) => {
       console.log("get location");
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
     })
+  }
+
+  componentDidMount() {
+    this.getGeoLocation();
   }
 
   handleNavigation = ({ map, maps }) => {
@@ -80,12 +76,14 @@ export default class Map extends Component {
         directionsDisplay.setDirections(result);
       }
     });
+    this.directionsService = directionsService;
+    this.directionsDisplay = directionsDisplay
   }
 
   render() {
-
-    // console.log(this.state)
-    if (this.state.display === true) {
+    if (!this.state.center) {
+      return <div>Loading...</div>
+    }
       return (
         // Important! Always set the container height explicitly
         <div style={{ height: '100vh', width: '100%' }}>
@@ -116,47 +114,5 @@ export default class Map extends Component {
           </GoogleMapReact>
         </div>
       );
-    } else {
-      
-      return (
-        
-        <div>
-        <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">venture</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-                <Nav className="ml-auto" navbar>
-                    <NavItem><NavLink href="/choices">FR</NavLink></NavItem>
-                    <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>Options</DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>About</DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
-                </Nav>
-            </Collapse>
-        </Navbar>
-
-        <Form>
-            <Col sm="12" md={{ size: 8, offset: 2 }}>
-                <Label>A choose your own!</Label>
-            </Col>
-
-            <Row>
-                <Col sm={{ size: 4, offset: 2 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img1" /></Link></Col>
-                <Col sm={{ size: 4 }}><Link to="/map"><img src="http://unsplash.it/200/300" alt="img2" /></Link></Col>
-                {/*use the toggle button method in bootstrap to reveal more text*/}
-                <Col sm={{ size: 2 }} />
-            </Row>
-        </Form>
-    </div>
-      
-        
-    )
-      //the show button allows for the coordinates to render before the map load
-      //<button onClick={() => { this.setState({ display: true }) }}>Show</button>
-    }
   }
 }

@@ -39,7 +39,7 @@ class Content extends Component {
     }
 
     handlePrice = () => {
-        this.props.history.push('/map') // THIS IS THE KEY LINE
+        this.props.history.push('/choices') // THIS IS THE KEY LINE
         // fetch('/userPrefencesFirstActivity') //this is the part where I will be sending the big map to the front
         //     .then(response => response.text())
         //     .then(responseBody => {

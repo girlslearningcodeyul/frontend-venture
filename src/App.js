@@ -59,6 +59,12 @@ class App extends Component {
           <Route exact={true} path='/price' render={this.renderPrice} />
           <Route exact={true} path='/choices' render={this.renderChoices} />
           <Route exact={true} path='/map' render={this.renderMap} />
+          {/* <Route
+            exact
+            path={'/test/:lat/:lng'}
+            render={props => <Map key={Date.now()} historyPush={props.history.push} lat={
+            lng=
+         */}
           <NotificationContainer />
         </div>
       </BrowserRouter>
