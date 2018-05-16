@@ -26,7 +26,8 @@ class Content extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            inputUsername: ""
         }
     }
 
@@ -36,13 +37,19 @@ class Content extends Component {
         });
     }
 
-    handleName = () => {
+    handleIntro = () => {
+        this.props.setUsername(this.state.inputUsername);
         this.props.history.push('/food') // THIS IS THE KEY LINE
+
     }
 
     handleRandom = () => {
         //this is where the random function will generate the random location and send me the latitude and longitude
         this.props.history.push('/map')
+    }
+
+    handleUsername = (e) => {
+        this.setState({ inputUsername: e.target.value })
     }
 
     render() {
@@ -78,12 +85,14 @@ class Content extends Component {
                             <Label for="ventureWelcome3">Enter your name:</Label>
                         </Col>
                         <Col sm={{ size: 4, offset: 4 }}>
-                            <Input type="name" name="name" />
+                            <Input onChange = {this.handleUsername}
+                             name="name"
+                             value={this.inputUsername} />
                         </Col>
                     </Row>
                     <Row>
                         <div className="col-xl-5 col-sm-4"/>
-                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleName} >Submit</Button></div>
+                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Submit</Button></div>
                         <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div> 
                     </Row>
                 </Form>

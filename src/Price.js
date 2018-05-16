@@ -28,7 +28,8 @@ class Content extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            username: ""
         }
     }
 
@@ -69,7 +70,7 @@ class Content extends Component {
 
                 <Form>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label>A choose your price range!</Label>
+                        <Label>{this.props.username}, A choose your price range!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><Input type="checkbox" />$</Label>

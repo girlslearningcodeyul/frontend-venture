@@ -16,37 +16,36 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      username: undefined,
     }
   }
 
   renderIntro = (routeProps) => {
-
-    return <Intro historyPush={routeProps.history.push} />
+    return <Intro setUsername={this.setUsername} historyPush={routeProps.history.push} />
   }
 
   renderFood = (routeProps) => {
-
-    return <Food historyPush={routeProps.history.push} />;
+    return <Food username={this.state.username} historyPush={routeProps.history.push} />;
   }
 
   renderFun = (routeProps) => {
-
-    return <Fun historyPush={routeProps.history.push} />;
+    return <Fun username={this.state.username} historyPush={routeProps.history.push} />;
   }
 
   renderPrice = (routeProps) => {
-
-    return <Price historyPush={routeProps.history.push} />;
+    return <Price username={this.state.username} historyPush={routeProps.history.push} />;
   }
 
   renderChoices = (routeProps) => {
-
-    return <Choices historyPush={routeProps.history.push} />;
+    return <Choices username={this.state.username} historyPush={routeProps.history.push} />;
   }
 
   renderMap = (routeProps) => {
-
     return <Map historyPush={routeProps.history.push} />;
+  }
+
+  setUsername = (username) => {
+    this.setState({ username }) //is equivalent to username: username
   }
 
   render() {
