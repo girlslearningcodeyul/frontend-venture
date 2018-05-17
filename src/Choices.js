@@ -37,48 +37,19 @@ class Content extends Component {
         });
     }
 
-    handleChoices = () => {
-        this.props.firstInterest;
-        this.props.secondInterest;
-        this.props.history.push('/map') // THIS IS THE KEY LINE
+    // handleChoice = () => {
+    //     //this.props.firstInterest;
+    //     //this.props.secondInterest;
+    //     this.props.history.push('/map') // THIS IS THE KEY LINE
 
-        fetch('/userPrefencesFirstActivity')
-            .then(response => response.text())
-            .then(responseBody => {
-                console.log("you sent something");
-            })
-    }
+    //     fetch('/userPrefenceFirstActivity')
+    //         .then(response => response.text())
+    //         .then(responseBody => {
+    //             console.log("you sent something");
+    //         })
+    // }
     render() {
         //before load must generate a gif of typewriter typing out the experience
-
-        let mapContents1 = contents =>
-            <li className="listingStyle">
-                <img src="http://unsplash.it/300/200" alt="img1" />
-                {contents.name} <br />
-                {contents.description} <br />
-                {contents.address} <br />
-                {contents.coordinates} <br />
-                <Link to={"/map"
-                    // + contents.itemId
-                }></Link>
-            </li >
-
-        let mapContents2 = contents =>
-            <li className="listingStyle">
-                <img src="http://unsplash.it/300/200" alt="img1" />
-                {contents.name} <br />
-                {contents.description} <br />
-                {contents.address} <br />
-                {contents.coordinates} <br />
-                <Link to={"/map"
-                    // + contents.itemId
-                }></Link>
-            </li >
-
-        let firstChoice = this.props.firstInterest.map(mapContents1);
-        let secondChoice = this.props.secondInterest.map(mapContents2);
-
-
         return (
             <div>
                 <Navbar color="light" light expand="md">
@@ -105,14 +76,31 @@ class Content extends Component {
                     </Col>
                     <Row>
                         <Col sm={{ size: 4, offset: 2 }}>
-                            <ul>
-                                {firstChoice}
-                            </ul>
+                            <div>
+                                <li className="listingStyle">
+                                    {this.props.firstInterest.name} <br />
+                                    {this.props.firstInterest.description} <br />
+                                    {this.props.firstInterest.address} <br />
+                                    {/* {this.props.firstInterest.coordinates} <br /> */}
+                                    <Link to={"/map?lat=" + this.props.firstInterest.coordinates.lat + "&lng=" + this.props.firstInterest.coordinates.long}>
+                                        <img src="http://unsplash.it/300/200" alt="img1" />
+                                    </Link>
+                                </li >
+                            </div>
                         </Col>
                         <Col sm={{ size: 4 }}>
-                            <ul>
-                                {secondChoice}
-                            </ul>
+                            <div>
+                                <li className="listingStyle">
+                                    {this.props.secondInterest.name} <br />
+                                    {this.props.secondInterest.description} <br />
+                                    {this.props.secondInterest.address} <br />
+                                    {/* {this.props.secondInterest.coordinates} <br /> */}
+                                    <Link to={"/map?lat=" + this.props.secondInterest.coordinates.lat + "&lng=" + this.props.secondInterest.coordinates.long}>
+                                        <img src="http://unsplash.it/300/200" alt="img1" />
+                                    </Link>
+
+                                </li >
+                            </div>
                         </Col>
                         {/*use the toggle button method in bootstrap to reveal more text*/}
                         <Col sm={{ size: 2 }} />

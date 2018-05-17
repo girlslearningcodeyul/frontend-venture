@@ -46,7 +46,9 @@ class App extends Component {
   // }
 
   renderMap = (routeProps) => {
-    return <Map historyPush={routeProps.history.push} />;
+    console.log(routeProps)
+    let params = new URLSearchParams(routeProps.location.search);
+    return <Map lat = {params.get('lat')} lng={params.get('lng')} historyPush={routeProps.history.push} />;
   }
 
   setUsername = (username) => {

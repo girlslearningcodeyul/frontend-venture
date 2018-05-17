@@ -197,7 +197,7 @@ class Preferences extends Component {
             .then(responseBody => {
                 let firstTwoInterests = JSON.parse(responseBody);
                 console.log(firstTwoInterests);
-                console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
+                //console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
                 this.setState({
                     firstInterest: firstTwoInterests.firstTwoInterests[0],
                     secondInterest: firstTwoInterests.firstTwoInterests[1]

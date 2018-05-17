@@ -63,7 +63,7 @@ export default class Map extends Component {
     var directionsService = new maps.DirectionsService();
     var directionsDisplay = new maps.DirectionsRenderer();
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
-    let destination = new maps.LatLng(45.520181, -73.583276);
+    let destination = new maps.LatLng(this.props.lat, this.props.lng);
     console.log("ready to render direction", this.state.center);
     directionsDisplay.setMap(map);
     var request = {
