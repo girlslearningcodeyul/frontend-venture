@@ -41,31 +41,7 @@ class Content extends Component {
     handlePrice = (e) => {
         //add logic for the case where everything is set to false and null, in that case return a random generation of the listing
         e.preventDefault();
-        //console.log(this.state)
-        let body = JSON.stringify({ //sending this to the backend and names have to match
-            latinMex: {
-                cheap: this.props.latinMexCheap,
-                expensive: this.props.latinMexExpensive
-            },
-            asian: {
-                cheap: this.props.asianCheap,
-                expensive: this.props.asianExpensive
-            },
-            museums: this.props.museums,
-            parks: this.props.parks,
-            bars: {
-                cheap: this.props.barsCheap,
-                expensive: this.props.barsExpensive
-            },
-            historical: this.props.historical
-        })
-
-        fetch('/userPreferencesFirstActivity', { method: "POST", body: body })
-            .then(response => response.text())
-            .then(responseBody => {
-                console.log("successfully sent");
-                this.props.history.push('/choices');
-            })
+        this.props.handleSubmit();
     }
 
     render() {

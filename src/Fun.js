@@ -39,10 +39,12 @@ class Content extends Component {
     }
 
     handleFun = () => {
+        //console.log(this.state);
         this.props.history.push('/price') // THIS IS THE KEY LINE
     }
 
     render() {
+
         return (
             <div>
                 <Navbar color="light" light expand="md">
@@ -79,8 +81,8 @@ class Content extends Component {
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><Input type="checkbox"
-                            value={this.props.bars}
-                            onChange={() => this.props.toggleState("bars")}
+                            value={this.props.bars ? this.props.bars : "" }
+                            onChange={this.props.setBars}
                         />nightlife</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
