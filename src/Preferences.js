@@ -23,13 +23,14 @@ class Preferences extends Component {
             hungry: true,
             historical: false,
             museums: false,
-            parks: false, 
+            parks: false,
             cheap: false,
             expensive: false
         }
     }
 
     setFood = (key) => {
+        console.log(key)
         let foods = { ...this.state.foods } //duplicating
         foods[key] = !foods[key]; //
         this.setState({ foods });
@@ -43,9 +44,9 @@ class Preferences extends Component {
     }
 
     toggleState = (key, fn = null) => {
-        this.setState({ [key]: !this.state[key] }, 
+        this.setState({ [key]: !this.state[key] },
             fn)
-        console.log(this)
+        //console.log(this)
     }
 
     togglePrice = (key) => {
@@ -53,21 +54,22 @@ class Preferences extends Component {
     }
 
     setPriceMap = () => {
-        if (this.state.cheap && this.state.expensive){
-            this.setState({
-                foods: {
-                    latinMexExpensive: true,
-                    asianExpensive: true,
-                    latinMexCheap: true,
-                    asianCheap: true
-                },
-                bars: {
-                    barsCheap: true,
-                    barsExpensive: true
-                }
-            })
+        if (this.state.cheap && this.state.expensive && this.state.foods) {
+                  this.setState({
+                    foods: {
+                        latinMexExpensive: true,
+                        asianExpensive: true,
+                        latinMexCheap: true,
+                        asianCheap: true
+                    },
+                    bars: {
+                        barsCheap: true,
+                        barsExpensive: true
+                    }
+                })
         }
-        else if (this.state.cheap) {
+
+        else if (this.state.cheap && this.state.foods) {
             this.setState({
                 foods: {
                     latinMexCheap: true,
@@ -76,7 +78,8 @@ class Preferences extends Component {
                 bars: { barsCheap: true },
             })
         }
-        else if (this.state.expensive) {
+
+        else if (this.state.expensive && this.state.foods) {
             this.setState({
                 foods: {
                     latinMexExpensive: true,
@@ -85,10 +88,7 @@ class Preferences extends Component {
                 bars: { barsExpensive: true }
             })
         }
-        console.log(this);
     }
-
-
 
     //rendering
     renderPrice = (routeProps) => {
@@ -116,6 +116,7 @@ class Preferences extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (<div>
             <Route exact={true} path='/food' render={this.renderFood} />
             <Route exact={true} path='/fun' render={this.renderFun} />
