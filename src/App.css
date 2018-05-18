@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.listingStyle{
+  list-style-type: none;
+}
+
 button.btn.btn-secondary {
   margin:10px;
 }

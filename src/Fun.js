@@ -39,12 +39,10 @@ class Content extends Component {
     }
 
     handleFun = () => {
-        //console.log(this.state);
         this.props.history.push('/price') // THIS IS THE KEY LINE
     }
 
     render() {
-
         return (
             <div>
                 <Navbar color="light" light expand="md">
