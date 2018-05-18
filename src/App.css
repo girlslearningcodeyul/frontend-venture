@@ -1,14 +1,22 @@
 
 .priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer {
   text-align: center;
-}
+  font-family: "courier";
 
+<<<<<<< HEAD
+}
+.introDiv{
+  font-family: "courier";
+}
+=======
 .listingStyle{
   list-style-type: none;
 }
 
+>>>>>>> e4cc94ece143fb6b4d56c956486d8c1ebe01027d
 button.btn.btn-secondary {
   margin:10px;
+  font-family: "courier";
 }
 
 img{

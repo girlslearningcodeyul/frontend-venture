@@ -63,7 +63,11 @@ class Content extends Component {
 
                 <div className="foodContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
+<<<<<<< HEAD
                         <Label>{this.props.username} A choose your food</Label>
+=======
+                        <Label>{this.props.username}A choose your food</Label>
+>>>>>>> 4837f883848bb0a49415d0b0bec6e91bbc19645b
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label>Hungry for?</Label>

@@ -1,0 +1,176 @@
+import React, { Component } from 'react';
+import './App.css';
+import { Route, BrowserRouter, withRouter } from 'react-router-dom'
+//import markerImg from './images/marker.png' markerImg not required
+import GoogleMapReact from 'google-map-react';
+//import styled from 'styled-components'; not required for the marker
+
+import 'react-notifications/lib/notifications.css';
+// let x = 67;
+//`dfghjk${8}` -> exmple of a template string equivalent to 'dfghjkl' + 8
+
+// let Marker = styled.div`
+//   background-image: url(${markerImg});
+//   width: ${(props) => props.isBig ? '60px' : '30px'};
+//   height:30px;
+//   background-size:cover;
+// `;
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+
+class Map extends Component {
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      center: null,
+      isOpen: false,
+      zoom: 10,
+      display: false
+    }
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  getGeoLocation() {
+    console.log("that point")
+    console.log(navigator)
+    navigator.geolocation.getCurrentPosition((s) => {
+      console.log("get location");
+      this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
+    })
+  }
+
+  componentDidMount() {
+    this.setState({ center: { lat: Number(this.props.lat), lng: Number(this.props.lng) } }) 
+    
+    // //this.getGeoLocation();
+    // setTimeout(()=>{this.props.history.push('/')},3000)
+    // setTimeout(()=>{this.props.history.push('/map/40/40')},3001)
+    //setTimeout(()=>{this.setState({ center: { lat: 20, lng: 20 } })},10000)
+    // setTimeout(()=>{this.setState({ center: { lat: 30, lng: 30 } })},15000)
+  }
+
+  changeLocation = () => {
+    this.props.history.push('/')
+    this.props.history.push('/map/40/40')
+  }
+
+  handleNavigation = ({ map, maps }) => {
+    let directionsService = new maps.DirectionsService();
+    let directionsDisplay = new maps.DirectionsRenderer();
+    let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
+    let destination = new maps.LatLng(45.520181, -73.583276);
+    console.log("ready to render direction", this.state.center);
+    directionsDisplay.setMap(map);
+    let request = {
+      origin: origin,
+      destination: destination,
+      travelMode: 'WALKING' //Could also be DRIVING , BICYCLING , TRANSIT
+    };
+    directionsService.route(request, function (result, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(result);
+      }
+    });
+    this.directionsService = directionsService;
+    this.directionsDisplay = directionsDisplay
+  }
+  
+  generateRandomLong(){
+    var num = 45 + (Math.random()).toFixed(6)/10;
+    var posorneg = Math.floor(Math.random());
+    if (posorneg === 0) {
+        num = num * -1;
+    }
+    return num;
+}
+generateRandomLat(){
+    var num = 73 + (Math.random()).toFixed(6)/10;
+    var posorneg = Math.floor(Math.random());
+    if (posorneg === 0) {
+        num = num * -1;
+    }
+    return num;
+}
+  generateNext = ({map, maps}) => {
+    console.log( maps )
+    let directionsService = new maps.DirectionsService();
+    let directionsDisplay = new maps.DirectionsRenderer();
+    let origin = new maps.LatLng(74.73843, 45.32324);
+    let destination = new maps.LatLng(Number(this.props.lng2), Number(this.generateRandomLat));
+    /*console.log(this.generateRandomLat)
+    console.log("ready to render direction", this.state.center);
+    directionsDisplay.setMap(map);
+    let request = {
+      origin: origin,
+      destination: destination,
+      travelMode: 'WALKING' //Could also be DRIVING , BICYCLING , TRANSIT
+    };
+    directionsService.route(request, function (result, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(result);
+      }
+    });
+    this.directionsService = directionsService;
+    this.directionsDisplay = directionsDisplay*/
+  }
+
+  render() {
+    console.log(this.props)
+    if (!this.state.center) {
+      return <div>Loading...</div>
+    }
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <button onClick={this.changeLocation}>CHANGE LOCATION TEST</button>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">venture</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem><NavLink href="/map">FR</NavLink></NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>Options</DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem onClick={this.generateNext}>Generate Next</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <GoogleMapReact
+          onGoogleApiLoaded={this.handleNavigation}
+          yesIWantToUseGoogleMapApiInternals
+          bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
+          defaultCenter={this.state.center}
+          defaultZoom={this.state.zoom}>
+          {/* <Marker lat={this.state.center.lat} lng={this.state.center.lng} /> marker not required, already have in the directions */}
+        </GoogleMapReact>
+      </div>
+    );
+  }
+}
+
+let Content = withRouter(Map)
+
+export default Content;
