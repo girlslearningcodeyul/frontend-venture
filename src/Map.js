@@ -37,7 +37,8 @@ export default class Map extends Component {
       center: null,
       isOpen: false,
       zoom: 15,
-      display: false
+      display: false,
+
     }
   }
 
@@ -49,7 +50,6 @@ export default class Map extends Component {
 
   getGeoLocation() {
     navigator.geolocation.getCurrentPosition((s) => {
-      console.log("get location");
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
     })
   }
@@ -59,17 +59,52 @@ export default class Map extends Component {
   }
 
   generateNext = () => {
-    //this.props.history.push('/choices') // THIS IS THE KEY LINE
-    fetch('/getSecondActivity?sessionId=' + this.props.sessionId)
-      .then(response => response.text())
-      .then(responseBody => {
-        let secondTwoInterests = JSON.parse(responseBody);
-        this.setState({
-          firstInterest: secondTwoInterests.secondTwoInterests[0],
-          secondInterest: secondTwoInterests.secondTwoInterests[1],
-        });
-        this.props.history.push('/choices');
-      })
+    console.log(this.props.step);
+    if (this.props.step === 0) {
+      //console.log(this.props.sessionId);
+      fetch('/getSecondActivity?sessionId=' + this.props.sessionId)
+        .then(response => response.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody);
+          console.log(parsedBody);
+          console.log("above this line is the parsed body of the second activity");
+          this.props.setInterests({
+            firstInterest: parsedBody.secondTwoInterests[0],
+            secondInterest: parsedBody.secondTwoInterests[1],
+          });
+          this.props.historyPush('/choices', this.props.step + 1);
+        })
+    }
+    else if (this.props.step === 1) {
+      //restaurant options
+      fetch('/getThirdActivity?sessionId=' + this.props.sessionId)
+        .then(response => response.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody);
+          console.log(parsedBody);
+          console.log("above this line is the parsed body of the resto options");
+          this.props.setInterests({
+            firstInterest: parsedBody.restos[0],
+            secondInterest: parsedBody.restos[1],
+          });
+          this.props.historyPush('/choices', this.props.step + 1);
+        })
+
+    }
+    else if (this.props.step === 2) {
+      fetch('/getFourthActivity?sessionId=' + this.props.sessionId)
+        .then(response => response.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody);
+          console.log(parsedBody);
+          console.log("above this line is the parsed body of the last activity");
+          this.props.setInterests({
+            firstInterest: parsedBody.lastTwoInterests[0],
+            secondInterest: parsedBody.lastTwoInterests[1],
+          });
+          this.props.historyPush('/');
+        })
+    }
   }
 
   handleNavigation = ({ map, maps }) => {
@@ -77,7 +112,7 @@ export default class Map extends Component {
     var directionsDisplay = new maps.DirectionsRenderer();
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
     let destination = new maps.LatLng(this.props.lat, this.props.lng);
-    console.log("ready to render direction", this.state.center);
+    //console.log("ready to render direction", this.state.center);
     directionsDisplay.setMap(map);
     var request = {
       origin: origin,
@@ -117,9 +152,10 @@ export default class Map extends Component {
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Generate Next</DropdownItem>
-                  <DropdownItem divider />
                   <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem>
+                  {/* if the step if equal to two do not display Generate Next button */}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

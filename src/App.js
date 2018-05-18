@@ -4,7 +4,6 @@ import { Route, BrowserRouter } from 'react-router-dom'
 import './App.css';
 
 import Intro from './Intro.js';
-import Map from './Map.js';
 import Preferences from './Preferences.js';
 
 
@@ -13,7 +12,8 @@ class App extends Component {
     super();
     this.state = {
       username: undefined,
-      sessionId: undefined
+      sessionId: undefined,
+
     }
   }
 
@@ -23,15 +23,6 @@ class App extends Component {
       historyPush={routeProps.history.push} />
   }
 
-  renderMap = (routeProps) => {
-    console.log(routeProps)
-    let params = new URLSearchParams(routeProps.location.search);
-    return <Map
-      sessionId={this.state.sessionId}
-      lat={params.get('lat')}
-      lng={params.get('lng')}
-      historyPush={routeProps.history.push} />;
-  }
 
   setUsername = (username) => {
     this.setState({ username }) //is equivalent to username: username
@@ -46,9 +37,10 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Route exact={true} path='/' render={this.renderIntro} />
-          <Route exact={true} path='/map' render={this.renderMap} />
-          <Preferences username={this.state.username}
-          setSession={this.setSession} 
+          <Preferences
+            sessionId={this.state.sessionId}
+            username={this.state.username}
+            setSession={this.setSession}
           />
         </div>
       </BrowserRouter>

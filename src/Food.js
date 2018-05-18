@@ -13,7 +13,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, 
+    DropdownItem,
     Label,
     Input,
     Col,
@@ -52,9 +52,9 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>About</DropdownItem>
+                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
@@ -63,6 +63,7 @@ class Content extends Component {
 
                 <div className="foodContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Label>{this.props.username}A choose your food</Label>
                         <Label>{this.props.username}, A choose your food</Label>
                         <Label>{this.props.username} A choose your food</Label>
                         <Label>{this.props.username}A choose your food</Label>

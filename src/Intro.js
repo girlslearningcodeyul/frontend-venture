@@ -85,9 +85,10 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
+                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                     <DropdownItem onClick={this.toggleModal}>About venture</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem>Restart</DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>

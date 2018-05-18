@@ -58,9 +58,9 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>About</DropdownItem>
+                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
@@ -76,15 +76,11 @@ class Content extends Component {
                             <div>
                                 <li className="listingStyle">
                                     {this.props.firstInterest.name} <br />
-                                    {/* {this.props.firstInterest.description} <br /> */}
-                                    {/* {this.props.firstInterest.address} <br /> */}
-                                    <Link to={"/map?lat=" + this.props.firstInterest.coordinates.lat + "&lng=" + this.props.firstInterest.coordinates.long}>
-                                        {/* <a href="#" id="TooltipExample"> */}
+                                    <Link to={"/map?lat=" +
+                                        this.props.firstInterest.coordinates.lat + "&lng=" +
+                                        this.props.firstInterest.coordinates.long + "&step=" +
+                                        this.props.step}>
                                         <img src="http://unsplash.it/300/200" alt="img1" />
-                                        {/* </a> */}
-                                            {/* <Tooltip placement="right" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTooltip}>
-                                                {this.props.firstInterest.description}
-                                            </Tooltip> */}
                                     </Link>
                                 </li>
                             </div>
@@ -93,15 +89,11 @@ class Content extends Component {
                             <div>
                                 <li className="listingStyle">
                                     {this.props.secondInterest.name} <br />
-                                    {/* {this.props.secondInterest.description} <br /> */}
-                                    {/* {this.props.secondInterest.address} <br /> */}
-                                    <Link to={"/map?lat=" + this.props.secondInterest.coordinates.lat + "&lng=" + this.props.secondInterest.coordinates.long}>
-                                        {/* <a href="#" id="TooltipExample"> */}
+                                    <Link to={"/map?lat=" +
+                                        this.props.secondInterest.coordinates.lat + "&lng=" +
+                                        this.props.secondInterest.coordinates.long + "&step=" +
+                                        this.props.step}>
                                         <img src="http://unsplash.it/300/200" alt="img2" />
-                                        {/* </a> */}
-                                        {/* <Tooltip placement="left" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTooltip}>
-                                            {this.props.secondInterest.description}
-                                        </Tooltip> */}
                                     </Link>
                                 </li >
                             </div>
