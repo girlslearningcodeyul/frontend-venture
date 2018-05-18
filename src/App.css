@@ -2,8 +2,6 @@
 .priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer {
   text-align: center;
   font-family: "courier";
-<<<<<<< HEAD
-=======
 
 }
 .brand{
@@ -12,7 +10,6 @@
 /* the following  components are found on the intro page...mostly*/
 .introDiv{
   font-family: "courier";
->>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
 }
 .listingStyle{
   list-style-type: none;
@@ -32,8 +29,6 @@ body .introModal {
   }
 /*-------------------------------------------------------------------- */
 
-<<<<<<< HEAD
-=======
 /* the following  components are found on the navbar in the maps page*/
 .navbar-brand{
   font-family: "courier";
@@ -48,7 +43,6 @@ body .introModal {
   font-family: "courier";
 }
 /*-------------------------------------------------------------------- */
->>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
 button.btn.btn-secondary {
   margin:10px;
   font-family: "courier";

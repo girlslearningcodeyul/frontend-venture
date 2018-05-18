@@ -20,7 +20,7 @@ import {
     Button,
     Row,
     Modal,
-    ModalHeader,
+    //ModalHeader,
 } from 'reactstrap';
 
 class Content extends Component {
@@ -69,8 +69,6 @@ class Content extends Component {
     render() {
         return (
             <div className="introDiv">
-<<<<<<< HEAD
-=======
 
                 <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
                     <h2 align="center">Welcome traveller,</h2>
@@ -78,7 +76,6 @@ class Content extends Component {
                     <h3 align="center">Crafted by a scrappy team of three aspiring master web-developers, venture is the brain-child of Aly Neuman, Ksenia Ndkn and Jordan Lahmy! </h3>
                     <h4 align="center"> Built with react/react-strap using express while written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
                 </Modal>
->>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">venture</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
@@ -88,13 +85,7 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-<<<<<<< HEAD
-                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-=======
-                                    <DropdownItem onClick={this.toggleModal}>About venture</DropdownItem>
->>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
-                                    <DropdownItem divider />
-                                    <DropdownItem>About</DropdownItem>
+                                    <DropdownItem onClick={this.toggleModal}>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
