@@ -61,7 +61,7 @@ class Content extends Component {
 
     render() {
         return (
-            <div>
+            <div className = "introDiv">
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">venture</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
