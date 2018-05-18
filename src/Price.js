@@ -67,7 +67,7 @@ class Content extends Component {
 
                 <div className="priceContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label>{this.props.username}, A choose your price range!</Label>
+                        <Label>{this.props.username} A choose your price range!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><Input type="checkbox"

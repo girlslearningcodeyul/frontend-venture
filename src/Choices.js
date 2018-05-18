@@ -54,7 +54,7 @@ class Content extends Component {
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem><NavLink href="/choices">FR</NavLink></NavItem>
+                            <NavItem><NavLink href="/choicesFR">FR</NavLink></NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
@@ -69,7 +69,7 @@ class Content extends Component {
 
                 <div className="choicesContainer">
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label>{this.props.username}, A choose your own!</Label>
+                        <Label>{this.props.username} A choose your own!</Label>
                     </Col>
                     <Row>
                         <Col sm={{ size: 4, offset: 2 }}>

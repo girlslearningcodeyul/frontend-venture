@@ -72,7 +72,7 @@ class Preferences extends Component {
         if (this.state.expensive && this.state.cheap) {
             //console.log('all stuff', this.state)
             if (this.state.foods && this.state.bars) {
-               // console.log(' all food & bars')
+                // console.log(' all food & bars')
                 ret.foods.asianExpensive = true;
                 ret.foods.asianCheap = true;
                 ret.foods.latinMexExpensive = true;
@@ -157,6 +157,7 @@ class Preferences extends Component {
                 ret.bars.barsCheap = true;
             }
         }
+
         this.setState({
             foods: Object.keys(ret.foods).length > 0 ? ret.foods : null,
             bars: Object.keys(ret.bars).length > 0 ? ret.bars : null
@@ -190,9 +191,9 @@ class Preferences extends Component {
             .then(responseBody => {
                 let firstTwoInterests = JSON.parse(responseBody);
                 let sessionId = firstTwoInterests.sessionId;
-                console.log(firstTwoInterests);
-                console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
-                console.log(firstTwoInterests.sessionId)
+                //console.log(firstTwoInterests);
+                //console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
+                //console.log(firstTwoInterests.sessionId)
                 this.setState({
                     firstInterest: firstTwoInterests.firstTwoInterests[0],
                     secondInterest: firstTwoInterests.firstTwoInterests[1],
