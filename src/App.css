@@ -19,13 +19,19 @@
   font-family: "courier";
 }
 .introModal > .modal-content {
-  background: lightgrey;
+  background-image: url(images/parchment.jpg);
+  background-size: 100%;
   font-family: "courier";
   width: 500px;
 
 }
+
+#h2Modal{
+  margin-bottom:25px;
+  font-weight: bold; 
+}
 body .introModal {
-  width: 7500px;
+  width: 750px;
   }
 /*-------------------------------------------------------------------- */
 
