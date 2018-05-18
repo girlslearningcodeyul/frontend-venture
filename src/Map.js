@@ -84,8 +84,8 @@ export default class Map extends Component {
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
           this.props.setInterests({
-            firstInterest: parsedBody.restos[0],
-            secondInterest: parsedBody.restos[1],
+            firstInterest: parsedBody[0],
+            secondInterest: parsedBody[1],
           });
           this.props.historyPush('/choices', this.props.step + 1);
         })
@@ -153,9 +153,11 @@ export default class Map extends Component {
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-                  <DropdownItem divider />
+                  
                   {this.props.step<=2 ?
-                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem> : null }
+                  <div>
+                  <DropdownItem divider/>
+                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null }
                   {/* if the step if equal to two do not display Generate Next button */}
                 </DropdownMenu>
               </UncontrolledDropdown>
