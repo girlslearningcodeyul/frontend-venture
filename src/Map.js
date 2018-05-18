@@ -84,8 +84,12 @@ export default class Map extends Component {
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
           this.props.setInterests({
-            firstInterest: parsedBody[0],
-            secondInterest: parsedBody[1],
+            //add a condition here that the restos acually exists, else
+            // firstInterest: parsedBody[0],
+            // secondInterest: parsedBody[1],
+
+            firstInterest: parsedBody.restos[0],
+            secondInterest: parsedBody.restos[1],
           });
           this.props.historyPush('/choices', this.props.step + 1);
         })
@@ -102,30 +106,38 @@ export default class Map extends Component {
             firstInterest: parsedBody.lastTwoInterests[0],
             secondInterest: parsedBody.lastTwoInterests[1],
           });
-          this.props.historyPush('/choices', this.props.step+1);
+          this.props.historyPush('/choices', this.props.step + 1);
         })
     }
   }
 
   handleNavigation = ({ map, maps }) => {
     var directionsService = new maps.DirectionsService();
-    var directionsDisplay = new maps.DirectionsRenderer();
+    var directionsDisplay = new maps.DirectionsRenderer({
+    suppressMarkers: true
+    });
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
     let destination = new maps.LatLng(this.props.lat, this.props.lng);
-    //console.log("ready to render direction", this.state.center);
+    //let description = this.props.name;
+
+    let destinationMarker = new maps.Marker({
+      position: destination,
+      animation: maps.Animation.DROP,
+      draggable: true,
+      label: "HI",
+      map: map
+    });
+
     directionsDisplay.setMap(map);
+
+
     var request = {
       origin: origin,
       destination: destination,
-      travelMode: 'WALKING' //Could also be DRIVING , BICYCLING , TRANSIT
+      travelMode: 'WALKING', //Could also be DRIVING , BICYCLING , TRANSIT
+
     };
 
-    //need to add marker, passing the props of the location name
-    // let marker = new maps.Marker({
-    //   position: destination,
-    //   map: map,
-    //   title: 'Hello World!'
-    // });
 
     directionsService.route(request, function (result, status) {
       if (status === 'OK') {
@@ -153,11 +165,11 @@ export default class Map extends Component {
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-                  
-                  {this.props.step<=2 ?
-                  <div>
-                  <DropdownItem divider/>
-                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null }
+
+                  {this.props.step <= 2 ?
+                    <div>
+                      <DropdownItem divider />
+                      <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null}
                   {/* if the step if equal to two do not display Generate Next button */}
                 </DropdownMenu>
               </UncontrolledDropdown>
