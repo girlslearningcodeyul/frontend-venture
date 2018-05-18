@@ -16,11 +16,17 @@
   font-family: "courier";
 }
 .btn-secondary{
-  font-family: "helvetica";
+  font-family: "courier";
 }
 .introModal > .modal-content {
-  background: darkturquoise
+  background: lightgrey;
+  font-family: "courier";
+  width: 500px;
+
 }
+body .introModal {
+  width: 7500px;
+  }
 /*-------------------------------------------------------------------- */
 
 /* the following  components are found on the navbar in the maps page*/
