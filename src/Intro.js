@@ -52,7 +52,7 @@ class Content extends Component {
                 this.props.history.push('/map');
             })
         //this is where the random function will generate the random location and send me the latitude and longitude
-        
+
     }
 
     handleUsername = (e) => {
@@ -61,7 +61,7 @@ class Content extends Component {
 
     render() {
         return (
-            <div className = "introDiv">
+            <div className="introDiv">
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">venture</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
@@ -71,9 +71,9 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>About</DropdownItem>
+                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem>Restart</DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>

@@ -15,7 +15,7 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem, 
+    DropdownItem,
     Label,
     Input,
     Col,
@@ -54,9 +54,9 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>About</DropdownItem>
+                                <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
@@ -79,7 +79,7 @@ class Content extends Component {
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><Input type="checkbox"
-                            value={this.props.bars ? this.props.bars : "" }
+                            value={this.props.bars ? this.props.bars : ""}
                             onChange={this.props.setBars}
                         />nightlife</Label>
                     </Col>
@@ -88,9 +88,9 @@ class Content extends Component {
                             onChange={() => this.props.toggleState("historical")}
                         />historical</Label>
                     </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Button onClick={this.handleFun} >Submit</Button>
-                        </Col>
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Button onClick={this.handleFun} >Submit</Button>
+                    </Col>
                 </div>
             </div>
         );

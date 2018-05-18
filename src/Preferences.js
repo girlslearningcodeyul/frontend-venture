@@ -5,6 +5,7 @@ import Food from './Food.js';
 import Fun from './Fun.js';
 import Price from './Price.js';
 import Choices from './Choices.js';
+import Map from './Map.js';
 
 //state reference:
 // foods: {
@@ -52,6 +53,10 @@ class Preferences extends Component {
     setHungry = () => {
         let newHungry = !this.state.hungry;
         this.setState({ hungry: newHungry, foods: newHungry ? {} : null });
+    }
+
+    setInterests = (interestObj) =>{
+        this.setState(interestObj);
     }
 
     toggleState = (key, fn = null) => {
@@ -108,9 +113,19 @@ class Preferences extends Component {
             //console.log('expensive stuff', this.state)
             if (this.state.foods && this.state.bars) {
                 //console.log('expensive food & bars')
-                ret.foods.asianExpensive = true;
-                ret.foods.latinMexExpensive = true;
-                ret.bars.barsExpensive = true;
+                if (this.state.foods.asian && this.state.foods.latinMex) {
+                    ret.foods.asianExpensive = true;
+                    ret.foods.latinMexExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.latinMex) {
+                    ret.foods.latinMexExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.asian) {
+                    ret.foods.asianExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
             }
             else if (this.state.foods) {
                 //console.log('expensive food')
@@ -135,9 +150,20 @@ class Preferences extends Component {
             console.log('cheap stuff', this.state)
             if (this.state.foods && this.state.bars) {
                 console.log('cheapo food & bars')
-                ret.foods.asianCheap = true;
-                ret.foods.latinMexCheap = true;
-                ret.bars.barsCheap = true;
+                if (this.state.foods.asian && this.state.foods.latinMex) {
+                    ret.foods.asianCheap = true;
+                    ret.foods.latinMexCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.latinMex) {
+                    ret.foods.latinMexCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.asian) {
+                    ret.foods.asianCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+
             }
             else if (this.state.foods) {
                 console.log('cheapo food')
@@ -193,14 +219,14 @@ class Preferences extends Component {
                 let sessionId = firstTwoInterests.sessionId;
                 //console.log(firstTwoInterests);
                 //console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
-                //console.log(firstTwoInterests.sessionId)
+                console.log(sessionId)
                 this.setState({
                     firstInterest: firstTwoInterests.firstTwoInterests[0],
                     secondInterest: firstTwoInterests.firstTwoInterests[1],
                     sessionId: sessionId
                 });
                 this.props.setSession(sessionId);
-                this.props.history.push('/choices');
+                this.props.history.push('/choices', 0);
             })
     }
 
@@ -237,14 +263,29 @@ class Preferences extends Component {
         return <Choices
             username={this.props.username}
             historyPush={routeProps.history.push}
+            step={routeProps.location.state}
             firstInterest={this.state.firstInterest}
             secondInterest={this.state.secondInterest} />;
     }
+
+    renderMap = (routeProps) => {
+        //console.log(routeProps)
+        let params = new URLSearchParams(routeProps.location.search);
+        return <Map
+          sessionId={this.props.sessionId}
+          lat={params.get('lat')}
+          lng={params.get('lng')}
+          historyPush={routeProps.history.push}
+          step={Number(params.get('step'))}
+          setInterests={this.setInterests}
+          />;
+      }
 
     render() {
         //console.log(this.state);
         return (
             <div>
+                <Route exact={true} path='/map' render={this.renderMap} />
                 <Route exact={true} path='/food' render={this.renderFood} />
                 <Route exact={true} path='/fun' render={this.renderFun} />
                 <Route exact={true} path='/price' render={this.renderPrice} />
