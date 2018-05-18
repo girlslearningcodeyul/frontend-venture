@@ -18,7 +18,8 @@ import {
     DropdownItem,
     Label,
     Col,
-    Row
+    Row,
+    //Tooltip
 } from 'reactstrap';
 
 class Content extends Component {
@@ -27,7 +28,8 @@ class Content extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
-            username: ""
+            username: "",
+            tooltipOpen: false
         }
     }
 
@@ -37,17 +39,12 @@ class Content extends Component {
         });
     }
 
-    // handleChoice = () => {
-    //     //this.props.firstInterest;
-    //     //this.props.secondInterest;
-    //     this.props.history.push('/map') // THIS IS THE KEY LINE
+    toggleTooltip() {
+        this.setState({
+            tooltipOpen: !this.state.tooltipOpen,
+        });
+    }
 
-    //     fetch('/userPrefenceFirstActivity')
-    //         .then(response => response.text())
-    //         .then(responseBody => {
-    //             console.log("you sent something");
-    //         })
-    // }
     render() {
         //before load must generate a gif of typewriter typing out the experience
         return (
@@ -79,26 +76,33 @@ class Content extends Component {
                             <div>
                                 <li className="listingStyle">
                                     {this.props.firstInterest.name} <br />
-                                    {this.props.firstInterest.description} <br />
-                                    {this.props.firstInterest.address} <br />
-                                    {/* {this.props.firstInterest.coordinates} <br /> */}
+                                    {/* {this.props.firstInterest.description} <br /> */}
+                                    {/* {this.props.firstInterest.address} <br /> */}
                                     <Link to={"/map?lat=" + this.props.firstInterest.coordinates.lat + "&lng=" + this.props.firstInterest.coordinates.long}>
+                                        {/* <a href="#" id="TooltipExample"> */}
                                         <img src="http://unsplash.it/300/200" alt="img1" />
+                                        {/* </a> */}
+                                            {/* <Tooltip placement="right" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTooltip}>
+                                                {this.props.firstInterest.description}
+                                            </Tooltip> */}
                                     </Link>
-                                </li >
+                                </li>
                             </div>
                         </Col>
                         <Col sm={{ size: 4 }}>
                             <div>
                                 <li className="listingStyle">
                                     {this.props.secondInterest.name} <br />
-                                    {this.props.secondInterest.description} <br />
-                                    {this.props.secondInterest.address} <br />
-                                    {/* {this.props.secondInterest.coordinates} <br /> */}
+                                    {/* {this.props.secondInterest.description} <br /> */}
+                                    {/* {this.props.secondInterest.address} <br /> */}
                                     <Link to={"/map?lat=" + this.props.secondInterest.coordinates.lat + "&lng=" + this.props.secondInterest.coordinates.long}>
-                                        <img src="http://unsplash.it/300/200" alt="img1" />
+                                        {/* <a href="#" id="TooltipExample"> */}
+                                        <img src="http://unsplash.it/300/200" alt="img2" />
+                                        {/* </a> */}
+                                        {/* <Tooltip placement="left" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTooltip}>
+                                            {this.props.secondInterest.description}
+                                        </Tooltip> */}
                                     </Link>
-
                                 </li >
                             </div>
                         </Col>

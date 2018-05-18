@@ -6,7 +6,7 @@ import Fun from './Fun.js';
 import Price from './Price.js';
 import Choices from './Choices.js';
 
-//state
+//state reference:
 // foods: {
 //     latinMexCheap: false,
 //     asianCheap: false,
@@ -33,7 +33,8 @@ class Preferences extends Component {
             cheap: false,
             expensive: false,
             firstInterest: {},
-            secondInterest: {}
+            secondInterest: {},
+            sessionId: undefined
         }
     }
 
@@ -62,14 +63,6 @@ class Preferences extends Component {
         this.toggleState(key, this.setPriceMap)
     }
 
-    isEmpty = (obj) => {
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key))
-                return false;
-        }
-        return true;
-    }
-
     setPriceMap = () => {
         let ret = {
             foods: {},
@@ -77,9 +70,9 @@ class Preferences extends Component {
         };
 
         if (this.state.expensive && this.state.cheap) {
-            console.log('all stuff', this.state)
+            //console.log('all stuff', this.state)
             if (this.state.foods && this.state.bars) {
-                console.log(' all food & bars')
+               // console.log(' all food & bars')
                 ret.foods.asianExpensive = true;
                 ret.foods.asianCheap = true;
                 ret.foods.latinMexExpensive = true;
@@ -88,7 +81,7 @@ class Preferences extends Component {
                 ret.bars.barsCheap = true;
             }
             else if (this.state.foods) {
-                console.log(' all food')
+                //console.log(' all food')
                 if (this.state.foods.asian && this.state.foods.latinMex) {
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
@@ -105,22 +98,22 @@ class Preferences extends Component {
                 }
             }
             else if (this.state.bars) {
-                console.log(' all bars')
+                //console.log(' all bars')
                 ret.bars.barsExpensive = true;
                 ret.bars.barsCheap = true;
             }
         }
 
         else if (this.state.expensive) {
-            console.log('expensive stuff', this.state)
+            //console.log('expensive stuff', this.state)
             if (this.state.foods && this.state.bars) {
-                console.log('exp food & bars')
+                //console.log('expensive food & bars')
                 ret.foods.asianExpensive = true;
                 ret.foods.latinMexExpensive = true;
                 ret.bars.barsExpensive = true;
             }
             else if (this.state.foods) {
-                console.log(' exp food')
+                //console.log('expensive food')
                 if (this.state.foods.asian && this.state.foods.latinMex) {
                     ret.foods.asianExpensive = true;
                     ret.foods.latinMexExpensive = true;
@@ -133,7 +126,7 @@ class Preferences extends Component {
                 }
             }
             else if (this.state.bars) {
-                console.log('exp bars')
+                //console.log('expensive bars')
                 ret.bars.barsExpensive = true;
             }
         }
@@ -157,37 +150,37 @@ class Preferences extends Component {
                 }
                 else if (this.state.foods.asian) {
                     ret.foods.asianCheap = true;
-
                 }
             }
             else if (this.state.bars) {
                 console.log('cheapo bars')
                 ret.bars.barsCheap = true;
             }
-
         }
-        this.setState({ foods: ret.foods, bars: ret.bars })
-        //return ret;
+        this.setState({
+            foods: Object.keys(ret.foods).length > 0 ? ret.foods : null,
+            bars: Object.keys(ret.bars).length > 0 ? ret.bars : null
+        })
         console.log(ret);
     }
 
 
     handleSubmit = () => {
         let body = JSON.stringify({ //sending this to the backend and names have to match
-            latinMex: {
+            latinMex: this.state.foods ? {
                 cheap: this.state.foods.latinMexCheap,
                 expensive: this.state.foods.latinMexExpensive
-            },
-            asian: {
+            } : { cheap: false, expensive: false },
+            asian: this.state.foods ? {
                 cheap: this.state.foods.asianCheap,
                 expensive: this.state.foods.asianExpensive
-            },
+            } : { cheap: false, expensive: false },
             museums: this.state.museums,
             parks: this.state.parks,
-            bars: {
+            bars: this.state.bars ? {
                 cheap: this.state.bars.barsCheap,
                 expensive: this.state.bars.barsExpensive
-            },
+            } : { cheap: false, expensive: false },
             historical: this.state.historical
 
         })
@@ -196,12 +189,16 @@ class Preferences extends Component {
             .then(response => response.text())
             .then(responseBody => {
                 let firstTwoInterests = JSON.parse(responseBody);
+                let sessionId = firstTwoInterests.sessionId;
                 console.log(firstTwoInterests);
-                //console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
+                console.log(firstTwoInterests.firstTwoInterests[0].coordinates);
+                console.log(firstTwoInterests.sessionId)
                 this.setState({
                     firstInterest: firstTwoInterests.firstTwoInterests[0],
-                    secondInterest: firstTwoInterests.firstTwoInterests[1]
+                    secondInterest: firstTwoInterests.firstTwoInterests[1],
+                    sessionId: sessionId
                 });
+                this.props.setSession(sessionId);
                 this.props.history.push('/choices');
             })
     }
@@ -234,23 +231,24 @@ class Preferences extends Component {
             username={this.props.username}
             historyPush={routeProps.history.push} />;
     }
+
     renderChoices = (routeProps) => {
         return <Choices
-            username={this.state.username}
+            username={this.props.username}
             historyPush={routeProps.history.push}
             firstInterest={this.state.firstInterest}
-            secondInterest={this.state.secondInterest}
-            />;
+            secondInterest={this.state.secondInterest} />;
     }
 
     render() {
         //console.log(this.state);
-        return (<div>
-            <Route exact={true} path='/food' render={this.renderFood} />
-            <Route exact={true} path='/fun' render={this.renderFun} />
-            <Route exact={true} path='/price' render={this.renderPrice} />
-            <Route exact={true} path='/choices' render={this.renderChoices} />
-        </div>
+        return (
+            <div>
+                <Route exact={true} path='/food' render={this.renderFood} />
+                <Route exact={true} path='/fun' render={this.renderFun} />
+                <Route exact={true} path='/price' render={this.renderPrice} />
+                <Route exact={true} path='/choices' render={this.renderChoices} />
+            </div>
         )
     }
 }

@@ -48,7 +48,6 @@ export default class Map extends Component {
   }
 
   getGeoLocation() {
-
     navigator.geolocation.getCurrentPosition((s) => {
       console.log("get location");
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
@@ -58,6 +57,18 @@ export default class Map extends Component {
   componentDidMount() {
     this.getGeoLocation();
   }
+
+  // generateNext = () => {
+  //     this.props.history.push('/choices') // THIS IS THE KEY LINE
+  //     fetch('/getSecondActivity?sessionId='+this.props.sessionId)
+  //         .then(response => response.text())
+  //         .then(responseBody => {
+  //         let secondTwoInterests = JSON.parse(responseBody);
+  //        this.setState({
+  //        secondInterest: secondTwoInterests.secondTwoInterests[0],
+  //        secondInterest: secondTwoInterests.secondTwoInterests[1],     
+  //         });
+  // }
 
   handleNavigation = ({ map, maps }) => {
     var directionsService = new maps.DirectionsService();
@@ -71,6 +82,14 @@ export default class Map extends Component {
       destination: destination,
       travelMode: 'WALKING' //Could also be DRIVING , BICYCLING , TRANSIT
     };
+
+    //need to add marker, passing the props of the location name
+    // var marker = new maps.Marker({
+    //   position: destination,
+    //   map: map,
+    //   title: 'Hello World!'
+    // });
+
     directionsService.route(request, function (result, status) {
       if (status === 'OK') {
         directionsDisplay.setDirections(result);
@@ -84,35 +103,35 @@ export default class Map extends Component {
     if (!this.state.center) {
       return <div>Loading...</div>
     }
-      return (
-        // Important! Always set the container height explicitly
-        <div style={{ height: '100vh', width: '100%' }}>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">venture</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem><NavLink href="/map">FR</NavLink></NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>Options</DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Generate Next</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </Nav>
-            </Collapse>
-          </Navbar>
-          <GoogleMapReact
-            onGoogleApiLoaded={this.handleNavigation}
-            yesIWantToUseGoogleMapApiInternals
-            bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
-            defaultCenter={this.state.center}
-            defaultZoom={this.state.zoom}>
-            {/* <Marker lat={this.state.center.lat} lng={this.state.center.lng} /> marker not required, already have in the directions */}
-          </GoogleMapReact>
-        </div>
-      );
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">venture</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem><NavLink href="/map">FR</NavLink></NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>Options</DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>Generate Next</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <GoogleMapReact
+          onGoogleApiLoaded={this.handleNavigation}
+          yesIWantToUseGoogleMapApiInternals
+          bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
+          defaultCenter={this.state.center}
+          defaultZoom={this.state.zoom}>
+          {/* <Marker lat={this.state.center.lat} lng={this.state.center.lng} /> marker not required, already have in the directions */}
+        </GoogleMapReact>
+      </div>
+    );
   }
 }
