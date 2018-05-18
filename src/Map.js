@@ -102,7 +102,7 @@ export default class Map extends Component {
             firstInterest: parsedBody.lastTwoInterests[0],
             secondInterest: parsedBody.lastTwoInterests[1],
           });
-          this.props.historyPush('/');
+          this.props.historyPush('/choices', this.props.step+1);
         })
     }
   }
@@ -154,7 +154,8 @@ export default class Map extends Component {
                 <DropdownMenu right>
                   <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem>
+                  {this.props.step<=2 ?
+                  <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem> : null }
                   {/* if the step if equal to two do not display Generate Next button */}
                 </DropdownMenu>
               </UncontrolledDropdown>
