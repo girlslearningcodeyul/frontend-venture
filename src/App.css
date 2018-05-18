@@ -3,17 +3,40 @@
   text-align: center;
   font-family: "courier";
 
-<<<<<<< HEAD
 }
+.brand{
+  font-family: "courier";
+}
+/* the following  components are found on the intro page...mostly*/
 .introDiv{
   font-family: "courier";
 }
-=======
 .listingStyle{
   list-style-type: none;
+  font-family: "courier";
 }
+.btn-secondary{
+  font-family: "helvetica";
+}
+.introModal > .modal-content {
+  background: darkturquoise
+}
+/*-------------------------------------------------------------------- */
 
->>>>>>> e4cc94ece143fb6b4d56c956486d8c1ebe01027d
+/* the following  components are found on the navbar in the maps page*/
+.navbar-brand{
+  font-family: "courier";
+}
+.dropdown-toggle{
+  font-family: "courier";
+}
+.nav-link{
+  font-family: "courier";
+}
+.dropdown-item{
+  font-family: "courier";
+}
+/*-------------------------------------------------------------------- */
 button.btn.btn-secondary {
   margin:10px;
   font-family: "courier";

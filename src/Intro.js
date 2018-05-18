@@ -18,22 +18,28 @@ import {
     Input,
     Col,
     Button,
-    Row
+    Row,
+    Modal
 } from 'reactstrap';
 
 class Content extends Component {
     constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
-            inputUsername: ""
+            inputUsername: "",
+            modalOpen: false,
         }
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
+        });
+    }
+    toggleModal = () => {
+        this.setState({
+            modalOpen: !this.state.modalOpen
         });
     }
 
@@ -62,6 +68,9 @@ class Content extends Component {
     render() {
         return (
             <div className = "introDiv">
+                <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                    <h1>Test</h1>
+                </Modal>
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">venture</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
@@ -71,7 +80,7 @@ class Content extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Options</DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>About</DropdownItem>
+                                    <DropdownItem onClick={this.toggleModal}>About</DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>Restart</DropdownItem>
                                 </DropdownMenu>
