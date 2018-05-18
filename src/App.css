@@ -2,11 +2,53 @@
 .priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer {
   text-align: center;
   font-family: "courier";
+<<<<<<< HEAD
+=======
+
+}
+.brand{
+  font-family: "courier";
+}
+/* the following  components are found on the intro page...mostly*/
+.introDiv{
+  font-family: "courier";
+>>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
 }
 .listingStyle{
   list-style-type: none;
+  font-family: "courier";
 }
+.btn-secondary{
+  font-family: "courier";
+}
+.introModal > .modal-content {
+  background: lightgrey;
+  font-family: "courier";
+  width: 500px;
 
+}
+body .introModal {
+  width: 7500px;
+  }
+/*-------------------------------------------------------------------- */
+
+<<<<<<< HEAD
+=======
+/* the following  components are found on the navbar in the maps page*/
+.navbar-brand{
+  font-family: "courier";
+}
+.dropdown-toggle{
+  font-family: "courier";
+}
+.nav-link{
+  font-family: "courier";
+}
+.dropdown-item{
+  font-family: "courier";
+}
+/*-------------------------------------------------------------------- */
+>>>>>>> f6de873c5ca46d987dc7c1af6c893d9fc170355f
 button.btn.btn-secondary {
   margin:10px;
   font-family: "courier";
