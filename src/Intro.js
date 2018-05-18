@@ -20,7 +20,6 @@ import {
     Button,
     Row,
     Modal,
-    ModalHeader,
 } from 'reactstrap';
 
 class Content extends Component {
