@@ -58,17 +58,19 @@ export default class Map extends Component {
     this.getGeoLocation();
   }
 
-  // generateNext = () => {
-  //     this.props.history.push('/choices') // THIS IS THE KEY LINE
-  //     fetch('/getSecondActivity?sessionId='+this.props.sessionId)
-  //         .then(response => response.text())
-  //         .then(responseBody => {
-  //         let secondTwoInterests = JSON.parse(responseBody);
-  //        this.setState({
-  //        secondInterest: secondTwoInterests.secondTwoInterests[0],
-  //        secondInterest: secondTwoInterests.secondTwoInterests[1],     
-  //         });
-  // }
+  generateNext = () => {
+    //this.props.history.push('/choices') // THIS IS THE KEY LINE
+    fetch('/getSecondActivity?sessionId=' + this.props.sessionId)
+      .then(response => response.text())
+      .then(responseBody => {
+        let secondTwoInterests = JSON.parse(responseBody);
+        this.setState({
+          firstInterest: secondTwoInterests.secondTwoInterests[0],
+          secondInterest: secondTwoInterests.secondTwoInterests[1],
+        });
+        this.props.history.push('/choices');
+      })
+  }
 
   handleNavigation = ({ map, maps }) => {
     var directionsService = new maps.DirectionsService();
@@ -84,7 +86,7 @@ export default class Map extends Component {
     };
 
     //need to add marker, passing the props of the location name
-    // var marker = new maps.Marker({
+    // let marker = new maps.Marker({
     //   position: destination,
     //   map: map,
     //   title: 'Hello World!'
@@ -111,7 +113,7 @@ export default class Map extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem><NavLink href="/map">FR</NavLink></NavItem>
+              <NavItem><NavLink href="/mapFR">FR</NavLink></NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>

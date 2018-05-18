@@ -47,7 +47,9 @@ class App extends Component {
         <div>
           <Route exact={true} path='/' render={this.renderIntro} />
           <Route exact={true} path='/map' render={this.renderMap} />
-          <Preferences username={this.state.username} setSession={this.setSession} />
+          <Preferences username={this.state.username}
+          setSession={this.setSession} 
+          />
         </div>
       </BrowserRouter>
     )
