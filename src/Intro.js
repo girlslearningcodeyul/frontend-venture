@@ -30,6 +30,9 @@ class Content extends Component {
             isOpen: false,
             inputUsername: "",
             modalOpen: false,
+            step: 0,
+            lat: undefined,
+            long: undefined
         }
     }
 
@@ -55,11 +58,17 @@ class Content extends Component {
         fetch('/feelingLucky')
             .then(response => response.text())
             .then(responseBody => {
-                console.log("successfully sent");
-                this.props.history.push('/map');
+                let parsedBody = JSON.parse(responseBody);
+                console.log(parsedBody);
+                this.setState({
+                    lat: parsedBody.randomAdventure[0].coordinates.lat,
+                    long: parsedBody.randomAdventure[0].coordinates.long
+                });
+                console.log(this.state.lat);
+                console.log(this.state.long);
+                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.long + "&step=0");
+                //this is where the random function will generate the random location and send me the latitude and longitude
             })
-        //this is where the random function will generate the random location and send me the latitude and longitude
-
     }
 
     handleUsername = (e) => {
@@ -73,8 +82,8 @@ class Content extends Component {
                 <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
                     <h2 align="center">Welcome traveller,</h2>
                     <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                    <h3 align="center">Crafted by a scrappy team of three aspiring master web-developers, venture is the brain-child of Aly Neuman, Ksenia Ndkn and Jordan Lahmy! </h3>
-                    <h4 align="center"> Built with react/react-strap using express while written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                    <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
+                    <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
                 </Modal>
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">venture</NavbarBrand>

@@ -55,7 +55,7 @@ class Preferences extends Component {
         this.setState({ hungry: newHungry, foods: newHungry ? {} : null });
     }
 
-    setInterests = (interestObj) =>{
+    setInterests = (interestObj) => {
         this.setState(interestObj);
     }
 
@@ -272,14 +272,14 @@ class Preferences extends Component {
         //console.log(routeProps)
         let params = new URLSearchParams(routeProps.location.search);
         return <Map
-          sessionId={this.props.sessionId}
-          lat={params.get('lat')}
-          lng={params.get('lng')}
-          historyPush={routeProps.history.push}
-          step={Number(params.get('step'))}
-          setInterests={this.setInterests}
-          />;
-      }
+            sessionId={this.props.sessionId}
+            lat={params.get('lat')}
+            lng={params.get('lng')}
+            historyPush={routeProps.history.push}
+            step={Number(params.get('step'))}
+            setInterests={this.setInterests}
+        />;
+    }
 
     render() {
         //console.log(this.state);

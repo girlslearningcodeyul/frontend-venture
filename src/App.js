@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {
       username: undefined,
       sessionId: undefined,
-
     }
   }
 
