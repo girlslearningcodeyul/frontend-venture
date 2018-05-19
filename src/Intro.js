@@ -32,7 +32,8 @@ class Content extends Component {
             modalOpen: false,
             step: 0,
             lat: undefined,
-            long: undefined
+            long: undefined,
+            english: true,
         }
     }
 
@@ -44,6 +45,11 @@ class Content extends Component {
     toggleModal = () => {
         this.setState({
             modalOpen: !this.state.modalOpen
+        });
+    }
+    toggleLanguage = () => {
+        this.setState({
+            english: !this.state.english
         });
     }
 
@@ -76,56 +82,110 @@ class Content extends Component {
     }
 
     render() {
-        return (
-            <div className="introDiv">
-
-                <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                    <h2 align="center">Welcome traveller,</h2>
-                    <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                    <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
-                    <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
-                </Modal>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">venture</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem><NavLink href="/">FR</NavLink></NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>Options</DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem onClick={this.toggleModal}>About</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-
-                <div className="introContainer">
-                    <Row>
-                        <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome">Welcome to venture</Label>
-                        </Col>
-                        <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome2">A choose your own...</Label>
-                        </Col>
-                        <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome3">Enter your name:</Label>
-                        </Col>
-                        <Col sm={{ size: 4, offset: 4 }}>
-                            <Input onChange={this.handleUsername}
-                                name="name"
-                                value={this.inputUsername} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <div className="col-xl-5 col-sm-4" />
-                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Submit</Button></div>
-                        <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div>
-                    </Row>
-                </div>
-            </div >
-        );
+        if(this.state.english === true) {
+            return (
+                <div className="introDiv">
+    
+                    <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                        <h2 align="center">Welcome traveller,</h2>
+                        <h2 id="h2Modal" align="center"> to the world of venture!</h2>
+                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
+                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                    </Modal>
+                    <Navbar color="light" light expand="md">
+                        <NavbarBrand href="/">venture</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavItem><NavLink onClick={this.toggleLanguage}>FR</NavLink></NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>Options</DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem onClick={this.toggleModal}>About</DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                    
+                    <div className="introContainer" id="introId1">
+                        <Row>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome">Welcome to venture</Label>
+                            </Col>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome2">A choose your own...</Label>
+                            </Col>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome3">Enter your name:</Label>
+                            </Col>
+                            <Col sm={{ size: 4, offset: 4 }}>
+                                <Input onChange={this.handleUsername}
+                                    name="name"
+                                    value={this.inputUsername} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <div className="col-xl-5 col-sm-4" />
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Onwards!</Button></div>
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div>
+                        </Row>
+                    </div>
+                </div >
+            );
+        } else {
+            return (
+                <div className="introDiv">
+    
+                    <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                        <h2 align="center">Bienvenue voyageur intrepid,</h2>
+                        <h2 id="h2Modal" align="center"> dans le monde de venture!</h2>
+                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
+                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                    </Modal>
+                    <Navbar color="light" light expand="md">
+                        <NavbarBrand href="/">venture</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavItem><NavLink onClick={this.toggleLanguage}>EN</NavLink></NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>Options</DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem onClick={this.toggleModal}>Détails</DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                    
+                    <div className="introContainer" id="introId1">
+                        <Row>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome">venture vous salute!</Label>
+                            </Col>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome2">Choissiser le votre</Label>
+                            </Col>
+                            <Col sm={{ size: 8, offset: 2 }}>
+                                <Label for="ventureWelcome3">Votre nom s'il vous plait:</Label>
+                            </Col>
+                            <Col sm={{ size: 4, offset: 4 }}>
+                                <Input onChange={this.handleUsername}
+                                    name="name"
+                                    value={this.inputUsername} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <div className="col-xl-5 col-sm-4" />
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >A la venture!</Button></div>
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Chanceux?</Button></div>
+                        </Row>
+                    </div>
+                </div >
+            );
+        }
+        
 
     }
 }
