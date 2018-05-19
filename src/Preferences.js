@@ -272,7 +272,7 @@ class Preferences extends Component {
         //console.log(routeProps)
         let params = new URLSearchParams(routeProps.location.search);
         return <Map
-            name={this.state.firstInterest.name}
+            //name={this.state.firstInterest.name}
             sessionId={this.props.sessionId}
             lat={params.get('lat')}
             lng={params.get('lng')}

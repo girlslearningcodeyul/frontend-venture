@@ -30,7 +30,9 @@ class Content extends Component {
             isOpen: false,
             inputUsername: "",
             modalOpen: false,
-            step:0
+            step: 0,
+            lat: undefined,
+            long: undefined
         }
     }
 
@@ -58,14 +60,15 @@ class Content extends Component {
             .then(responseBody => {
                 let parsedBody = JSON.parse(responseBody);
                 console.log(parsedBody);
-                <Link to={"/map?lat=" +
-                    parsedBody.randomAdventure[0].coordinates.lat + "&lng=" +
-                    parsedBody.randomAdventure[0].coordinates.long + "&step=0"}>
-                </Link>
-                
+                this.setState({
+                    lat: parsedBody.randomAdventure[0].coordinates.lat,
+                    long: parsedBody.randomAdventure[0].coordinates.long
+                });
+                console.log(this.state.lat);
+                console.log(this.state.long);
+                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.long + "&step=0");
+                //this is where the random function will generate the random location and send me the latitude and longitude
             })
-        //this is where the random function will generate the random location and send me the latitude and longitude
-
     }
 
     handleUsername = (e) => {
