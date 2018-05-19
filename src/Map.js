@@ -83,13 +83,14 @@ export default class Map extends Component {
           let parsedBody = JSON.parse(responseBody);
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
+          //add a condition here that the restos acually exists, else
+          //this.props.setInterests({
+          // firstInterest: parsedBody[0],
+          // secondInterest: parsedBody[1]
+          //});
           this.props.setInterests({
-            //add a condition here that the restos acually exists, else
-            // firstInterest: parsedBody[0],
-            // secondInterest: parsedBody[1],
-
             firstInterest: parsedBody.restos[0],
-            secondInterest: parsedBody.restos[1],
+            secondInterest: parsedBody.restos[1]
           });
           this.props.historyPush('/choices', this.props.step + 1);
         })
@@ -114,19 +115,27 @@ export default class Map extends Component {
   handleNavigation = ({ map, maps }) => {
     var directionsService = new maps.DirectionsService();
     var directionsDisplay = new maps.DirectionsRenderer({
-    suppressMarkers: true
+      suppressMarkers: true
     });
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
     let destination = new maps.LatLng(this.props.lat, this.props.lng);
-    //let description = this.props.name;
+
+    let markerLabel = "some text here"
 
     let destinationMarker = new maps.Marker({
       position: destination,
       animation: maps.Animation.DROP,
       draggable: true,
-      label: "HI",
-      map: map
+      map: map,
+      label: {
+        text: markerLabel,
+        color: "#000000",
+        fontSize: "16px",
+        fontWeight: "bold"
+      }
     });
+
+
 
     directionsDisplay.setMap(map);
 
@@ -135,7 +144,6 @@ export default class Map extends Component {
       origin: origin,
       destination: destination,
       travelMode: 'WALKING', //Could also be DRIVING , BICYCLING , TRANSIT
-
     };
 
 

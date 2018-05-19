@@ -4,26 +4,21 @@
   font-family: "courier";
 
 }
-.brand{
+.brand, .introDiv, .btn-secondary {
   font-family: "courier";
 }
 /* the following  components are found on the intro page...mostly*/
-.introDiv{
-  font-family: "courier";
-}
+
 .listingStyle{
   list-style-type: none;
   font-family: "courier";
 }
-.btn-secondary{
-  font-family: "courier";
-}
+
 .introModal > .modal-content {
   background-image: url(images/parchment.jpg);
   background-size: 100%;
   font-family: "courier";
   width: 500px;
-
 }
 
 #h2Modal{
@@ -36,18 +31,10 @@ body .introModal {
 /*-------------------------------------------------------------------- */
 
 /* the following  components are found on the navbar in the maps page*/
-.navbar-brand{
+.navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item{
   font-family: "courier";
 }
-.dropdown-toggle{
-  font-family: "courier";
-}
-.nav-link{
-  font-family: "courier";
-}
-.dropdown-item{
-  font-family: "courier";
-}
+
 /*-------------------------------------------------------------------- */
 button.btn.btn-secondary {
   margin:10px;
