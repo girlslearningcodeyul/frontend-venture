@@ -83,7 +83,7 @@ export default class Map extends Component {
           let parsedBody = JSON.parse(responseBody);
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
-          //add a condition here that the restos acually exists, else
+          //add a condition here that cheks that the restos acually exist and if not
           //this.props.setInterests({
           // firstInterest: parsedBody[0],
           // secondInterest: parsedBody[1]
@@ -113,39 +113,46 @@ export default class Map extends Component {
   }
 
   handleNavigation = ({ map, maps }) => {
-    var directionsService = new maps.DirectionsService();
-    var directionsDisplay = new maps.DirectionsRenderer({
+    let directionsService = new maps.DirectionsService();
+    let directionsDisplay = new maps.DirectionsRenderer({
       suppressMarkers: true
     });
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
     let destination = new maps.LatLng(this.props.lat, this.props.lng);
 
-    let markerLabel = "some text here"
+    directionsDisplay.setMap(map);
 
+    //destination marker setup
     let destinationMarker = new maps.Marker({
       position: destination,
       animation: maps.Animation.DROP,
       draggable: true,
       map: map,
-      label: {
-        text: markerLabel,
-        color: "#000000",
-        fontSize: "16px",
-        fontWeight: "bold"
-      }
+      label: "A",
+      // label: {
+      //   color: "#000000",
+      //   fontSize: "16px",
+      //   fontWeight: "bold"
+      // }
     });
 
+    destinationMarker.addListener('click', function () {
+      infowindow.open(map, destinationMarker);
+    });
 
+    //setting up the description on click
+    let contentString = "Lorem ipsum dolor sit amet.";
 
-    directionsDisplay.setMap(map);
+    let infowindow = new maps.InfoWindow({
+      content: contentString
+    });
 
-
+    //setting up the directions display
     var request = {
       origin: origin,
       destination: destination,
       travelMode: 'WALKING', //Could also be DRIVING , BICYCLING , TRANSIT
     };
-
 
     directionsService.route(request, function (result, status) {
       if (status === 'OK') {
@@ -154,6 +161,7 @@ export default class Map extends Component {
     });
     this.directionsService = directionsService;
     this.directionsDisplay = directionsDisplay;
+
   }
 
   render() {
