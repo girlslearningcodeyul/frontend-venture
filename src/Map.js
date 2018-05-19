@@ -38,7 +38,6 @@ export default class Map extends Component {
       isOpen: false,
       zoom: 15,
       display: false,
-
     }
   }
 
@@ -126,21 +125,31 @@ export default class Map extends Component {
     let destinationMarker = new maps.Marker({
       position: destination,
       animation: maps.Animation.DROP,
-      draggable: true,
+      //      clickable: true,
       map: map,
-      label: "A",
-      // label: {
-      //   color: "#000000",
-      //   fontSize: "16px",
-      //   fontWeight: "bold"
-      // }
+      label: "",
+      cursor: 'default'
     });
 
-    destinationMarker.addListener('click', function () {
+    map.addListener('click', function () {
       infowindow.open(map, destinationMarker);
     });
 
+    //origin marker setup
+    let originMarker = new maps.Marker({
+      position: origin,
+      clickable: false,
+      icon: new maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+        new maps.Size(22, 22),
+        new maps.Point(0, 18),
+        new maps.Point(11, 11)),
+      shadow: null,
+      zIndex: 999,
+      map: map
+    });
+
     //setting up the description on click
+    //add an actual description
     let contentString = "Lorem ipsum dolor sit amet.";
 
     let infowindow = new maps.InfoWindow({
@@ -176,7 +185,6 @@ export default class Map extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem><NavLink href="/mapFR">FR</NavLink></NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>
@@ -198,7 +206,6 @@ export default class Map extends Component {
           bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
           defaultCenter={this.state.center}
           defaultZoom={this.state.zoom}>
-          {/* <Marker lat={this.state.center.lat} lng={this.state.center.lng} /> marker not required, already have in the directions */}
         </GoogleMapReact>
       </div>
     );
