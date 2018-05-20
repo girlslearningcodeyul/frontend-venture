@@ -148,12 +148,15 @@ export default class Map extends Component {
       map: map
     });
 
-    //setting up the description on click
-    //add an actual description
-    let contentString = "Lorem ipsum dolor sit amet.";
+    //setting up the destination location on click
+    //add an actual address of the location
 
+    let contentStringFirstInterest = this.props.firstInterest.address;
+    let contentStringSecondInterest = this.props.secondInterest.address;
+    
+    //add a condition to see which interest option the user selected
     let infowindow = new maps.InfoWindow({
-      content: contentString
+      content: contentStringFirstInterest
     });
 
     //setting up the directions display

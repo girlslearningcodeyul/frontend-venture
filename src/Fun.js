@@ -86,7 +86,7 @@ class Content extends Component {
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><CustomInput type="checkbox"
                             onChange={() => this.props.toggleState("museums")}
-                            id="a" label="museum/art"/></Label>
+                            id="a" label="museums/art"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><CustomInput type="checkbox"
@@ -95,15 +95,16 @@ class Content extends Component {
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Label check><CustomInput type="checkbox"
+                            onChange={() => this.props.toggleState("historical")}
+                            id="d" label="historical"/></Label>
+                    </Col>
+                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                        <Label check><CustomInput type="checkbox"
                             value={this.props.bars ? this.props.bars : ""}
                             onChange={this.props.setBars}
                             id="c" label="nightlife"/></Label>
                     </Col>
-                    <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><CustomInput type="checkbox"
-                            onChange={() => this.props.toggleState("historical")}
-                            id="d" label="historical"/></Label>
-                    </Col>
+
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Button onClick={this.handleFun} >Submit</Button>
                     </Col>

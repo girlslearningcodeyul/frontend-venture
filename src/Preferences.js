@@ -278,6 +278,8 @@ class Preferences extends Component {
             historyPush={routeProps.history.push}
             step={Number(params.get('step'))}
             setInterests={this.setInterests}
+            firstInterest={this.state.firstInterest}
+            secondInterest={this.state.secondInterest}
         />;
     }
 

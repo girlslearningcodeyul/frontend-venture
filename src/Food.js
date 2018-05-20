@@ -87,7 +87,7 @@ class Content extends Component {
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
                                 <Label check><CustomInput onChange={() => this.props.setFood("latinMex")}
                                     value={this.props.foods.latinMex}
-                                    type="checkbox" id="x" label="Tex/Mex"  /> </Label>
+                                    type="checkbox" id="x" label="Latin/Mexican"  /> </Label>
                             </Col>
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
                                 <Label check><CustomInput onChange={() => this.props.setFood("asian")}

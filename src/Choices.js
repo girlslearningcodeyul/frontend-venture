@@ -19,18 +19,22 @@ import {
     Label,
     Col,
     Row,
-    Modal
+    Modal,
+    Tooltip
 } from 'reactstrap';
 
 class Content extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
+        this.toggleTooltipLeft = this.toggleTooltipLeft.bind(this);
+        this.toggleTooltipRight = this.toggleTooltipRight.bind(this);
         this.state = {
             isOpen: false,
             username: "",
-            tooltipOpen: false
-        }
+            tooltipOpenLeft: false,
+            tooltipOpenRight: false
+        };
     }
 
     toggle() {
@@ -39,9 +43,14 @@ class Content extends Component {
         });
     }
 
-    toggleTooltip() {
+    toggleTooltipLeft() {
         this.setState({
-            tooltipOpen: !this.state.tooltipOpen,
+            tooltipOpenLeft: !this.state.tooltipOpenLeft
+        });
+    }
+    toggleTooltipRight() {
+        this.setState({
+            tooltipOpenRight: !this.state.tooltipOpenRight
         });
     }
 
@@ -82,27 +91,39 @@ class Content extends Component {
                         <Col sm={{ size: 4, offset: 2 }}>
                             <div>
                                 <li className="listingStyle">
-                                    {this.props.firstInterest.name} <br />
-                                    <Link to={"/map?lat=" +
-                                        this.props.firstInterest.coordinates.lat + "&lng=" +
-                                        this.props.firstInterest.coordinates.long + "&step=" +
-                                        this.props.step}>
-                                        <img src="http://unsplash.it/300/200" alt="img1" />
-                                    </Link>
+                                    <a href="tooltipLeft" id="tooltipLeft">
+                                        <Link to={"/map?lat=" +
+                                            this.props.firstInterest.coordinates.lat + "&lng=" +
+                                            this.props.firstInterest.coordinates.long + "&step=" +
+                                            this.props.step}>
+                                            <img src="http://unsplash.it/300/200" alt="img1" />
+                                        </Link>
+                                    </a>
+                                    <br />
+                                    {this.props.firstInterest.name}
                                 </li>
+                                <Tooltip placement="left" isOpen={this.state.tooltipOpenLeft} target="tooltipLeft" toggle={this.toggleTooltipLeft}>
+                                    {this.props.firstInterest.description}
+                                </Tooltip>
                             </div>
                         </Col>
                         <Col sm={{ size: 4 }}>
                             <div>
                                 <li className="listingStyle">
-                                    {this.props.secondInterest.name} <br />
+                                <a href="tooltipRight" id="tooltipRight">
                                     <Link to={"/map?lat=" +
                                         this.props.secondInterest.coordinates.lat + "&lng=" +
                                         this.props.secondInterest.coordinates.long + "&step=" +
                                         this.props.step}>
                                         <img src="http://unsplash.it/300/200" alt="img2" />
-                                    </Link>
+                                    </Link> <br />
+                                    </a>
+                                    {this.props.secondInterest.name}
                                 </li >
+                                <Tooltip placement="right" isOpen={this.state.tooltipOpenRight} target="tooltipRight" toggle={this.toggleTooltipRight}>
+                                    {this.props.secondInterest.description}
+                                </Tooltip>
+
                             </div>
                         </Col>
                         {/*use the toggle button method in bootstrap to reveal more text*/}

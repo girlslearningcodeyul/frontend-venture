@@ -70,3 +70,15 @@ img{
   border-radius: 5px;
   border-color:black;
 }
+
+.form-check-label {
+  margin: 10px;
+}
+
+#tooltip{
+  color:black;
+  text-decoration: underline;
+}
+label{
+  margin:20px;
+}
