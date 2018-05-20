@@ -48,7 +48,7 @@ class Content extends Component {
     }
 
     handleFun = () => {
-        this.props.history.push('/price') // THIS IS THE KEY LINE
+        this.props.historyPush('/price') // THIS IS THE KEY LINE
     }
 
     render() {

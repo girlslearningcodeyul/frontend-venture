@@ -82,7 +82,7 @@ export default class Map extends Component {
           let parsedBody = JSON.parse(responseBody);
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
-          //add a condition here that cheks that the restos acually exist and if not
+          //add a condition here that checks that the restos acually exist and if not
           //this.props.setInterests({
           // firstInterest: parsedBody[0],
           // secondInterest: parsedBody[1]
@@ -153,7 +153,7 @@ export default class Map extends Component {
 
     let contentStringFirstInterest = this.props.firstInterest.address;
     let contentStringSecondInterest = this.props.secondInterest.address;
-    
+
     //add a condition to see which interest option the user selected
     let infowindow = new maps.InfoWindow({
       content: contentStringFirstInterest
@@ -174,6 +174,9 @@ export default class Map extends Component {
     this.directionsService = directionsService;
     this.directionsDisplay = directionsDisplay;
 
+    // compute the total distances of that trip
+    //getDistanceMatrix(request: DistanceMatrixRequest, 
+    //callback: (response: google.maps.DistanceMatrixResponse, status: google.maps.DistanceMatrixStatus) => void)
   }
 
   render() {

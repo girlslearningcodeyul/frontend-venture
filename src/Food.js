@@ -45,7 +45,7 @@ class Content extends Component {
     }
 
     handleFood = () => {
-        this.props.history.push('/fun') // THIS IS THE KEY LINE
+        this.props.historyPush('/fun') // THIS IS THE KEY LINE
     }
 
     render() {
