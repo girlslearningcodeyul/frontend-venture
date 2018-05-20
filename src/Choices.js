@@ -96,8 +96,9 @@ class Content extends Component {
                                             this.props.firstInterest.coordinates.lat + "&lng=" +
                                             this.props.firstInterest.coordinates.long + "&step=" +
                                             this.props.step}>
-                                            <img src="http://unsplash.it/300/200" alt="img1" />
+                                            <img src={this.props.firstInterest.imageLocation} alt="img1" />
                                         </Link>
+
                                     </a>
                                     <br />
                                     {this.props.firstInterest.name}
@@ -115,7 +116,7 @@ class Content extends Component {
                                         this.props.secondInterest.coordinates.lat + "&lng=" +
                                         this.props.secondInterest.coordinates.long + "&step=" +
                                         this.props.step}>
-                                        <img src="http://unsplash.it/300/200" alt="img2" />
+                                        <img src={this.props.secondInterest.imageLocation} alt="img2" />
                                     </Link> <br />
                                     </a>
                                     {this.props.secondInterest.name}
