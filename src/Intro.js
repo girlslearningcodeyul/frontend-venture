@@ -82,10 +82,10 @@ class Content extends Component {
     }
 
     render() {
-        if(this.state.english === true) {
+        if (this.state.english === true) {
             return (
                 <div className="introDiv">
-    
+
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
                         <h2 align="center">Welcome traveller,</h2>
                         <h2 id="h2Modal" align="center"> to the world of venture!</h2>
@@ -107,7 +107,7 @@ class Content extends Component {
                             </Nav>
                         </Collapse>
                     </Navbar>
-                    
+
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
@@ -137,7 +137,7 @@ class Content extends Component {
         } else {
             return (
                 <div className="introDiv">
-    
+
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
                         <h2 align="center">Bienvenue voyageur intrepid,</h2>
                         <h2 id="h2Modal" align="center"> dans le monde de venture!</h2>
@@ -159,7 +159,7 @@ class Content extends Component {
                             </Nav>
                         </Collapse>
                     </Navbar>
-                    
+
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
@@ -178,15 +178,16 @@ class Content extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <div className="col-xl-5 col-sm-4" />
+                            <div className="col-xl-4 col-sm-3" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >A la venture!</Button></div>
+                            <div className="col-xl-1 col-sm-1" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Chanceux?</Button></div>
                         </Row>
                     </div>
                 </div >
             );
         }
-        
+
 
     }
 }
