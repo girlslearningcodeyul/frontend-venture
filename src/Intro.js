@@ -72,7 +72,7 @@ class Content extends Component {
                 });
                 console.log(this.state.lat);
                 console.log(this.state.long);
-                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.long + "&step=0");
+                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.long + "&step=3");
                 //this is where the random function will generate the random location and send me the latitude and longitude
             })
     }
@@ -111,7 +111,7 @@ class Content extends Component {
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome">Welcome to venture</Label>
+                                <Label for="ventureWelcome">Welcome to Venture</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
                                 <Label for="ventureWelcome2">A choose your own...</Label>
@@ -126,8 +126,9 @@ class Content extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <div className="col-xl-5 col-sm-4" />
+                            <div className="col-xl-4 col-sm-3" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >Onwards!</Button></div>
+                            <div className="col-xl-1 col-sm-1" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Feeling lucky?</Button></div>
                         </Row>
                     </div>

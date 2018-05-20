@@ -1,6 +1,7 @@
 body{
   background-image: url("images/background.jpg");
   background-size: cover;
+  text-shadow:0 1px 1px rgba(0,0,0,0.8); 
   
 }
 .priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer {
@@ -51,13 +52,21 @@ img{
   margin: 10px;
 }
 
-.foodContainer{
+.foodContainer, .introContainer, .funContainer, .priceContainer{
   margin-top: 25px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 150px;
+  margin-right: 150px;
   padding-top:20px;
   padding-bottom:20px;
   display:block;
   background:rgba(255,255,255,0.45);
   letter-spacing: 1.5px;
+}
+
+/*checkbox styling
+-----------------------------------------*/
+.custom-control-label::after {
+  background-color:grey;
+  border-radius: 5px;
+  border-color:black;
 }

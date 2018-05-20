@@ -15,10 +15,11 @@ import {
     DropdownMenu,
     DropdownItem,
     Label,
-    Input,
+    // Input,
     Col,
     Button,
-    Modal
+    Modal,
+    CustomInput
 } from 'reactstrap';
 
 class Content extends Component {
@@ -84,19 +85,19 @@ class Content extends Component {
                     {this.props.foods && (
                         <div>
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                <Label check><Input onChange={() => this.props.setFood("latinMex")}
+                                <Label check><CustomInput onChange={() => this.props.setFood("latinMex")}
                                     value={this.props.foods.latinMex}
-                                    type="checkbox" /> Tex/Mex</Label>
+                                    type="checkbox" id="x" label="Tex/Mex"  /> </Label>
                             </Col>
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                <Label check><Input onChange={() => this.props.setFood("asian")}
+                                <Label check><CustomInput onChange={() => this.props.setFood("asian")}
                                     value={this.props.foods.asian}
-                                    type="checkbox" />Japanese/Chinese</Label>
+                                    type="checkbox" id="y" label="Japanese/Chinese" /></Label>
                             </Col>
                         </div>)}
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input onChange={this.props.setHungry}
-                            type="checkbox" />Not Hungry</Label>
+                        <Label check><CustomInput onChange={this.props.setHungry}
+                            type="checkbox" id="z" label="Not Hungry"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Button onClick={this.handleFood} >Submit</Button>

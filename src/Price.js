@@ -17,7 +17,8 @@ import {
     DropdownMenu,
     DropdownItem,
     Label,
-    Input,
+    // Input,
+    CustomInput,
     Col,
     Button,
     Modal
@@ -86,14 +87,16 @@ class Content extends Component {
                         <Label>{this.props.username} A choose your price range!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             value={this.props.cheap}
-                            onChange={() => this.props.togglePrice("cheap")} />$</Label>
+                            onChange={() => this.props.togglePrice("cheap")} 
+                            id="k" label="$"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             value={this.props.expensive}
-                            onChange={() => this.props.togglePrice("expensive")} />$$</Label>
+                            onChange={() => this.props.togglePrice("expensive")} 
+                            id="m" label="$$"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Button onClick={this.handlePrice} >Submit</Button>

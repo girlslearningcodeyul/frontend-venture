@@ -17,7 +17,8 @@ import {
     DropdownMenu,
     DropdownItem,
     Label,
-    Input,
+    // Input,
+    CustomInput,
     Col,
     Button,
     Modal
@@ -83,25 +84,25 @@ class Content extends Component {
                         <Label>{this.props.username} A choose your fun!</Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             onChange={() => this.props.toggleState("museums")}
-                        />museum/art</Label>
+                            id="a" label="museum/art"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             onChange={() => this.props.toggleState("parks")}
-                        />outdoor/parks</Label>
+                            id="b" label="outdoor/parks"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             value={this.props.bars ? this.props.bars : ""}
                             onChange={this.props.setBars}
-                        />nightlife</Label>
+                            id="c" label="nightlife"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
-                        <Label check><Input type="checkbox"
+                        <Label check><CustomInput type="checkbox"
                             onChange={() => this.props.toggleState("historical")}
-                        />historical</Label>
+                            id="d" label="historical"/></Label>
                     </Col>
                     <Col sm="12" md={{ size: 8, offset: 2 }}>
                         <Button onClick={this.handleFun} >Submit</Button>
