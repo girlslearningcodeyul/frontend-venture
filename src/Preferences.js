@@ -35,7 +35,8 @@ class Preferences extends Component {
             expensive: false,
             firstInterest: {},
             secondInterest: {},
-            sessionId: undefined
+            sessionId: undefined,
+            randomAdventure: undefined
         }
     }
 
@@ -57,6 +58,10 @@ class Preferences extends Component {
 
     setInterests = (interestObj) => {
         this.setState(interestObj);
+    }
+
+    setRandomAdventure = (randomAdventure) => {
+        this.setState(randomAdventure);
     }
 
     toggleState = (key, fn = null) => {
@@ -287,6 +292,8 @@ class Preferences extends Component {
             setInterests={this.setInterests}
             firstInterest={this.state.firstInterest}
             secondInterest={this.state.secondInterest}
+            //setRandomAdventure={this.state.randomAdventure}
+            randomAdventure={this.state.randomAdventure}
         />;
     }
 

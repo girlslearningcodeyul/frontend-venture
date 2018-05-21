@@ -159,16 +159,18 @@ export default class Map extends Component {
     //setting up the destination location on click
     //add an actual address of the location
 
-    let contentStringFirstInterest = this.props.firstInterest.address;
-    let contentStringSecondInterest = this.props.secondInterest.address;
     let content;
 
-    if (this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
-      content = contentStringFirstInterest;
+    if(this.props.randomAdventure) {
+      content = this.props.randomAdventure[0].address;
+    }
+    else if (this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
+      content = this.props.firstInterest.address;
     }
     else {
-      content = contentStringSecondInterest
+      content = this.props.secondInterest.address;
     }
+
     //add a condition to see which interest option the user selected
     let infowindow = new maps.InfoWindow({
       content: content

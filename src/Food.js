@@ -29,6 +29,7 @@ class Content extends Component {
         this.state = {
             isOpen: false,
             modalOpen: false,
+            isValid: true
         }
     }
 
@@ -45,11 +46,17 @@ class Content extends Component {
     }
 
     handleFood = () => {
-        this.props.historyPush('/fun') // THIS IS THE KEY LINE
+        if (this.props.foods && Object.values(this.props.foods).some((b) => b)) {
+            this.props.historyPush('/fun') // THIS IS THE KEY LINE
+        }
+        else {
+            this.setState({ isValid: false })
+        }
     }
-    
+
 
     render() {
+        console.log(this.props.foods)
         if (this.props.english === true) {
             return (
                 <div>
@@ -64,7 +71,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink  onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -86,10 +93,13 @@ class Content extends Component {
                         </Col>
                         {this.props.foods && (
                             <div>
+                                {!this.state.isValid && <div>Please, select at least one answer</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                    <Label check><CustomInput onChange={() => this.props.setFood("latinMex")}
-                                        value={this.props.foods.latinMex}
-                                        type="checkbox" id="x" label="Latin/Mexican" /> </Label>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput
+                                            onChange={() => this.props.setFood("latinMex")}
+                                            value={this.props.foods.latinMex}
+                                            type="checkbox" id="x" label="Latin/Mexican" /> </Label>
                                 </Col>
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
                                     <Label check><CustomInput onChange={() => this.props.setFood("asian")}
@@ -122,7 +132,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>

@@ -34,6 +34,7 @@ class Content extends Component {
             step: 0,
             lat: undefined,
             long: undefined,
+            randomAdventure: undefined
         }
     }
 
@@ -48,12 +49,6 @@ class Content extends Component {
         });
     }
 
-    handleIntro = () => {
-        this.props.setUsername(this.state.inputUsername);
-        this.props.history.push('/rules') // THIS IS THE KEY LINE
-
-    }
-
     handleRandom = (e) => {
         e.preventDefault();
         fetch('/feelingLucky')
@@ -63,13 +58,22 @@ class Content extends Component {
                 console.log(parsedBody);
                 this.setState({
                     lat: parsedBody.randomAdventure[0].coordinates.lat,
-                    long: parsedBody.randomAdventure[0].coordinates.long
+                    lng: parsedBody.randomAdventure[0].coordinates.long,
+                    randomAdventure: parsedBody.randomAdventure[0]
                 });
                 console.log(this.state.lat);
-                console.log(this.state.long);
-                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.long + "&step=3");
+                console.log(this.state.lng);
+
+                this.props.setRandomAdventure(this.state.randomAdventure); // passing the adventure to Preferences to pass onto Map.js
+                
+                this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.lng + "&step=3");
                 //this is where the random function will generate the random location and send me the latitude and longitude
             })
+    }
+
+    handleIntro = () => {
+        this.props.setUsername(this.state.inputUsername);
+        this.props.history.push('/rules'); // THIS IS THE KEY LINE
     }
 
     handleUsername = (e) => {
