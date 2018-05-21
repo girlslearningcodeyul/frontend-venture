@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './App.css';
 
+
 import {
     Collapse,
     Navbar,
@@ -33,7 +34,6 @@ class Content extends Component {
             step: 0,
             lat: undefined,
             long: undefined,
-            english: true,
         }
     }
 
@@ -45,11 +45,6 @@ class Content extends Component {
     toggleModal = () => {
         this.setState({
             modalOpen: !this.state.modalOpen
-        });
-    }
-    toggleLanguage = () => {
-        this.setState({
-            english: !this.state.english
         });
     }
 
@@ -82,7 +77,7 @@ class Content extends Component {
     }
 
     render() {
-        if (this.state.english === true) {
+        if (this.props.english === true) {
             return (
                 <div className="introDiv">
 
@@ -97,7 +92,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -149,7 +144,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>

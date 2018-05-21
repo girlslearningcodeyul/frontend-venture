@@ -14,11 +14,14 @@ class App extends Component {
     this.state = {
       username: undefined,
       sessionId: undefined,
+      english: true,
     }
   }
 
   renderIntro = (routeProps) => {
     return <Intro
+      toggleLanguage={this.toggleLanguage}
+      english = {this.state.english}
       setUsername={this.setUsername}
       historyPush={routeProps.history.push} />
   }
@@ -36,6 +39,11 @@ class App extends Component {
   setSession = (sessionId) => {
     this.setState({ sessionId })
   }
+  toggleLanguage = () => {
+    this.setState({
+        english: !this.state.english
+    });
+}
 
   render() {
     return (
@@ -46,6 +54,8 @@ class App extends Component {
             sessionId={this.state.sessionId}
             username={this.state.username}
             setSession={this.setSession}
+            toggleLanguage={this.toggleLanguage}
+            english = {this.state.english}
           />
           <Route exact={true} path='/rules' render={this.renderRules}/>
         </div>

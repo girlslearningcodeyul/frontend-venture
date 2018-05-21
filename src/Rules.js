@@ -15,10 +15,10 @@ import {
     DropdownMenu,
     DropdownItem,
     Label,
-    
+
     Col,
     Button,
-    
+
     Modal,
     //ModalHeader,
 } from 'reactstrap';
@@ -29,7 +29,6 @@ class Content extends Component {
         this.state = {
             isOpen: false,
             modalOpen: false,
-            english: true,
         }
     }
 
@@ -41,11 +40,6 @@ class Content extends Component {
     toggleModal = () => {
         this.setState({
             modalOpen: !this.state.modalOpen
-        });
-    }
-    toggleLanguage = () => {
-        this.setState({
-            english: !this.state.english
         });
     }
 
@@ -69,7 +63,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -108,7 +102,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -121,10 +115,12 @@ class Content extends Component {
 
                     <div className="introContainer" id="introId1">
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome">Here're the rules, {this.props.username}</Label>
+                            <Label for="ventureWelcome">Voici les règles, {this.props.username}</Label>
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome2">some more rules to add using the cool typewriter effect</Label>
+                            <Label for="ventureWelcome2">Bienvenus voyageurs! Dans le monde de venture!
+                                    On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix! À la fin on vous présentera une fine sélection. Faites vôtres décisions!
+                                    et à la venture!</Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleRules} >A la venture!</Button>
