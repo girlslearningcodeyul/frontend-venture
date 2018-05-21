@@ -238,7 +238,9 @@ class Preferences extends Component {
             expensive={this.state.expensive}
             togglePrice={this.togglePrice}
             username={this.props.username}
-            historyPush={routeProps.history.push} />;
+            historyPush={routeProps.history.push}
+            toggleLanguage={this.props.toggleLanguage}
+            english = {this.props.english} />;
     }
 
     renderFood = (routeProps) => {
@@ -247,7 +249,10 @@ class Preferences extends Component {
             setFood={this.setFood}
             foods={this.state.foods}
             username={this.props.username}
-            historyPush={routeProps.history.push} />;
+            historyPush={routeProps.history.push} 
+            toggleLanguage={this.props.toggleLanguage}
+            english = {this.props.english}/>;
+            
     }
 
     renderFun = (routeProps) => {
@@ -256,7 +261,9 @@ class Preferences extends Component {
             bars={this.state.bars}
             setBars={this.setBars}
             username={this.props.username}
-            historyPush={routeProps.history.push} />;
+            historyPush={routeProps.history.push}
+            toggleLanguage={this.props.toggleLanguage}
+            english = {this.props.english} />;
     }
 
     renderChoices = (routeProps) => {

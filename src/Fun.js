@@ -32,7 +32,6 @@ class Content extends Component {
             isOpen: false,
             username: "",
             modalOpen: false,
-            english: true,
         }
     }
 
@@ -51,14 +50,9 @@ class Content extends Component {
     handleFun = () => {
         this.props.historyPush('/price') // THIS IS THE KEY LINE
     }
-    toggleLanguage = () => {
-        this.setState({
-            english: !this.state.english
-        });
-    }
 
     render() {
-        if (this.state.english === true) {
+        if (this.props.english === true) {
             return (
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
@@ -73,7 +67,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -133,7 +127,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
