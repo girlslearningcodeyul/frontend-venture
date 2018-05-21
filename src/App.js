@@ -16,37 +16,41 @@ class App extends Component {
       english: true,
     }
   }
+  setUsername = (username) => {
+    this.setState({ username }) //is equivalent to username: username
+  }
 
   renderRules = (routeProps) => {
     return <Rules
       username={this.state.username}
       historyPush={routeProps.history.push}
       toggleLanguage={this.toggleLanguage}
-      english = {this.state.english} />
+      english={this.state.english} />
   }
 
   setSession = (sessionId) => {
     this.setState({ sessionId })
   }
-  
+
   toggleLanguage = () => {
     this.setState({
-        english: !this.state.english
+      english: !this.state.english
     });
-}
+  }
 
   render() {
     return (
       <BrowserRouter>
         <div>
           <Preferences
+            setUsername={this.setUsername}
             sessionId={this.state.sessionId}
             username={this.state.username}
             setSession={this.setSession}
             toggleLanguage={this.toggleLanguage}
-            english = {this.state.english}
+            english={this.state.english}
           />
-          <Route exact={true} path='/rules' render={this.renderRules}/>
+          <Route exact={true} path='/rules' render={this.renderRules} />
         </div>
       </BrowserRouter>
     )

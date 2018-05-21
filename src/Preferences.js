@@ -198,9 +198,7 @@ class Preferences extends Component {
         console.log(ret);
     }
 
-    setUsername = (username) => {
-        this.setState({ username }) //is equivalent to username: username
-    }
+
 
     handleSubmit = () => {
         let body = JSON.stringify({ //sending this to the backend and names have to match
@@ -246,7 +244,7 @@ class Preferences extends Component {
         return <Intro
             toggleLanguage={this.props.toggleLanguage}
             english={this.props.english}
-            setUsername={this.setUsername}
+            setUsername={this.props.setUsername}
             historyPush={routeProps.history.push}
             setRandomAdventure={this.setRandomAdventure}
         />

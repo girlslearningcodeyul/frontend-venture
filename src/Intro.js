@@ -69,13 +69,13 @@ class Content extends Component {
             })
     }
 
+    handleUsername = (e) => {
+        this.setState({ inputUsername: e.target.value })
+    }
+
     handleIntro = () => {
         this.props.setUsername(this.state.inputUsername);
         this.props.history.push('/rules'); // THIS IS THE KEY LINE
-    }
-
-    handleUsername = (e) => {
-        this.setState({ inputUsername: e.target.value })
     }
 
     render() {
