@@ -121,7 +121,9 @@ class Content extends Component {
                             <Col sm={{ size: 4, offset: 4 }}>
                                 <Input onChange={this.handleUsername}
                                     name="name"
-                                    value={this.inputUsername} />
+                                    value={this.inputUsername}
+                                    size="500" 
+                                    id="introId"/>
                             </Col>
                         </Row>
                         <Row>
