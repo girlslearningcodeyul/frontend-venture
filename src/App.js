@@ -28,6 +28,7 @@ class App extends Component {
   setSession = (sessionId) => {
     this.setState({ sessionId })
   }
+  
   toggleLanguage = () => {
     this.setState({
         english: !this.state.english

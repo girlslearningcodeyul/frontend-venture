@@ -29,6 +29,7 @@ class Content extends Component {
             isOpen: false,
             username: "",
             modalOpen: false,
+            isValid: true
         }
     }
 
@@ -45,7 +46,16 @@ class Content extends Component {
     }
 
     handleFun = () => {
-        this.props.historyPush('/price') // THIS IS THE KEY LINE
+
+        if (this.props.bars || this.props.museums || this.props.historical || this.props.parks) {
+            this.props.historyPush('/price') // THIS IS THE KEY LINE
+        }
+
+        else {
+            this.setState({ isValid: false })
+        }
+
+
     }
 
     render() {
@@ -64,7 +74,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -81,27 +91,38 @@ class Content extends Component {
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username}, a choose your fun!</Label>
                         </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("museums")}
-                                id="a" label="Museums/Art" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("parks")}
-                                id="b" label="Outdoor/Parks" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("historical")}
-                                id="d" label="Historical" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                value={this.props.bars ? this.props.bars : ""}
-                                onChange={this.props.setBars}
-                                id="c" label="Nightlife" /></Label>
-                        </Col>
+                        <div>
+                            {!this.state.isValid && <div>Please, select at least one</div>}
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("museums")}
+                                        id="a" label="Museums/Art" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("parks")}
+                                        id="b" label="Outdoor/Parks" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("historical")}
+                                        id="d" label="Historical" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        value={this.props.bars ? this.props.bars : ""}
+                                        onChange={this.props.setBars}
+                                        id="c" label="Nightlife" />
+                                </Label>
+                            </Col>
+                        </div>
 
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleFun} >Onwards!</Button>
@@ -124,7 +145,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -141,28 +162,38 @@ class Content extends Component {
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username}, choisis ton fun!</Label>
                         </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("museums")}
-                                id="a" label="Musée/Art" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("parks")}
-                                id="b" label="Parc/ Activite extérieure" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                onChange={() => this.props.toggleState("historical")}
-                                id="d" label="Historique" /></Label>
-                        </Col>
-                        <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput type="checkbox"
-                                value={this.props.bars ? this.props.bars : ""}
-                                onChange={this.props.setBars}
-                                id="c" label="Vie de nuit" /></Label>
-                        </Col>
-
+                        <div>
+                            {!this.state.isValid && <div>Please, select at least one</div>}
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("museums")}
+                                        id="a" label="Musée/Art" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("parks")}
+                                        id="b" label="Parc/ Activite extérieure" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        onChange={() => this.props.toggleState("historical")}
+                                        id="d" label="Historique" />
+                                </Label>
+                            </Col>
+                            <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                <Label className={!this.state.isValid && "formError"}>
+                                    <CustomInput type="checkbox"
+                                        value={this.props.bars ? this.props.bars : ""}
+                                        onChange={this.props.setBars}
+                                        id="c" label="Vie de nuit" />
+                                </Label>
+                            </Col>
+                        </div>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleFun} >Continuer!</Button>
                         </Col>
@@ -170,7 +201,6 @@ class Content extends Component {
                 </div>
             );
         }
-
     }
 }
 

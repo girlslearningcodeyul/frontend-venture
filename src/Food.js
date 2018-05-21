@@ -45,15 +45,11 @@ class Content extends Component {
     }
 
     handleFood = () => {
-        console.log(this.props.hungry);
+        //console.log(this.props.hungry);
 
         if ((this.props.foods && Object.values(this.props.foods).some((b) => b)) || !this.props.hungry) {
             this.props.historyPush('/fun');
         }
-
-        // else if () {
-        //     this.props.historyPush('/fun');
-        // }
 
         else {
             this.setState({ isValid: false })
@@ -61,7 +57,7 @@ class Content extends Component {
     }
 
     render() {
-        console.log(this.props.hungry)
+        //console.log(this.props.hungry)
         if (this.props.english === true) {
             return (
                 <div>
@@ -99,7 +95,7 @@ class Content extends Component {
 
                         {this.props.foods && (
                             <div>
-                                {!this.state.isValid && <div>Please, select at least one answer</div>}
+                                {!this.state.isValid && <div>Please, select at least one</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
 
                                     <Label className={!this.state.isValid && "formError"}> {/*highlights the fields to be entered*/}
@@ -170,9 +166,9 @@ class Content extends Component {
                             <Label>Envie de manger?</Label>
                         </Col>
 
-                        {this.props.foods && (
+                       {this.props.foods && (
                             <div>
-                                {!this.state.isValid && <div>Please, select at least one answer</div>}
+                                {!this.state.isValid && <div>Please, select at least one</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
                                     <Label className={!this.state.isValid && "formError"}>
                                         <CustomInput onChange={() => this.props.setFood("latinMex")}
@@ -187,7 +183,7 @@ class Content extends Component {
                                 </Col>
                             </div>)}
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label >
+                            <Label className={!this.state.isValid && "formError"}>
                                 <CustomInput onChange={this.props.setHungry}
                                     type="checkbox" id="z" label="Pas faim" /></Label>
                         </Col>

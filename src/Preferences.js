@@ -200,7 +200,7 @@ class Preferences extends Component {
 
     setUsername = (username) => {
         this.setState({ username }) //is equivalent to username: username
-      }
+    }
 
     handleSubmit = () => {
         let body = JSON.stringify({ //sending this to the backend and names have to match
@@ -241,6 +241,44 @@ class Preferences extends Component {
     }
 
     //rendering
+
+    renderIntro = (routeProps) => {
+        return <Intro
+            toggleLanguage={this.toggleLanguage}
+            english={this.props.english}
+            setUsername={this.setUsername}
+            historyPush={routeProps.history.push}
+            setRandomAdventure={this.setRandomAdventure}
+        />
+    }
+
+    renderFood = (routeProps) => {
+        console.log(this.state.hungry)
+        return <Food
+            setHungry={this.setHungry}
+            hungry={this.state.hungry}
+            setFood={this.setFood}
+            foods={this.state.foods}
+            username={this.props.username}
+            historyPush={routeProps.history.push}
+            toggleLanguage={this.props.toggleLanguage}
+            english={this.props.english} />;
+    }
+
+    renderFun = (routeProps) => {
+        return <Fun
+            toggleState={this.toggleState}
+            bars={this.state.bars}
+            historical={this.state.historical}
+            museums={this.state.museums}
+            parks={this.state.parks}
+            setBars={this.setBars}
+            username={this.props.username}
+            historyPush={routeProps.history.push}
+            toggleLanguage={this.props.toggleLanguage}
+            english={this.props.english} />;
+    }
+
     renderPrice = (routeProps) => {
         return <Price
             handleSubmit={this.handleSubmit}
@@ -250,32 +288,7 @@ class Preferences extends Component {
             username={this.props.username}
             historyPush={routeProps.history.push}
             toggleLanguage={this.props.toggleLanguage}
-            english = {this.props.english} />;
-    }
-
-    renderFood = (routeProps) => {
-        console.log (this.state.hungry)
-        return <Food
-            setHungry={this.setHungry}
-            hungry={this.state.hungry}
-            setFood={this.setFood}
-            foods={this.state.foods}
-            username={this.props.username}
-            historyPush={routeProps.history.push} 
-            toggleLanguage={this.props.toggleLanguage}
-            english = {this.props.english}/>;
-            
-    }
-
-    renderFun = (routeProps) => {
-        return <Fun
-            toggleState={this.toggleState}
-            bars={this.state.bars}
-            setBars={this.setBars}
-            username={this.props.username}
-            historyPush={routeProps.history.push}
-            toggleLanguage={this.props.toggleLanguage}
-            english = {this.props.english} />;
+            english={this.props.english} />;
     }
 
     renderChoices = (routeProps) => {
@@ -286,18 +299,8 @@ class Preferences extends Component {
             firstInterest={this.state.firstInterest}
             secondInterest={this.state.secondInterest}
             toggleLanguage={this.props.toggleLanguage}
-            english = {this.props.english} />;
+            english={this.props.english} />;
     }
-
-    renderIntro = (routeProps) => {
-        return <Intro
-          toggleLanguage={this.toggleLanguage}
-          english = {this.props.english}
-          setUsername={this.setUsername}
-          historyPush={routeProps.history.push}
-          setRandomAdventure={this.setRandomAdventure}
-          />
-      }
 
     renderMap = (routeProps) => {
         //console.log(routeProps)
