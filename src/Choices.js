@@ -93,15 +93,12 @@ class Content extends Component {
                             <Col sm={{ size: 4, offset: 2 }}>
                                 <div>
                                     <li className="listingStyle">
-                                        <a href="tooltipLeft" id="tooltipLeft">
-                                            <Link to={"/map?lat=" +
-                                                this.props.firstInterest.coordinates.lat + "&lng=" +
-                                                this.props.firstInterest.coordinates.long + "&step=" +
-                                                this.props.step}>
-                                                <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
-                                            </Link>
-
-                                        </a>
+                                        <Link id="tooltipLeft" to={"/map?lat=" +
+                                            this.props.firstInterest.coordinates.lat + "&lng=" +
+                                            this.props.firstInterest.coordinates.long + "&step=" +
+                                            this.props.step}>
+                                            <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
+                                        </Link>
                                         <br />
                                         {this.props.firstInterest.name}
                                     </li>
@@ -113,14 +110,12 @@ class Content extends Component {
                             <Col sm={{ size: 4 }}>
                                 <div>
                                     <li className="listingStyle">
-                                        <a href="tooltipRight" id="tooltipRight">
-                                            <Link to={"/map?lat=" +
-                                                this.props.secondInterest.coordinates.lat + "&lng=" +
-                                                this.props.secondInterest.coordinates.long + "&step=" +
-                                                this.props.step}>
-                                                <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
-                                            </Link> <br />
-                                        </a>
+                                        <Link id="tooltipRight" to={"/map?lat=" +
+                                            this.props.secondInterest.coordinates.lat + "&lng=" +
+                                            this.props.secondInterest.coordinates.long + "&step=" +
+                                            this.props.step}>
+                                            <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
+                                        </Link> <br />
                                         {this.props.secondInterest.name}
                                     </li >
                                     <Tooltip placement="right" isOpen={this.state.tooltipOpenRight} target="tooltipRight" toggle={this.toggleTooltipRight}>
@@ -171,15 +166,12 @@ class Content extends Component {
                             <Col sm={{ size: 4, offset: 2 }}>
                                 <div>
                                     <li className="listingStyle">
-                                        <a href="tooltipLeft" id="tooltipLeft">
-                                            <Link to={"/map?lat=" +
-                                                this.props.firstInterest.coordinates.lat + "&lng=" +
-                                                this.props.firstInterest.coordinates.long + "&step=" +
-                                                this.props.step}>
-                                                <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
-                                            </Link>
-
-                                        </a>
+                                        <Link id="tooltipLeft" to={"/map?lat=" +
+                                            this.props.firstInterest.coordinates.lat + "&lng=" +
+                                            this.props.firstInterest.coordinates.long + "&step=" +
+                                            this.props.step}>
+                                            <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
+                                        </Link>
                                         <br />
                                         {this.props.firstInterest.name}
                                     </li>
@@ -191,14 +183,12 @@ class Content extends Component {
                             <Col sm={{ size: 4 }}>
                                 <div>
                                     <li className="listingStyle">
-                                        <a href="tooltipRight" id="tooltipRight">
-                                            <Link to={"/map?lat=" +
-                                                this.props.secondInterest.coordinates.lat + "&lng=" +
-                                                this.props.secondInterest.coordinates.long + "&step=" +
-                                                this.props.step}>
-                                                <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
-                                            </Link> <br />
-                                        </a>
+                                        <Link id="tooltipRight" to={"/map?lat=" +
+                                            this.props.secondInterest.coordinates.lat + "&lng=" +
+                                            this.props.secondInterest.coordinates.long + "&step=" +
+                                            this.props.step}>
+                                            <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
+                                        </Link> <br />
                                         {this.props.secondInterest.name}
                                     </li >
                                     <Tooltip placement="right" isOpen={this.state.tooltipOpenRight} target="tooltipRight" toggle={this.toggleTooltipRight}>
