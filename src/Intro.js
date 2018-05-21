@@ -55,7 +55,7 @@ class Content extends Component {
 
     handleIntro = () => {
         this.props.setUsername(this.state.inputUsername);
-        this.props.history.push('/food') // THIS IS THE KEY LINE
+        this.props.history.push('/rules') // THIS IS THE KEY LINE
 
     }
 

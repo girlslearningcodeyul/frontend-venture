@@ -128,7 +128,7 @@ export default class Map extends Component {
       //      clickable: true,
       map: map,
       label: "",
-      cursor: 'default'
+      cursor: 'default',
     });
 
     map.addListener('click', function () {

@@ -52,6 +52,11 @@ img{
   margin: 10px;
   widows: 300px;
   height:200px;
+
+}
+
+.images{
+  box-shadow: 0px 0px 3px 3px #464647;
 }
 
 .foodContainer, .introContainer, .funContainer, .priceContainer{

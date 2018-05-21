@@ -5,6 +5,7 @@ import './App.css';
 
 import Intro from './Intro.js';
 import Preferences from './Preferences.js';
+import Rules from './Rules.js';
 
 
 class App extends Component {
@@ -22,6 +23,11 @@ class App extends Component {
       historyPush={routeProps.history.push} />
   }
 
+  renderRules = (routeProps) => {
+    return <Rules
+      username={this.state.username}
+      historyPush={routeProps.history.push} />
+  }
 
   setUsername = (username) => {
     this.setState({ username }) //is equivalent to username: username
@@ -41,6 +47,7 @@ class App extends Component {
             username={this.state.username}
             setSession={this.setSession}
           />
+          <Route exact={true} path='/rules' render={this.renderRules}/>
         </div>
       </BrowserRouter>
     )
