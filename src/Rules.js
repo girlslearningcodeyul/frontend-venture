@@ -53,7 +53,7 @@ class Content extends Component {
             return (
                 <div className="introDiv">
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Welcome traveller,</h2>
+                        <h2 align="center">Welcome </h2>
                         <h2 id="h2Modal" align="center"> to the world of venture!</h2>
                         <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
                         <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
@@ -76,13 +76,13 @@ class Content extends Component {
 
                     <div className="introContainer" id="introId1">
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome"><h2>Welcome traveller, {this.props.username}</h2></Label>
+                            <Label for="ventureWelcome"><h2>Welcome {this.props.username},</h2></Label>
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
                             <h1> To the world of venture!</h1>
-                            <h4>We will start by asking you simple questions in order to properly tailor an adventure of worthy experience.
-                                 After which onwards! To greatness!</h4>
+                            <h4>We will start by asking you simple questions in order to properly tailor your adventure.
+                                 After which, take a deep breath and throw yourselves to greatness!</h4>
                             </Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
@@ -96,10 +96,10 @@ class Content extends Component {
                 //en francais
                 <div className="introDiv">
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Bienvenue voyageur intrepid,</h2>
-                        <h2 id="h2Modal" align="center"> dans le monde de venture!</h2>
-                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
-                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                        <h2 align="center">Bienvenue voyageur,</h2>
+                        <h2 id="h2Modal" align="center"> au monde de venture!</h2>
+                        <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
+                        <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
                     </Modal>
                     <Navbar color="light" light expand="md">
                         <NavbarBrand href="/">venture</NavbarBrand>
@@ -119,7 +119,7 @@ class Content extends Component {
 
                     <div className="introContainer" id="introId1">
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome"> <h2>Bienvenue, {this.props.username}</h2></Label>
+                            <Label for="ventureWelcome"> <h2>Bienvenue {this.props.username},</h2></Label>
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
