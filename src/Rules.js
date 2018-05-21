@@ -82,6 +82,8 @@ class Content extends Component {
                             <Label for="ventureWelcome2">
                             <h1> To the world of venture!</h1>
                             <h4>We will start by asking you simple questions in order to properly tailor your adventure.
+                                You will then be presented with a choice of two destinations.
+                                This shall be repeated four times, with the third choice a restaurant if you decided to eat.
                                  After which, take a deep breath and throw yourselves to greatness!</h4>
                             </Label>
                         </Col>
@@ -124,7 +126,9 @@ class Content extends Component {
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
                                     <h1>Dans le monde de venture!</h1>
-                            <h4>On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix! À la fin on vous présentera une fine sélection. Faites vôtres décisions!
+                            <h4>On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix!
+                            On vous présentera deux destinations. Ce procès répétera quatre fois. Le troisième sera un restaurant si vous avez decider de manger.
+                            Bon voyage!
                             et à la venture!</h4></Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
