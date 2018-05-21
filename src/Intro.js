@@ -100,7 +100,7 @@ class Content extends Component {
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
-                                        <DropdownItem onClick={this.toggleModal}>About</DropdownItem>
+                                        <DropdownItem style={{cursor:'pointer'}} onClick={this.toggleModal}>About</DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                             </Nav>
@@ -177,7 +177,8 @@ class Content extends Component {
                                 <Input id="introInput"
                                  onChange={this.handleUsername}
                                     name="name"
-                                    value={this.inputUsername} />
+                                    value={this.inputUsername}
+                                    id="introId" />
                             </Col>
                         </Row>
                         <Row>
