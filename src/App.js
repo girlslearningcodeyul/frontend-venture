@@ -29,7 +29,9 @@ class App extends Component {
   renderRules = (routeProps) => {
     return <Rules
       username={this.state.username}
-      historyPush={routeProps.history.push} />
+      historyPush={routeProps.history.push}
+      toggleLanguage={this.toggleLanguage}
+      english = {this.state.english} />
   }
 
   setUsername = (username) => {

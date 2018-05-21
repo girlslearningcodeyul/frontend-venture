@@ -49,7 +49,7 @@ class Content extends Component {
 
 
     render() {
-        if (this.state.english === true) {
+        if (this.props.english === true) {
             return (
                 <div className="introDiv">
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
@@ -76,10 +76,14 @@ class Content extends Component {
 
                     <div className="introContainer" id="introId1">
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome">Here're the rules, {this.props.username}</Label>
+                            <Label for="ventureWelcome"><h2>Welcome traveller, {this.props.username}</h2></Label>
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome2">some more rules to add using the cool typewriter effect</Label>
+                            <Label for="ventureWelcome2">
+                            <h1> To the world of venture!</h1>
+                            <h4>We will start by asking you simple questions in order to properly tailor an adventure of worthy experience.
+                                 After which onwards! To greatness!</h4>
+                            </Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleRules} >Onwards!</Button>
@@ -115,15 +119,16 @@ class Content extends Component {
 
                     <div className="introContainer" id="introId1">
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome">Voici les règles, {this.props.username}</Label>
+                            <Label for="ventureWelcome"> <h2>Bienvenue, {this.props.username}</h2></Label>
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
-                            <Label for="ventureWelcome2">Bienvenus voyageurs! Dans le monde de venture!
-                                    On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix! À la fin on vous présentera une fine sélection. Faites vôtres décisions!
-                                    et à la venture!</Label>
+                            <Label for="ventureWelcome2">
+                                    <h1>Dans le monde de venture!</h1>
+                            <h4>On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix! À la fin on vous présentera une fine sélection. Faites vôtres décisions!
+                            et à la venture!</h4></Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Button onClick={this.handleRules} >A la venture!</Button>
+                            <Button onClick={this.handleRules} >Commencer</Button>
                         </Col>
                     </div>
                 </div >
