@@ -29,8 +29,9 @@ body{
 body .introModal {
   width: 750px;
   }
-  #introInput{
-    text-align:"center"
+  #introId{
+    text-align: center;
+    direction: ltr;
   }
 /*-------------------------------------------------------------------- */
 
