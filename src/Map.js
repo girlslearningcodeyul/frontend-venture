@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
 //import styled from 'styled-components'; not required for the marker
 
-import 'react-notifications/lib/notifications.css';
 // let x = 67;
 //`dfghjk${8}` -> exmple of a template string equivalent to 'dfghjkl' + 8
 
@@ -28,6 +26,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+
+import mapTheme from './mapTheme'
 
 export default class Map extends Component {
   constructor(props) {
@@ -82,15 +82,20 @@ export default class Map extends Component {
           let parsedBody = JSON.parse(responseBody);
           console.log(parsedBody);
           console.log("above this line is the parsed body of the resto options");
+
           //add a condition here that checks that the restos acually exist and if not
-          //this.props.setInterests({
-          // firstInterest: parsedBody[0],
-          // secondInterest: parsedBody[1]
-          //});
-          this.props.setInterests({
-            firstInterest: parsedBody.restos[0],
-            secondInterest: parsedBody.restos[1]
-          });
+          if (parsedBody.restos) {
+            this.props.setInterests({
+              firstInterest: parsedBody.restos[0],
+              secondInterest: parsedBody.restos[1]
+            });
+          }
+          else if (parsedBody) {
+            this.props.setInterests({
+              firstInterest: parsedBody[0],
+              secondInterest: parsedBody[1]
+            });
+          }
           this.props.historyPush('/choices', this.props.step + 1);
         })
 
@@ -112,6 +117,9 @@ export default class Map extends Component {
   }
 
   handleNavigation = ({ map, maps }) => {
+    var styledMapType = new maps.StyledMapType(mapTheme)
+    map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
     let directionsService = new maps.DirectionsService();
     let directionsDisplay = new maps.DirectionsRenderer({
       suppressMarkers: true
@@ -153,10 +161,17 @@ export default class Map extends Component {
 
     let contentStringFirstInterest = this.props.firstInterest.address;
     let contentStringSecondInterest = this.props.secondInterest.address;
+    let content;
 
+    if (this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
+      content = contentStringFirstInterest;
+    }
+    else {
+      content = contentStringSecondInterest
+    }
     //add a condition to see which interest option the user selected
     let infowindow = new maps.InfoWindow({
-      content: contentStringFirstInterest
+      content: content
     });
 
     //setting up the directions display
@@ -195,12 +210,10 @@ export default class Map extends Component {
                 <DropdownToggle nav caret>Options</DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-
                   {this.props.step <= 2 ?
                     <div>
                       <DropdownItem divider />
                       <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null}
-                  {/* if the step if equal to two do not display Generate Next button */}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
@@ -211,7 +224,12 @@ export default class Map extends Component {
           yesIWantToUseGoogleMapApiInternals
           bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
           defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}>
+          defaultZoom={this.state.zoom}
+          options={{
+            mapTypeControlOptions: {
+              mapTypeIds: ['styled_map']
+            }
+          }} >
         </GoogleMapReact>
       </div>
     );

@@ -57,7 +57,7 @@ class Content extends Component {
     render() {
         //before load must generate a gif of typewriter typing out the experience
 
-        if(this.props.english === true) {
+        if (this.props.english === true) {
             return (
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
@@ -66,7 +66,7 @@ class Content extends Component {
                         <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
                         <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
                     </Modal>
-    
+
                     <Navbar color="light" light expand="md">
                         <NavbarBrand className="brand" href="/">venture</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
@@ -84,7 +84,7 @@ class Content extends Component {
                             </Nav>
                         </Collapse>
                     </Navbar>
-    
+
                     <div className="choicesContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username} A choose your own!</Label>
@@ -100,7 +100,7 @@ class Content extends Component {
                                                 this.props.step}>
                                                 <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
                                             </Link>
-    
+
                                         </a>
                                         <br />
                                         {this.props.firstInterest.name}
@@ -113,20 +113,20 @@ class Content extends Component {
                             <Col sm={{ size: 4 }}>
                                 <div>
                                     <li className="listingStyle">
-                                    <a href="tooltipRight" id="tooltipRight">
-                                        <Link to={"/map?lat=" +
-                                            this.props.secondInterest.coordinates.lat + "&lng=" +
-                                            this.props.secondInterest.coordinates.long + "&step=" +
-                                            this.props.step}>
-                                            <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
-                                        </Link> <br />
+                                        <a href="tooltipRight" id="tooltipRight">
+                                            <Link to={"/map?lat=" +
+                                                this.props.secondInterest.coordinates.lat + "&lng=" +
+                                                this.props.secondInterest.coordinates.long + "&step=" +
+                                                this.props.step}>
+                                                <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
+                                            </Link> <br />
                                         </a>
                                         {this.props.secondInterest.name}
                                     </li >
                                     <Tooltip placement="right" isOpen={this.state.tooltipOpenRight} target="tooltipRight" toggle={this.toggleTooltipRight}>
                                         {this.props.secondInterest.description}
                                     </Tooltip>
-    
+
                                 </div>
                             </Col>
                             {/*use the toggle button method in bootstrap to reveal more text*/}
@@ -144,7 +144,7 @@ class Content extends Component {
                         <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
                         <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
                     </Modal>
-    
+
                     <Navbar color="light" light expand="md">
                         <NavbarBrand className="brand" href="/">venture</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
@@ -162,7 +162,7 @@ class Content extends Component {
                             </Nav>
                         </Collapse>
                     </Navbar>
-    
+
                     <div className="choicesContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username}, Choissiser le votre</Label>
@@ -178,7 +178,7 @@ class Content extends Component {
                                                 this.props.step}>
                                                 <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
                                             </Link>
-    
+
                                         </a>
                                         <br />
                                         {this.props.firstInterest.name}
@@ -191,20 +191,20 @@ class Content extends Component {
                             <Col sm={{ size: 4 }}>
                                 <div>
                                     <li className="listingStyle">
-                                    <a href="tooltipRight" id="tooltipRight">
-                                        <Link to={"/map?lat=" +
-                                            this.props.secondInterest.coordinates.lat + "&lng=" +
-                                            this.props.secondInterest.coordinates.long + "&step=" +
-                                            this.props.step}>
-                                            <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
-                                        </Link> <br />
+                                        <a href="tooltipRight" id="tooltipRight">
+                                            <Link to={"/map?lat=" +
+                                                this.props.secondInterest.coordinates.lat + "&lng=" +
+                                                this.props.secondInterest.coordinates.long + "&step=" +
+                                                this.props.step}>
+                                                <img className="images" src={this.props.secondInterest.imageLocation} alt="img2" />
+                                            </Link> <br />
                                         </a>
                                         {this.props.secondInterest.name}
                                     </li >
                                     <Tooltip placement="right" isOpen={this.state.tooltipOpenRight} target="tooltipRight" toggle={this.toggleTooltipRight}>
                                         {this.props.secondInterest.description}
                                     </Tooltip>
-    
+
                                 </div>
                             </Col>
                             {/*use the toggle button method in bootstrap to reveal more text*/}
@@ -214,7 +214,7 @@ class Content extends Component {
                 </div>
             );
         }
-        
+
     }
 }
 
