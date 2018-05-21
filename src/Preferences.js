@@ -63,7 +63,7 @@ class Preferences extends Component {
 
     setRandomAdventure = (randomAdventure) => {
         console.log(randomAdventure);
-        this.setState(randomAdventure);
+        this.setState({randomAdventure});
     }
 
     toggleState = (key, fn = null) => {

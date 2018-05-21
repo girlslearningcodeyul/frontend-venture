@@ -50,7 +50,9 @@ export default class Map extends Component {
   getGeoLocation() {
     navigator.geolocation.getCurrentPosition((s) => {
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
+      console.log(s.coords);
     })
+    
   }
 
   componentDidMount() {
@@ -58,15 +60,15 @@ export default class Map extends Component {
   }
 
   generateNext = () => {
-    console.log(this.props.step);
+    //console.log(this.props.step);
     if (this.props.step === 0) {
       //console.log(this.props.sessionId);
       fetch('/getSecondActivity?sessionId=' + this.props.sessionId)
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);
-          console.log(parsedBody);
-          console.log("above this line is the parsed body of the second activity");
+          //console.log(parsedBody);
+          //console.log("above this line is the parsed body of the second activity");
           this.props.setInterests({
             firstInterest: parsedBody.secondTwoInterests[0],
             secondInterest: parsedBody.secondTwoInterests[1],
@@ -80,9 +82,8 @@ export default class Map extends Component {
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);
-          console.log(parsedBody);
-          console.log("above this line is the parsed body of the resto options");
-
+          //console.log(parsedBody);
+          //console.log("above this line is the parsed body of the resto options");
           //add a condition here that checks that the restos acually exist and if not
           if (parsedBody.restos) {
             this.props.setInterests({
@@ -98,15 +99,15 @@ export default class Map extends Component {
           }
           this.props.historyPush('/choices', this.props.step + 1);
         })
-
     }
+
     else if (this.props.step === 2) {
       fetch('/getFourthActivity?sessionId=' + this.props.sessionId)
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);
-          console.log(parsedBody);
-          console.log("above this line is the parsed body of the last activity");
+          // console.log(parsedBody);
+          // console.log("above this line is the parsed body of the last activity");
           this.props.setInterests({
             firstInterest: parsedBody.lastTwoInterests[0],
             secondInterest: parsedBody.lastTwoInterests[1],
@@ -120,24 +121,29 @@ export default class Map extends Component {
     var styledMapType = new maps.StyledMapType(mapTheme)
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
+
     let directionsService = new maps.DirectionsService();
     let directionsDisplay = new maps.DirectionsRenderer({
       suppressMarkers: true
     });
     let origin = new maps.LatLng(this.state.center.lat, this.state.center.lng);
+    console.log(origin.lat(), origin.lng());
     let destination = new maps.LatLng(this.props.lat, this.props.lng);
-
+    console.log(destination);
     directionsDisplay.setMap(map);
 
     //destination marker setup
     let destinationMarker = new maps.Marker({
       position: destination,
       animation: maps.Animation.DROP,
-      //      clickable: true,
+      //clickable: true,
       map: map,
       label: "",
       cursor: 'default',
     });
+
+    // const marker = document.querySelector('.gmnoprint > img');
+    // console.log(marker)
 
     map.addListener('click', function () {
       infowindow.open(map, destinationMarker);
@@ -158,9 +164,9 @@ export default class Map extends Component {
 
     //setting up the destination location on click
     //add an actual address of the location
-
+    //added a condition to see which interest option the user selected
     let content;
-
+    console.log(this.props)
     if(this.props.randomAdventure) {
       content = this.props.randomAdventure.address;
       console.log(this.props.randomAdventure.address)
@@ -171,8 +177,7 @@ export default class Map extends Component {
     else {
       content = this.props.secondInterest.address;
     }
-
-    //add a condition to see which interest option the user selected
+    
     let infowindow = new maps.InfoWindow({
       content: content
     });

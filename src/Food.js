@@ -95,7 +95,7 @@ class Content extends Component {
 
                         {this.props.foods && (
                             <div>
-                                {!this.state.isValid && <div>Please, select at least one</div>}
+                                {!this.state.isValid && <div>Please, select at least one.</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
 
                                     <Label className={!this.state.isValid && "formError"}> {/*highlights the fields to be entered*/}
@@ -168,7 +168,7 @@ class Content extends Component {
 
                        {this.props.foods && (
                             <div>
-                                {!this.state.isValid && <div>choissiser minimum un SVP</div>}
+                                {!this.state.isValid && <div>choissiser minimum un SVP.</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
                                     <Label className={!this.state.isValid && "formError"}>
                                         <CustomInput onChange={() => this.props.setFood("latinMex")}
