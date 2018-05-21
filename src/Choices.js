@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import './App.css';
-
-import 'react-notifications/lib/notifications.css';
 
 import {
     Collapse,
