@@ -135,7 +135,8 @@ class Content extends Component {
 
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
                         <h2 align="center">Bienvenue voyageur intrepid,</h2>
-                        <h2 id="h2Modal" align="center"> dans le monde de venture!</h2>
+                        <div> </div>
+                        <h2 style="padding-bottom: 10px"id="h2Modal" align="center"> dans le monde de venture!</h2>
                         <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
                         <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
                     </Modal>
