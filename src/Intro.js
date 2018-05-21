@@ -63,7 +63,7 @@ class Content extends Component {
                 console.log(this.state.lng);
 
                 this.props.setRandomAdventure(this.state.randomAdventure); // passing the adventure to Preferences to pass onto Map.js
-                
+
                 this.props.historyPush("/map?lat=" + this.state.lat + "&lng=" + this.state.lng + "&step=3");
                 //this is where the random function will generate the random location and send me the latitude and longitude
             })
@@ -94,11 +94,11 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
-                                        <DropdownItem style={{cursor:'pointer'}} onClick={this.toggleModal}>About</DropdownItem>
+                                        <DropdownItem style={{ cursor: 'pointer' }} onClick={this.toggleModal}>About</DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                             </Nav>
@@ -120,8 +120,8 @@ class Content extends Component {
                                 <Input onChange={this.handleUsername}
                                     name="name"
                                     value={this.inputUsername}
-                                    size="500" 
-                                    id="introId"/>
+                                    size="500"
+                                    id="introId" />
                             </Col>
                         </Row>
                         <Row>
@@ -149,7 +149,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{cursor:'pointer'}}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -173,7 +173,7 @@ class Content extends Component {
                             </Col>
                             <Col sm={{ size: 4, offset: 4 }}>
                                 <Input id="introInput"
-                                 onChange={this.handleUsername}
+                                    onChange={this.handleUsername}
                                     name="name"
                                     value={this.inputUsername}
                                     id="introId" />

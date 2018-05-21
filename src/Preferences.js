@@ -244,7 +244,7 @@ class Preferences extends Component {
 
     renderIntro = (routeProps) => {
         return <Intro
-            toggleLanguage={this.toggleLanguage}
+            toggleLanguage={this.props.toggleLanguage}
             english={this.props.english}
             setUsername={this.setUsername}
             historyPush={routeProps.history.push}

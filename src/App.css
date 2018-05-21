@@ -80,8 +80,9 @@ img{
   background-color:grey;
   border-radius: 5px;
   border-color:black;
+  -webkit-transform: scale(1.40);
+ 
 }
-
 .form-check-label {
   margin: 10px;
 }
