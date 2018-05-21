@@ -29,6 +29,9 @@ body{
 body .introModal {
   width: 750px;
   }
+  #introInput{
+    text-align:"center"
+  }
 /*-------------------------------------------------------------------- */
 
 /* the following  components are found on the navbar in the maps page*/
