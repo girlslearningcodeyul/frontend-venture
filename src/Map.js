@@ -162,9 +162,9 @@ export default class Map extends Component {
     let content;
 
     if(this.props.randomAdventure) {
-      content = this.props.randomAdventure[0].address;
+      content = this.props.randomAdventure.address;
     }
-    else if (this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
+    else if (this.props.firstInterest.coordinates && this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
       content = this.props.firstInterest.address;
     }
     else {

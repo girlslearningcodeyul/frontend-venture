@@ -46,13 +46,15 @@ class Content extends Component {
     }
 
     handleFood = () => {
-        if (!this.props.setHungry) {
+        console.log(this.props.hungry);
+
+        if ((this.props.foods && Object.values(this.props.foods).some((b) => b)) || !this.props.hungry) {
             this.props.historyPush('/fun');
         }
 
-        else if (this.props.foods && Object.values(this.props.foods).some((b) => b)) {
-            this.props.historyPush('/fun');
-        }
+        // else if () {
+        //     this.props.historyPush('/fun');
+        // }
 
         else {
             this.setState({ isValid: false })
@@ -60,7 +62,7 @@ class Content extends Component {
     }
 
     render() {
-        //console.log(this.props.foods)
+        console.log(this.props.hungry)
         if (this.props.english === true) {
             return (
                 <div>
