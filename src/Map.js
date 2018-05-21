@@ -163,6 +163,7 @@ export default class Map extends Component {
 
     if(this.props.randomAdventure) {
       content = this.props.randomAdventure.address;
+      console.log(this.props.randomAdventure.address)
     }
     else if (this.props.firstInterest.coordinates && this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
       content = this.props.firstInterest.address;
