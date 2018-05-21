@@ -272,7 +272,9 @@ class Preferences extends Component {
             historyPush={routeProps.history.push}
             step={routeProps.location.state}
             firstInterest={this.state.firstInterest}
-            secondInterest={this.state.secondInterest} />;
+            secondInterest={this.state.secondInterest}
+            toggleLanguage={this.props.toggleLanguage}
+            english = {this.props.english} />;
     }
 
     renderMap = (routeProps) => {
