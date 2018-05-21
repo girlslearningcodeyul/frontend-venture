@@ -3,7 +3,6 @@ import { Route, BrowserRouter } from 'react-router-dom'
 
 import './App.css';
 
-import Intro from './Intro.js';
 import Preferences from './Preferences.js';
 import Rules from './Rules.js';
 
@@ -18,24 +17,12 @@ class App extends Component {
     }
   }
 
-  renderIntro = (routeProps) => {
-    return <Intro
-      toggleLanguage={this.toggleLanguage}
-      english = {this.state.english}
-      setUsername={this.setUsername}
-      historyPush={routeProps.history.push} />
-  }
-
   renderRules = (routeProps) => {
     return <Rules
       username={this.state.username}
       historyPush={routeProps.history.push}
       toggleLanguage={this.toggleLanguage}
       english = {this.state.english} />
-  }
-
-  setUsername = (username) => {
-    this.setState({ username }) //is equivalent to username: username
   }
 
   setSession = (sessionId) => {
@@ -51,7 +38,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact={true} path='/' render={this.renderIntro} />
           <Preferences
             sessionId={this.state.sessionId}
             username={this.state.username}

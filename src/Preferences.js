@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom'
 
+import Intro from './Intro.js';
 import Food from './Food.js';
 import Fun from './Fun.js';
 import Price from './Price.js';
@@ -61,6 +62,7 @@ class Preferences extends Component {
     }
 
     setRandomAdventure = (randomAdventure) => {
+        console.log(randomAdventure);
         this.setState(randomAdventure);
     }
 
@@ -196,6 +198,9 @@ class Preferences extends Component {
         console.log(ret);
     }
 
+    setUsername = (username) => {
+        this.setState({ username }) //is equivalent to username: username
+      }
 
     handleSubmit = () => {
         let body = JSON.stringify({ //sending this to the backend and names have to match
@@ -249,8 +254,10 @@ class Preferences extends Component {
     }
 
     renderFood = (routeProps) => {
+        console.log (this.state.hungry)
         return <Food
             setHungry={this.setHungry}
+            hungry={this.state.hungry}
             setFood={this.setFood}
             foods={this.state.foods}
             username={this.props.username}
@@ -282,6 +289,16 @@ class Preferences extends Component {
             english = {this.props.english} />;
     }
 
+    renderIntro = (routeProps) => {
+        return <Intro
+          toggleLanguage={this.toggleLanguage}
+          english = {this.props.english}
+          setUsername={this.setUsername}
+          historyPush={routeProps.history.push}
+          setRandomAdventure={this.setRandomAdventure}
+          />
+      }
+
     renderMap = (routeProps) => {
         //console.log(routeProps)
         let params = new URLSearchParams(routeProps.location.search);
@@ -303,6 +320,7 @@ class Preferences extends Component {
         //console.log(this.state);
         return (
             <div>
+                <Route exact={true} path='/' render={this.renderIntro} />
                 <Route exact={true} path='/map' render={this.renderMap} />
                 <Route exact={true} path='/food' render={this.renderFood} />
                 <Route exact={true} path='/fun' render={this.renderFun} />
