@@ -314,7 +314,6 @@ class Preferences extends Component {
             setInterests={this.setInterests}
             firstInterest={this.state.firstInterest}
             secondInterest={this.state.secondInterest}
-            setRandomAdventure={this.setRandomAdventure}
             randomAdventure={this.state.randomAdventure}
         />;
     }
