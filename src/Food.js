@@ -46,17 +46,21 @@ class Content extends Component {
     }
 
     handleFood = () => {
-        if (this.props.foods && Object.values(this.props.foods).some((b) => b)) {
-            this.props.historyPush('/fun') // THIS IS THE KEY LINE
+        if (!this.props.setHungry) {
+            this.props.historyPush('/fun');
         }
+
+        else if (this.props.foods && Object.values(this.props.foods).some((b) => b)) {
+            this.props.historyPush('/fun');
+        }
+
         else {
             this.setState({ isValid: false })
         }
     }
 
-
     render() {
-        console.log(this.props.foods)
+        //console.log(this.props.foods)
         if (this.props.english === true) {
             return (
                 <div>
@@ -91,26 +95,38 @@ class Content extends Component {
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>Hungry for?</Label>
                         </Col>
+
                         {this.props.foods && (
                             <div>
                                 {!this.state.isValid && <div>Please, select at least one answer</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                    <Label className={!this.state.isValid && "formError"}>
+
+                                    <Label className={!this.state.isValid && "formError"}> {/*highlights the fields to be entered*/}
                                         <CustomInput
                                             onChange={() => this.props.setFood("latinMex")}
                                             value={this.props.foods.latinMex}
-                                            type="checkbox" id="x" label="Latin/Mexican" /> </Label>
+                                            type="checkbox" id="x" label="Latin/Mexican" />
+                                    </Label>
                                 </Col>
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                    <Label check><CustomInput onChange={() => this.props.setFood("asian")}
-                                        value={this.props.foods.asian}
-                                        type="checkbox" id="y" label="Japanese/Chinese" /></Label>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput
+                                            onChange={() => this.props.setFood("asian")}
+                                            value={this.props.foods.asian}
+                                            type="checkbox" id="y" label="Japanese/Chinese" />
+                                    </Label>
                                 </Col>
                             </div>)}
+
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput onChange={this.props.setHungry}
-                                type="checkbox" id="z" label="Not Hungry" /></Label>
+                            <Label className={!this.state.isValid && "formError"}>
+                                <CustomInput
+                                    onChange={this.props.setHungry}
+                                    type="checkbox" id="z" label="Not Hungry" />
+                            </Label>
                         </Col>
+
+
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleFood} >Onwards!</Button>
                         </Col>
@@ -152,23 +168,29 @@ class Content extends Component {
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>Envie de manger?</Label>
                         </Col>
+
                         {this.props.foods && (
                             <div>
+                                {!this.state.isValid && <div>Please, select at least one answer</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                    <Label check><CustomInput onChange={() => this.props.setFood("latinMex")}
-                                        value={this.props.foods.latinMex}
-                                        type="checkbox" id="x" label="Latin/Mexican" /> </Label>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput onChange={() => this.props.setFood("latinMex")}
+                                            value={this.props.foods.latinMex}
+                                            type="checkbox" id="x" label="Latin/Mexican" /> </Label>
                                 </Col>
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-                                    <Label check><CustomInput onChange={() => this.props.setFood("asian")}
-                                        value={this.props.foods.asian}
-                                        type="checkbox" id="y" label="Asiatique" /></Label>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput onChange={() => this.props.setFood("asian")}
+                                            value={this.props.foods.asian}
+                                            type="checkbox" id="y" label="Asiatique" /></Label>
                                 </Col>
                             </div>)}
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label check><CustomInput onChange={this.props.setHungry}
-                                type="checkbox" id="z" label="Pas faim" /></Label>
+                            <Label >
+                                <CustomInput onChange={this.props.setHungry}
+                                    type="checkbox" id="z" label="Pas faim" /></Label>
                         </Col>
+
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleFood} >Continuer!</Button>
                         </Col>
