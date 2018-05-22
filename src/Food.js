@@ -192,7 +192,7 @@ class Content extends Component {
                                     <Label className={!this.state.isValid && "formError"}>
                                         <CustomInput onChange={() => this.props.setFood("european")}
                                             value={this.props.foods.european}
-                                            type="checkbox" id="y" label="Italien/Français" /></Label>
+                                            type="checkbox" id="yy" label="Italien/Français" /></Label>
                                 </Col>
                             </div>)}
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
