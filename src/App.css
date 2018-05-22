@@ -38,6 +38,7 @@ body .introModal {
 /* the following  components are found on the navbar in the maps page*/
 .navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item{
   font-family: "courier";
+  cursor: pointer;
   
 }
 .nav-link{
@@ -86,6 +87,7 @@ img{
   opacity: 0.9;
   border-radius: 5px;
   box-shadow: 5px, 10px;
+  font-family: "courier";
 }
 
 .foodContainer, .introContainer, .funContainer, .priceContainer {

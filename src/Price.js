@@ -145,7 +145,7 @@ class Content extends Component {
 
                     <div className="priceContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label>{this.props.username}, choisis ton prix</Label>
+                            <Label>{this.props.username}, choisis ton prix!</Label>
                         </Col>
                         <div>
                             {!this.state.isValid && <div>Un choix minimum SVP.</div>}

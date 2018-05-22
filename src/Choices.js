@@ -164,7 +164,7 @@ class Content extends Component {
 
                     <div className="choicesContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label>{this.props.username}, choissiser le votre</Label>
+                            <Label>{this.props.username}, choissiser le votre!</Label>
                         </Col>
                         <Row>
                             <Col sm={{ size: 4, offset: 2 }}>
