@@ -29,7 +29,8 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-import mapTheme from './mapTheme'
+import mapTheme from './mapTheme';
+import TypeWriter from './TypeWriter';
 
 export default class Map extends Component {
   constructor(props) {
@@ -207,7 +208,7 @@ export default class Map extends Component {
 
   render() {
     if (!this.state.center) {
-      return <div className="loadingContainer"><div><img src={logo} alt="loading..." /></div><div>Loading...</div></div>
+      return <div className="loadingContainer"><div><img src={logo} alt="loading..." /></div><TypeWriter><h3>Loading...</h3></TypeWriter></div>
       
     }
     if (this.props.english === true) {
