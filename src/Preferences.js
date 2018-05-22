@@ -89,16 +89,38 @@ class Preferences extends Component {
                 ret.foods.asianCheap = true;
                 ret.foods.latinMexExpensive = true;
                 ret.foods.latinMexCheap = true;
+                ret.foods.europeanExpensive = true;
+                ret.foods.europeanCheap = true;
                 ret.bars.barsExpensive = true;
                 ret.bars.barsCheap = true;
             }
             else if (this.state.foods) {
                 //console.log(' all food')
-                if (this.state.foods.asian && this.state.foods.latinMex) {
+                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.europeanCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.asian) {
+                    ret.foods.latinMexExpensive = true;
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.asianExpensive = true;
+                    ret.foods.asianCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.european) {
+                    ret.foods.latinMexExpensive = true;
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.europeanCheap = true;
+                }
+                else if (this.state.foods.european && this.state.foods.asian) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.europeanCheap = true;
+                    ret.foods.asianExpensive = true;
+                    ret.foods.asianCheap = true;
                 }
                 else if (this.state.foods.latinMex) {
                     ret.foods.latinMexExpensive = true;
@@ -107,6 +129,10 @@ class Preferences extends Component {
                 else if (this.state.foods.asian) {
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
+                }
+                else if (this.state.foods.european) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.europeanCheap = true;
                 }
             }
             else if (this.state.bars) {
@@ -120,7 +146,23 @@ class Preferences extends Component {
             //console.log('expensive stuff', this.state)
             if (this.state.foods && this.state.bars) {
                 //console.log('expensive food & bars')
-                if (this.state.foods.asian && this.state.foods.latinMex) {
+                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
+                    ret.foods.asianExpensive = true;
+                    ret.foods.latinMexExpensive = true;
+                    ret.foods.europeanExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.european && this.state.foods.asian) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.asianExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.european && this.state.foods.latinMex) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.latinMexExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.asian && this.state.foods.latinMex) {
                     ret.foods.asianExpensive = true;
                     ret.foods.latinMexExpensive = true;
                     ret.bars.barsExpensive = true;
@@ -131,12 +173,29 @@ class Preferences extends Component {
                 }
                 else if (this.state.foods.asian) {
                     ret.foods.asianExpensive = true;
+                    ret.bars.barsExpensive = true;
+                }
+                else if (this.state.foods.european) {
+                    ret.foods.europeanExpensive = true;
                     ret.bars.barsExpensive = true;
                 }
             }
             else if (this.state.foods) {
                 //console.log('expensive food')
-                if (this.state.foods.asian && this.state.foods.latinMex) {
+                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
+                    ret.foods.asianExpensive = true;
+                    ret.foods.latinMexExpensive = true;
+                    ret.foods.europeanExpensive = true;
+                }
+                else if (this.state.foods.european && this.state.foods.asian) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.asianExpensive = true;
+                }
+                else if (this.state.foods.european && this.state.foods.latinMex) {
+                    ret.foods.europeanExpensive = true;
+                    ret.foods.latinMexExpensive = true;
+                }
+                else if (this.state.foods.asian && this.state.foods.latinMex) {
                     ret.foods.asianExpensive = true;
                     ret.foods.latinMexExpensive = true;
                 }
@@ -145,6 +204,9 @@ class Preferences extends Component {
                 }
                 else if (this.state.foods.asian) {
                     ret.foods.asianExpensive = true;
+                }
+                else if (this.state.foods.european) {
+                    ret.foods.europeanExpensive = true;
                 }
             }
             else if (this.state.bars) {
@@ -157,9 +219,25 @@ class Preferences extends Component {
             console.log('cheap stuff', this.state)
             if (this.state.foods && this.state.bars) {
                 console.log('cheapo food & bars')
-                if (this.state.foods.asian && this.state.foods.latinMex) {
+                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
                     ret.foods.asianCheap = true;
                     ret.foods.latinMexCheap = true;
+                    ret.foods.europeanCheap = true
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.european) {
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.europeanCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.asian) {
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.asianCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.european && this.state.foods.asian) {
+                    ret.foods.europeanCheap = true;
+                    ret.foods.asianCheap = true;
                     ret.bars.barsCheap = true;
                 }
                 else if (this.state.foods.latinMex) {
@@ -168,20 +246,40 @@ class Preferences extends Component {
                 }
                 else if (this.state.foods.asian) {
                     ret.foods.asianCheap = true;
+                    ret.bars.barsCheap = true;
+                }
+                else if (this.state.foods.european) {
+                    ret.foods.europeanCheap = true;
                     ret.bars.barsCheap = true;
                 }
 
             }
             else if (this.state.foods) {
                 console.log('cheapo food')
-                if (this.state.foods.asian && this.state.foods.latinMex) {
+                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
                     ret.foods.asianCheap = true;
                     ret.foods.latinMexCheap = true;
+                    ret.foods.europeanCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.european) {
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.europeanCheap = true;
+                }
+                else if (this.state.foods.latinMex && this.state.foods.asian) {
+                    ret.foods.latinMexCheap = true;
+                    ret.foods.asianCheap = true;
+                }
+                else if (this.state.foods.european && this.state.foods.asian) {
+                    ret.foods.europeanCheap = true;
+                    ret.foods.asianCheap = true;
                 }
                 else if (this.state.foods.latinMex) {
                     ret.foods.latinMexCheap = true;
                 }
                 else if (this.state.foods.asian) {
+                    ret.foods.asianCheap = true;
+                }
+                else if (this.state.foods.european) {
                     ret.foods.asianCheap = true;
                 }
             }
@@ -209,6 +307,10 @@ class Preferences extends Component {
             asian: this.state.foods ? {
                 cheap: this.state.foods.asianCheap,
                 expensive: this.state.foods.asianExpensive
+            } : { cheap: false, expensive: false },
+            european: this.state.foods ? {
+                cheap: this.state.foods.europeanCheap,
+                expensive: this.state.foods.europeanExpensive
             } : { cheap: false, expensive: false },
             museums: this.state.museums,
             parks: this.state.parks,

@@ -97,7 +97,6 @@ class Content extends Component {
                             <div>
                                 {!this.state.isValid && <div>Please, select at least one.</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
-
                                     <Label className={!this.state.isValid && "formError"}> {/*highlights the fields to be entered*/}
                                         <CustomInput
                                             onChange={() => this.props.setFood("latinMex")}
@@ -111,6 +110,14 @@ class Content extends Component {
                                             onChange={() => this.props.setFood("asian")}
                                             value={this.props.foods.asian}
                                             type="checkbox" id="y" label="Japanese/Chinese" />
+                                    </Label>
+                                </Col>
+                                <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput
+                                            onChange={() => this.props.setFood("european")}
+                                            value={this.props.foods.european}
+                                            type="checkbox" id="yy" label="French/Italian" />
                                     </Label>
                                 </Col>
                             </div>)}
@@ -166,7 +173,7 @@ class Content extends Component {
                             <Label>Envie de manger?</Label>
                         </Col>
 
-                       {this.props.foods && (
+                        {this.props.foods && (
                             <div>
                                 {!this.state.isValid && <div>Choissiser minimum un SVP.</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
@@ -180,6 +187,12 @@ class Content extends Component {
                                         <CustomInput onChange={() => this.props.setFood("asian")}
                                             value={this.props.foods.asian}
                                             type="checkbox" id="y" label="Asiatique" /></Label>
+                                </Col>
+                                <Col sm="12" md={{ size: 8, offset: 2 }}>
+                                    <Label className={!this.state.isValid && "formError"}>
+                                        <CustomInput onChange={() => this.props.setFood("european")}
+                                            value={this.props.foods.european}
+                                            type="checkbox" id="y" label="Italien/Français" /></Label>
                                 </Col>
                             </div>)}
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
