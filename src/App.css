@@ -45,6 +45,9 @@ body .introModal {
   background-repeat: no-repeat;
   text-align: right;
 }
+.navbar-expand-md{
+  background: #464647
+}
 
 /*-------------------------------------------------------------------- */
 button.btn.btn-secondary {
@@ -61,6 +64,7 @@ img{
 
 .images{
   box-shadow: 0px 0px 3px 3px #464647;
+  border-radius: 2px;
 }
 
 .foodContainer, .introContainer, .funContainer, .priceContainer{
@@ -72,6 +76,7 @@ img{
   display:block;
   background:rgba(255,255,255,0.45);
   letter-spacing: 1.5px;
+  border-radius: 10px;
   
 }
 
@@ -80,12 +85,12 @@ img{
 
 
 label:hover:before {
-  border: 1px solid #D52941!important;
+  border: 1px solid  #dcbc84!important;
   
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #FCD757 !important;
+  background-color: #caa467 !important;
   
 }
 
