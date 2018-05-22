@@ -5,6 +5,7 @@ import './App.css';
 
 import Preferences from './Preferences.js';
 import Rules from './Rules.js';
+//import OpenWeatherMap from './OpenWeatherMap.js'
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
             english={this.state.english}
           />
           <Route exact={true} path='/rules' render={this.renderRules} />
+          {/* <OpenWeatherMap /> */}
         </div>
       </BrowserRouter>
     )

@@ -79,6 +79,7 @@ class Content extends Component {
     }
 
     render() {
+
         if (this.props.english === true) {
             return (
                 <div className="introDiv">

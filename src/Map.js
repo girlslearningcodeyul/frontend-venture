@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
+import OpenWeatherMap from './OpenWeatherMap.js'
 //import styled from 'styled-components'; not required for the marker
 
 // let x = 67;
@@ -209,14 +210,20 @@ export default class Map extends Component {
     }
     if (this.props.english === true) {
       return (
-
         <div style={{ height: '100vh', width: '100%' }}>
           <Navbar color="light" light expand="md">
             <NavbarBrand href="/">venture</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
+
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle>weather</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem><OpenWeatherMap /></DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>Options</DropdownToggle>
                   <DropdownMenu right>
@@ -252,7 +259,14 @@ export default class Map extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
+
+              <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle>météo</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem><OpenWeatherMap /></DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>Options</DropdownToggle>
                   <DropdownMenu right>
