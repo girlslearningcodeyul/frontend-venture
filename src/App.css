@@ -38,7 +38,10 @@ body .introModal {
 /* the following  components are found on the navbar in the maps page*/
 .navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item{
   font-family: "courier";
-  margin-top: 7px;
+  
+}
+.nav-link{
+  margin-top: 5px;
 }
 .navbar-brand{
   width:150px;
@@ -53,7 +56,14 @@ body .introModal {
 /*-------------------------------------------------------------------- */
 button.btn.btn-secondary {
   margin:10px;
+  margin-right: 20px;
   font-family: "courier";
+  background-color: slategray;
+
+}
+button.btn.btn-secondary:hover{
+  background-color: darkgoldenrod; /* Green */
+    color: white;
 }
 
 img{
