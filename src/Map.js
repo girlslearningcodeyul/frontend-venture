@@ -52,7 +52,7 @@ export default class Map extends Component {
       this.setState({ center: { lat: s.coords.latitude, lng: s.coords.longitude } })
       console.log(s.coords);
     })
-    
+
   }
 
   componentDidMount() {
@@ -136,7 +136,8 @@ export default class Map extends Component {
     let destinationMarker = new maps.Marker({
       position: destination,
       animation: maps.Animation.DROP,
-      //clickable: true,
+      clickable: true,
+      draggable: true,
       map: map,
       label: "",
       cursor: 'default',
@@ -167,8 +168,8 @@ export default class Map extends Component {
     //added a condition to see which interest option the user selected
     let content;
     console.log(this.props)
-    if(this.props.randomAdventure) {
-      content = this.props.randomAdventure.address;
+    if (this.props.randomAdventure) {
+      content = this.props.randomAdventure.name + ': ' + this.props.randomAdventure.address;
       console.log(this.props.randomAdventure.address)
     }
     else if (this.props.firstInterest.coordinates && this.props.lat === this.props.firstInterest.coordinates.lat && this.props.lng === this.props.firstInterest.coordinates.long) {
@@ -177,7 +178,7 @@ export default class Map extends Component {
     else {
       content = this.props.secondInterest.address;
     }
-    
+
     let infowindow = new maps.InfoWindow({
       content: content
     });
@@ -206,40 +207,82 @@ export default class Map extends Component {
     if (!this.state.center) {
       return <div>Loading...</div>
     }
-    return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">venture</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>Options</DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
-                  {this.props.step <= 2 ?
-                    <div>
-                      <DropdownItem divider />
-                      <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null}
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
-        <GoogleMapReact
-          onGoogleApiLoaded={this.handleNavigation}
-          yesIWantToUseGoogleMapApiInternals
-          bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-          options={{
-            mapTypeControlOptions: {
-              mapTypeIds: ['styled_map']
-            }
-          }} >
-        </GoogleMapReact>
-      </div>
-    );
+    if (this.props.english === true) {
+      return (
+
+        <div style={{ height: '100vh', width: '100%' }}>
+          <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">venture</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>Options</DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem><NavItem><NavLink href="/">Restart</NavLink></NavItem></DropdownItem>
+                    {this.props.step <= 2 ?
+                      <div>
+                        <DropdownItem divider />
+                        <DropdownItem onClick={this.generateNext}>Generate Next?</DropdownItem></div> : null}
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
+            </Collapse>
+          </Navbar>
+          <GoogleMapReact
+            onGoogleApiLoaded={this.handleNavigation}
+            yesIWantToUseGoogleMapApiInternals
+            bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
+            defaultCenter={this.state.center}
+            defaultZoom={this.state.zoom}
+            options={{
+              mapTypeControlOptions: {
+                mapTypeIds: ['styled_map']
+              }
+            }} >
+          </GoogleMapReact>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ height: '100vh', width: '100%' }}>
+          <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">venture</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>Options</DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem><NavItem><NavLink href="/">Recommencer</NavLink></NavItem></DropdownItem>
+                    {this.props.step <= 2 ?
+                      <div>
+                        <DropdownItem divider />
+                        <DropdownItem onClick={this.generateNext}>Generate Prochaine?</DropdownItem></div> : null}
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
+            </Collapse>
+          </Navbar>
+          <GoogleMapReact
+            onGoogleApiLoaded={this.handleNavigation}
+            yesIWantToUseGoogleMapApiInternals
+            bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
+            defaultCenter={this.state.center}
+            defaultZoom={this.state.zoom}
+            options={{
+              mapTypeControlOptions: {
+                mapTypeIds: ['styled_map']
+              }
+            }} >
+          </GoogleMapReact>
+        </div>
+
+
+      );
+
+    }
   }
 }

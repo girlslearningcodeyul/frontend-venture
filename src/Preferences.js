@@ -251,7 +251,7 @@ class Preferences extends Component {
     }
 
     renderFood = (routeProps) => {
-        console.log(this.state.hungry)
+        //console.log(this.state.hungry)
         return <Food
             setHungry={this.setHungry}
             hungry={this.state.hungry}
@@ -313,6 +313,8 @@ class Preferences extends Component {
             firstInterest={this.state.firstInterest}
             secondInterest={this.state.secondInterest}
             randomAdventure={this.state.randomAdventure}
+            toggleLanguage={this.props.toggleLanguage}
+            english={this.props.english}
         />;
     }
 

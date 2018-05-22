@@ -82,8 +82,7 @@ class Content extends Component {
                                 <h1> To the world of venture!</h1>
                                 <h4>We will start by asking you simple questions in order to properly tailor your adventure.
                                     You will then be presented with a choice of two destinations.
-                                    This shall be repeated four times, with the third choice a restaurant if you decided to eat.
-                                 After which, take a deep breath and throw yourselves to greatness!</h4>
+                                    Silent your phone, take a deep breath and throw yourselves to greatness!</h4>
                             </Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>

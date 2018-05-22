@@ -58,10 +58,10 @@ class Content extends Component {
             return (
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Welcome traveller,</h2>
+                        <h2 align="center">Welcome </h2>
                         <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                        <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
-                        <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
+                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
+                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
                     </Modal>
 
                     <Navbar color="light" light expand="md">
@@ -69,7 +69,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage}>FR</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>FR</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>
@@ -131,10 +131,10 @@ class Content extends Component {
             return (
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Welcome traveller,</h2>
-                        <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
-                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                        <h2 align="center">Bienvenue voyageur,</h2>
+                        <h2 id="h2Modal" align="center"> au monde de venture!</h2>
+                        <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
+                        <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
                     </Modal>
 
                     <Navbar color="light" light expand="md">
@@ -142,7 +142,7 @@ class Content extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <NavItem><NavLink onClick={this.props.toggleLanguage}>EN</NavLink></NavItem>
+                                <NavItem><NavLink onClick={this.props.toggleLanguage} style={{ cursor: 'pointer' }}>EN</NavLink></NavItem>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>Options</DropdownToggle>
                                     <DropdownMenu right>

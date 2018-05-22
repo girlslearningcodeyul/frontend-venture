@@ -168,7 +168,7 @@ class Content extends Component {
 
                        {this.props.foods && (
                             <div>
-                                {!this.state.isValid && <div>choissiser minimum un SVP.</div>}
+                                {!this.state.isValid && <div>Choissiser minimum un SVP.</div>}
                                 <Col sm="12" md={{ size: 8, offset: 2 }}>
                                     <Label className={!this.state.isValid && "formError"}>
                                         <CustomInput onChange={() => this.props.setFood("latinMex")}

@@ -148,7 +148,7 @@ class Content extends Component {
                             <Label>{this.props.username}, choisis ton prix</Label>
                         </Col>
                         <div>
-                            {!this.state.isValid && <div>choissiser minimum un SVP.</div>}
+                            {!this.state.isValid && <div>Choissiser minimum un SVP.</div>}
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
                                 <Label className={!this.state.isValid && "formError"}>
                                     <CustomInput type="checkbox"
