@@ -3,6 +3,7 @@ body{
   background-size: cover;
   text-shadow:0 1px 1px rgba(0,0,0,0.8); 
   
+  
 }
 .priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer, .loadingContainer{
   text-align: center;
@@ -51,7 +52,9 @@ body .introModal {
   text-align: right;
 }
 .navbar-expand-md{
-  background: #464647
+  background: #464647;
+  border-bottom: 1px solid rgb(155, 85, 39, 0.50);
+  border-top: 1px solid rgb(155, 85, 39, 0.10);
 }
 
 /*-------------------------------------------------------------------- */
