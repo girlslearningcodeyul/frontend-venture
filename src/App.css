@@ -38,6 +38,7 @@ body .introModal {
 /* the following  components are found on the navbar in the maps page*/
 .navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item{
   font-family: "courier";
+  margin-top: 7px;
 }
 .navbar-brand{
   width:150px;
@@ -145,4 +146,8 @@ label{
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #bc850d; }
+}
+
+.weather{
+
 }
