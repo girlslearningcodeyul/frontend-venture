@@ -87,7 +87,7 @@ class Content extends Component {
 
                     <div className="priceContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label>{this.props.username}, choose your price range!</Label>
+                            <Label>{this.props.username}, a choose your price range!</Label>
                         </Col>
                         <div>
                             {!this.state.isValid && <div>Please, select at least one.</div>}
@@ -148,7 +148,7 @@ class Content extends Component {
                             <Label>{this.props.username}, choisis ton prix</Label>
                         </Col>
                         <div>
-                            {!this.state.isValid && <div>Choissiser minimum un SVP.</div>}
+                            {!this.state.isValid && <div>Un choix minimum SVP.</div>}
                             <Col sm="12" md={{ size: 8, offset: 2 }}>
                                 <Label className={!this.state.isValid && "formError"}>
                                     <CustomInput type="checkbox"
@@ -167,7 +167,7 @@ class Content extends Component {
                             </Col>
                         </div>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Button onClick={this.handlePrice} >A la venture!</Button>
+                            <Button onClick={this.handlePrice} >À la venture!</Button>
                         </Col>
 
                     </div>

@@ -182,7 +182,7 @@ class Content extends Component {
                         </Row>
                         <Row>
                             <div className="col-xl-4 col-sm-3" />
-                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >A la venture!</Button></div>
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >À la venture!</Button></div>
                             <div className="col-xl-1 col-sm-1" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Chanceux?</Button></div>
                         </Row>
