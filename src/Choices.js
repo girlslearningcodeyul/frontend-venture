@@ -102,9 +102,7 @@ class Content extends Component {
                                             this.props.firstInterest.coordinates.long + "&step=" +
                                             this.props.step}>
                                             <img className="images" src={this.props.firstInterest.imageLocation} alt="img1" />
-                                            {/* <img className="imageFrame" src="images/picFrame.png" alt="imgFrame" /> */}
                                         </Link>
-                                        
                                         <br />
                                         {this.props.firstInterest.name}
                                     </li>
