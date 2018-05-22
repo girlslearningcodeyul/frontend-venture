@@ -220,7 +220,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>weather</DropdownToggle>
+                  <DropdownToggle>Weather</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
@@ -263,7 +263,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
               <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>météo</DropdownToggle>
+                  <DropdownToggle>Météo</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
@@ -276,7 +276,7 @@ export default class Map extends Component {
                     {this.props.step <= 2 ?
                       <div>
                         <DropdownItem divider />
-                        <DropdownItem onClick={this.generateNext}>Generate Prochaine?</DropdownItem></div> : null}
+                        <DropdownItem onClick={this.generateNext}>Choix Suivant?</DropdownItem></div> : null}
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>

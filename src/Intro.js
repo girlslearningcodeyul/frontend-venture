@@ -164,10 +164,10 @@ class Content extends Component {
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome">venture vous salute!</Label>
+                                <Label for="ventureWelcome">Bienvenue à venture!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome2">Choissiser le votre</Label>
+                                <Label for="ventureWelcome2">A vous le choix!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
                                 <Label for="ventureWelcome3">Votre nom s'il vous plait:</Label>
@@ -182,7 +182,7 @@ class Content extends Component {
                         </Row>
                         <Row>
                             <div className="col-xl-4 col-sm-3" />
-                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >A la venture!</Button></div>
+                            <div className="col-xl-1 col-sm-2"><Button onClick={this.handleIntro} >À la venture!</Button></div>
                             <div className="col-xl-1 col-sm-1" />
                             <div className="col-xl-1 col-sm-2"><Button onClick={this.handleRandom}>Chanceux?</Button></div>
                         </Row>
