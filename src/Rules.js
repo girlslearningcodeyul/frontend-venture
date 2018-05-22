@@ -95,8 +95,8 @@ class Content extends Component {
                 <div className="introDiv">
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Bienvenue voyageur,</h2>
-                        <h2 id="h2Modal" align="center"> au monde de venture!</h2>
+                        <h2 align="center">Bienvenue voyageur!</h2>
+                        <h2 id="h2Modal" align="center"> Au monde de venture!</h2>
                         <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
                         <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
                     </Modal>
@@ -122,7 +122,7 @@ class Content extends Component {
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
-                                <TypeWriter><h1>Dans le monde de venture!</h1></TypeWriter>
+                                <TypeWriter><h1>Au monde de venture!</h1></TypeWriter>
                                 <h4>On va vous presenter des questions auquelles vous pouvez répondre plusieurs fois!</h4>
                                 <h4> À la fin, un choix de deux destinations.</h4>
                                 <h4>Bon voyage!</h4>
