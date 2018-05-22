@@ -63,8 +63,11 @@ img{
 }
 
 .images {
-  box-shadow: 0px 0px 3px 3px #464647;
-  border-radius: 2px;
+  /* box-shadow: 0px 0px 3px 3px #464647;
+  border-radius: 2px; */
+  border: 10px solid #3e2b14;
+  padding: 10px;
+  opacity: 0.9;
 }
 
 .foodContainer, .introContainer, .funContainer, .priceContainer {

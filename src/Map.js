@@ -265,7 +265,7 @@ export default class Map extends Component {
               <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle className = "weather">Météo</DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem><OpenWeatherMap /></DropdownItem>
+                    <DropdownItem left><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
 
