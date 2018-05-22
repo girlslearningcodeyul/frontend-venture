@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
 import OpenWeatherMap from './OpenWeatherMap.js'
+import logo from './images/logo.gif'
 //import styled from 'styled-components'; not required for the marker
 
 // let x = 67;
@@ -206,7 +207,8 @@ export default class Map extends Component {
 
   render() {
     if (!this.state.center) {
-      return <div>Loading...</div>
+      return <div className="loadingContainer"><div><img src={logo} alt="loading..." /></div><div>Loading...</div></div>
+      
     }
     if (this.props.english === true) {
       return (
