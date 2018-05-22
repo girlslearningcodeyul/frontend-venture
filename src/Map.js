@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import markerImg from './images/marker.png' markerImg not required
 import GoogleMapReact from 'google-map-react';
 import OpenWeatherMap from './OpenWeatherMap.js'
+import logo from './images/logo.gif'
 //import styled from 'styled-components'; not required for the marker
 
 // let x = 67;
@@ -206,7 +207,8 @@ export default class Map extends Component {
 
   render() {
     if (!this.state.center) {
-      return <div>Loading...</div>
+      return <div className="loadingContainer"><div><img src={logo} alt="loading..." /></div><div>Loading...</div></div>
+      
     }
     if (this.props.english === true) {
       return (
@@ -218,7 +220,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>weather</DropdownToggle>
+                  <DropdownToggle className = "weather">Weather</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
@@ -261,7 +263,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
               <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>météo</DropdownToggle>
+                  <DropdownToggle className = "weather">Météo</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
@@ -274,7 +276,7 @@ export default class Map extends Component {
                     {this.props.step <= 2 ?
                       <div>
                         <DropdownItem divider />
-                        <DropdownItem onClick={this.generateNext}>Generate Prochaine?</DropdownItem></div> : null}
+                        <DropdownItem onClick={this.generateNext}>Choix Suivant?</DropdownItem></div> : null}
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
