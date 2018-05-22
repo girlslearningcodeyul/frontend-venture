@@ -46,7 +46,7 @@ class Content extends Component {
 
     handleFood = () => {
         //console.log(this.props.hungry);
-
+        //checks for the foods object to exist or not empty or not hungry
         if ((this.props.foods && Object.values(this.props.foods).some((b) => b)) || !this.props.hungry) {
             this.props.historyPush('/fun');
         }
