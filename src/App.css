@@ -72,19 +72,32 @@ img{
   display:block;
   background:rgba(255,255,255,0.45);
   letter-spacing: 1.5px;
+  
 }
 
 /*checkbox styling
 -----------------------------------------*/
-.custom-control-label::after {
-  background-color:grey;
-  border-radius: 5px;
-  border-color:black;
-  -webkit-transform: scale(1.40);
- 
+
+
+label:hover:before {
+  border: 1px solid #D52941!important;
+  
 }
-.form-check-label {
-  margin: 10px;
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #FCD757 !important;
+  
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+  background-image: url("images/checkbox.png") !important;
+}
+.custom-control-label::before{
+  -webkit-transform: scale(1.30);
+}
+
+.custom-control-label::after{
+  -webkit-transform: scale(1.60);
 }
 
 #tooltip{
