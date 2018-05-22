@@ -30,13 +30,20 @@ class Content extends Component {
             isOpen: false,
             username: "",
             tooltipOpenLeft: false,
-            tooltipOpenRight: false
+            tooltipOpenRight: false,
+            modalOpen: false,
+
         };
     }
 
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
+        });
+    }
+    toggleModal = () => {
+        this.setState({
+            modalOpen: !this.state.modalOpen
         });
     }
 
@@ -131,6 +138,7 @@ class Content extends Component {
             return (
                 <div>
                     <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                    {console.log("modal activated")}
                         <h2 align="center">Bienvenue voyageur,</h2>
                         <h2 id="h2Modal" align="center"> au monde de venture!</h2>
                         <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
