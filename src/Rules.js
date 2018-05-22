@@ -14,10 +14,8 @@ import {
     DropdownMenu,
     DropdownItem,
     Label,
-
     Col,
     Button,
-
     Modal,
     //ModalHeader,
 } from 'reactstrap';
@@ -81,8 +79,8 @@ class Content extends Component {
                             <Label for="ventureWelcome2">
                                 <h1> To the world of venture!</h1>
                                 <h4>We will start by asking you questions in order to tailor your adventure.</h4>
-                                    <h4>You may answer more then once.</h4>
-                                    <h4> Silence your phone, take a deep breath and throw yourselves to greatness!</h4>
+                                <h4>You may answer more then once.</h4>
+                                <h4> Silence your phone, take a deep breath and throw yourselves to greatness!</h4>
                             </Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
