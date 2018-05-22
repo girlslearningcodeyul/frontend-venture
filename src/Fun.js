@@ -48,6 +48,7 @@ class Content extends Component {
     handleFun = () => {
 
         if (this.props.bars || this.props.museums || this.props.historical || this.props.parks) {
+            this.props.handleFun();
             this.props.historyPush('/price') // THIS IS THE KEY LINE
         }
 

@@ -173,11 +173,11 @@ class Content extends Component {
                                 <Label for="ventureWelcome3">Votre nom s'il vous plait:</Label>
                             </Col>
                             <Col sm={{ size: 4, offset: 4 }}>
-                                <Input id="introInput"
+                                <Input id="introId"
                                     onChange={this.handleUsername}
                                     name="name"
                                     value={this.inputUsername}
-                                    id="introId" />
+                                    />
                             </Col>
                         </Row>
                         <Row>

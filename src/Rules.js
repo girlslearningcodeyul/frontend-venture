@@ -77,7 +77,7 @@ class Content extends Component {
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
-                                <TypeWriter><h1>To the world of venture!</h1></TypeWriter>
+                                <TypeWriter><h1>to the world of venture!</h1></TypeWriter>
                                 <h4>We will start by asking you questions in order to tailor your experience.</h4>
                                 <h4>You may answer more then once.</h4>
                                 <h4> So silence your phone, take a deep breath and throw yourselves to greatness!</h4>
@@ -122,7 +122,7 @@ class Content extends Component {
                         </Col>
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
-                                <TypeWriter><h1>Au monde de venture!</h1></TypeWriter>
+                                <TypeWriter><h1>au monde de venture!</h1></TypeWriter>
                                 <h4>On va vous presenter des questions auquelles vous pouvez répondre plusieurs fois!</h4>
                                 <h4> À la fin, un choix de deux destinations.</h4>
                                 <h4>Bon voyage!</h4>

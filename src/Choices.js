@@ -60,7 +60,6 @@ class Content extends Component {
 
     render() {
         //before load must generate a gif of typewriter typing out the experience
-
         if (this.props.english === true) {
             return (
                 <div>

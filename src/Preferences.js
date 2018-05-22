@@ -75,17 +75,36 @@ class Preferences extends Component {
         this.toggleState(key, this.setPriceMap)
     }
 
-    setPriceMap = () => {
+    getFoods = () => {
+        console.log(this.state.foods);
+        return Object.keys(this.state.foods)
+            .filter((key) => key.includes('asian') || key.includes('latinMex') || key.includes('european'))
+            .map((key) => {
+                if (key.includes('Cheap'))
+                    return key.replace('Cheap', '');
+                if (key.includes('Expensive'))
+                    return key.replace('Expensive', '')
+                return key;
+            })
+    }
+
+    setPriceMap2 = () => {
         let ret = {
             foods: {},
             bars: {}
         };
 
+        const foods = this.state.foods ? this.getFoods() : [];
+        console.log('foods', foods);
+        const asian = foods.includes('asian');
+        const latinMex = foods.includes('latinMex');
+        const european = foods.includes('european');
+
         if (this.state.expensive && this.state.cheap) {
-            //console.log('all stuff', this.state)
+            console.log('all stuff', this.state)
             if (this.state.foods && this.state.bars) {
                 console.log(' all food & bars expensive and cheap')
-                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
+                if (asian && latinMex && european) {
                     console.log('1')
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
@@ -96,7 +115,7 @@ class Preferences extends Component {
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.latinMex && this.state.foods.asian) {
+                else if (latinMex && asian) {
                     console.log('2')
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
@@ -105,7 +124,7 @@ class Preferences extends Component {
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.latinMex && this.state.foods.european) {
+                else if (latinMex && european) {
                     console.log('3')
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
@@ -114,7 +133,7 @@ class Preferences extends Component {
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.european && this.state.foods.asian) {
+                else if (european && asian) {
                     console.log('4')
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
@@ -123,21 +142,21 @@ class Preferences extends Component {
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.latinMex) {
+                else if (latinMex) {
                     console.log('5')
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.asian) {
+                else if (asian) {
                     console.log('6')
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                     ret.bars.barsCheap = true;
                     ret.bars.barsExpensive = true;
                 }
-                else if (this.state.foods.european) {
+                else if (european) {
                     console.log('7')
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
@@ -148,7 +167,7 @@ class Preferences extends Component {
 
             else if (this.state.foods) {
                 console.log(' all food expensive and cheap')
-                if (this.state.foods.asian && this.state.foods.latinMex && this.state.foods.european) {
+                if (asian && latinMex && european) {
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                     ret.foods.latinMexExpensive = true;
@@ -156,33 +175,33 @@ class Preferences extends Component {
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
                 }
-                else if (this.state.foods.latinMex && this.state.foods.asian) {
+                else if (latinMex && asian) {
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                 }
-                else if (this.state.foods.latinMex && this.state.foods.european) {
+                else if (latinMex && european) {
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
                 }
-                else if (this.state.foods.european && this.state.foods.asian) {
+                else if (european && asian) {
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                 }
-                else if (this.state.foods.latinMex) {
+                else if (latinMex) {
                     ret.foods.latinMexExpensive = true;
                     ret.foods.latinMexCheap = true;
                 }
-                else if (this.state.foods.asian) {
+                else if (asian) {
                     ret.foods.asianExpensive = true;
                     ret.foods.asianCheap = true;
                 }
-                else if (this.state.foods.european) {
+                else if (european) {
                     ret.foods.europeanExpensive = true;
                     ret.foods.europeanCheap = true;
                 }
@@ -347,6 +366,11 @@ class Preferences extends Component {
         console.log(ret);
     }
 
+    setPriceMap = () => {
+        this.setState({...this.backup, cheap:this.state.cheap, expensive: this.state.expensive}, this.setPriceMap2);
+
+    }
+
 
 
     handleSubmit = () => {
@@ -391,6 +415,10 @@ class Preferences extends Component {
             })
     }
 
+    handleFun = () => {
+        this.backup = {...this.state}
+    }
+
     //rendering
 
     renderIntro = (routeProps) => {
@@ -426,6 +454,7 @@ class Preferences extends Component {
             setBars={this.setBars}
             username={this.props.username}
             historyPush={routeProps.history.push}
+            handleFun={this.handleFun}
             toggleLanguage={this.props.toggleLanguage}
             english={this.props.english} />;
     }
