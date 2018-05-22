@@ -28,7 +28,7 @@ class OpenWeatherMap extends React.Component {
     return (
         <div className="weather-card">
             <h1>{temp}°C</h1>
-            <p>{name},QC</p>
+            {/* <p>{name},QC</p> */}
             <p>{description}</p>
         </div>
     );
