@@ -80,9 +80,9 @@ class Content extends Component {
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
                                 <h1> To the world of venture!</h1>
-                                <h4>We will start by asking you simple questions in order to properly tailor your adventure.
-                                    You will then be presented with a choice of two destinations.
-                                    Silence your phone, take a deep breath and throw yourselves to greatness!</h4>
+                                <h4>We will start by asking you questions in order to tailor your adventure.</h4>
+                                    <h4>You may answer more then once.</h4>
+                                    <h4> Silence your phone, take a deep breath and throw yourselves to greatness!</h4>
                             </Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
@@ -124,10 +124,10 @@ class Content extends Component {
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
                                 <h1>Dans le monde de venture!</h1>
-                                <h4>On va vous demander de simples questions auquelles vous pouvez répondre avec un ou plusieurs choix!
-                                On vous présentera deux destinations. 
-                                Bon voyage!
-                            Et à la venture!</h4></Label>
+                                <h4>On va vous presenter des questions auquelles vous pouvez répondre plusieurs fois!</h4>
+                                <h4> A la fin, un choix de deux destinations.</h4>
+                                <h4>Bon voyage!</h4>
+                                <h4> Et à la venture!</h4></Label>
                         </Col>
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Button onClick={this.handleRules} >Commencer</Button>
