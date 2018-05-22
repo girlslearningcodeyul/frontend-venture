@@ -218,7 +218,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>Weather</DropdownToggle>
+                  <DropdownToggle className = "weather">Weather</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
@@ -261,7 +261,7 @@ export default class Map extends Component {
               <Nav className="ml-auto" navbar>
 
               <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle>Météo</DropdownToggle>
+                  <DropdownToggle className = "weather">Météo</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem><OpenWeatherMap /></DropdownItem>
                   </DropdownMenu>
