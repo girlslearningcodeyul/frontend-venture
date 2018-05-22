@@ -164,10 +164,10 @@ class Content extends Component {
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome">venture vous salute!</Label>
+                                <Label for="ventureWelcome">Bienvenue à venture!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome2">Choissiser le votre</Label>
+                                <Label for="ventureWelcome2">A vous le choix!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
                                 <Label for="ventureWelcome3">Votre nom s'il vous plait:</Label>
