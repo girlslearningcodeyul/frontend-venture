@@ -124,7 +124,6 @@ label{
 
 .formError{
   color: red;
-<<<<<<< HEAD
 }
 
 /* typewriter effect */
@@ -155,7 +154,4 @@ label{
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #bc850d; }
-=======
-  cursor: pointer;
->>>>>>> da5189bbc7fe80560c211b570d1fc68d3776b0a5
 }
