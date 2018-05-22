@@ -88,7 +88,15 @@ img{
   border-radius: 5px;
   box-shadow: 5px, 10px;
   font-family: "courier";
-}
+  
+    -webkit-animation: fadein 1s; 
+  
+  }
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
 
 .foodContainer, .introContainer, .funContainer, .priceContainer {
   margin-top: 25px;
