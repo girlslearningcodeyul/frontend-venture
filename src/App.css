@@ -1,90 +1,136 @@
-body{
+body {
   background-image: url("images/background.jpg");
   background-size: cover;
-  text-shadow:0 1px 1px rgba(0,0,0,0.8); 
-  
-  
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
 }
-.priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer, .loadingContainer{
+
+.priceContainer, .introContainer, .foodContainer, .funContainer, .choicesContainer, .loadingContainer {
   text-align: center;
   font-family: "courier";
 }
+
 .brand, .introDiv, .btn-secondary {
   font-family: "courier";
 }
+
 /* the following  components are found on the intro page...mostly*/
-.listingStyle{
+
+.listingStyle {
   list-style-type: none;
   font-family: "courier";
 }
-.introModal > .modal-content {
+
+/* Modal for mobile */
+.introModal>.modal-content {
   background-image: url(images/parchment.jpg);
   background-size: 100%;
   font-family: "courier";
-  width: 500px;
+  text-align: center;
 }
-#h2Modal{
-  margin-bottom:25px;
-  font-weight: bold; 
+.introChange {
+  font-size: 13px;
 }
-body .introModal {
-  width: 750px;
+.A3-1{
+  display : block;
+  text-align:center;
+  padding-top: 80px;
+}
+
+/* Modal for desktop */
+@media(min-width:768px) {
+  .introModal>.modal-content {
+    background-image: url(images/parchment.jpg);
+    background-size: 100%;
+    font-family: "courier";
   }
-  #introId{
+
+  #h2Modal {
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  body .introModal {
+    width: 500px;
+  }
+  #introId {
     text-align: center;
     direction: ltr;
   }
-  #intro1{
+  #intro1 {
     -webkit-animation: fadein 1s;
   }
-  #intro2{
+  #intro2 {
     -webkit-animation: fadein 2s;
   }
-  #intro3{
+  #intro3 {
     -webkit-animation: fadein 3s;
   }
+  .A3-1{
+    display : block;
+    text-align:center;
+    padding-top:20px;
+  }
+  .A3-2{
+    display : block;
+    text-align:center;
+  }
+  .A3-3{
+    display : block;
+    text-align:center;
+    padding-top: 26px;
+  }
+  .A3-4{
+    display : block;
+    text-align:center;
+    padding-bottom: 0px;
+  }
+}
+
 
 /*-------------------------------------------------------------------- */
 
 /* the following  components are found on the navbar in the maps page*/
-.navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item{
+
+.navbar-brand, .dropdown-toggle, .nav-link, .dropdown-item {
   font-family: "courier";
   cursor: pointer;
-  
 }
-.nav-link{
+
+.nav-link {
   margin-top: 5px;
 }
-.navbar-brand{
-  width:150px;
-  background: url("images/logo.png"); 
+
+.navbar-brand {
+  width: 150px;
+  background: url("images/logo.png");
   background-repeat: no-repeat;
   text-align: right;
 }
-.navbar-expand-md{
+
+.navbar-expand-md {
   background: #464647;
   border-bottom: 1px solid rgb(155, 85, 39, 0.50);
   border-top: 1px solid rgb(155, 85, 39, 0.10);
 }
 
 /*-------------------------------------------------------------------- */
+
 button.btn.btn-secondary {
-  margin:10px;
+  margin: 10px;
   margin-right: 20px;
   font-family: "courier";
   background-color: slategray;
-
-}
-button.btn.btn-secondary:hover{
-  background-color: darkgoldenrod; /* Green */
-    color: white;
 }
 
-img{
+button.btn.btn-secondary:hover {
+  background-color: darkgoldenrod;
+  /* Green */
+  color: white;
+}
+
+img {
   margin: 10px;
   widows: 300px;
-  height:200px;
-
+  height: 200px;
 }
 
 .images {
@@ -101,81 +147,110 @@ img{
   border-radius: 5px;
   box-shadow: 5px, 10px;
   font-family: "courier";
-  
-    -webkit-animation: fadein 1s; 
-  
-  }
-  @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-
-.rules-fade{
-  -webkit-animation: fadein 4.4s; 
-  -webkit-animation-timing-function: cubic-bezier(1,-0.09,.91,.76)
+  -webkit-animation: fadein 1s;
 }
+
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rules-fade {
+  -webkit-animation: fadein 4.4s;
+  -webkit-animation-timing-function: cubic-bezier(1, -0.09, .91, .76)
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .foodContainer, .introContainer, .funContainer, .priceContainer {
   margin-top: 25px;
-  margin-left: 150px;
-  margin-right: 150px;
-  padding-top:20px;
-  padding-bottom:20px;
-  display:block;
-  background:rgba(255,255,255,0.45);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: block;
+  background: rgba(255, 255, 255, 0.45);
   letter-spacing: 1.5px;
   border-radius: 10px;
-  
+  font-size: 1rem;
+}
+
+@media(min-width:768px) {
+  .introContainer {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  #intro1 {
+    font-size: 1.5rem;
+  }
+  #intro2 {
+    font-size: 1.5rem;
+  }
+  #intro3 {
+    font-size: 1.5rem;
+  }
 }
 
 /*checkbox styling
 -----------------------------------------*/
 
-
 label:hover:before {
-  border: 1px solid  #dcbc84!important;
+  border: 1px solid #dcbc84!important;
   cursor: pointer;
-  
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
   background-color: #caa467 !important;
   cursor: pointer;
-  
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
   background-image: url("images/checkbox.png") !important;
   cursor: pointer;
 }
-.custom-control-label::before{
+
+.custom-control-label::before {
   -webkit-transform: scale(1.30);
   cursor: pointer;
 }
 
-.custom-control-label::after{
+.custom-control-label::after {
   -webkit-transform: scale(1.60);
   cursor: pointer;
 }
 
-#tooltip{
-  color:black;
+#tooltip {
+  color: black;
   text-decoration: underline;
   cursor: pointer;
 }
-.custom-control-label{
+
+.custom-control-label {
   cursor: pointer;
 }
-label{
-  margin:15px;
+
+label {
+  margin: 15px;
+  font-size: 1rem;
 }
 
-.formError{
+@media(min-width:768px) {
+label {
+  margin: 15px;
+  font-size: 1.5rem;
+}
+}
+
+.formError {
   color: red;
 }
 
@@ -187,16 +262,23 @@ label{
 }
 
 /* The typing effect */
+
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
 }
+
 /* The typewriter cursor effect */
+
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #bc850d; }
-}
-
-.weather{
-
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: #bc850d;
+  }
 }

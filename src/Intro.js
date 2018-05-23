@@ -79,16 +79,18 @@ class Content extends Component {
     }
 
     render() {
-
+// 71 px // 13px 
         if (this.props.english === true) {
             return (
                 <div className="introDiv">
 
-                    <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Welcome traveller,</h2>
-                        <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                        <h4 align="center">Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </h4>
-                        <h4 align="center"> Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</h4>
+                    <Modal  name="A1" className="introModal introChange" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                        <div name="A2" style={{padding : "1px 56px 43px"}}>
+                            <div className="A3-1"  >Welcome traveller,</div>
+                            <div className="A3-2"  id="h2Modal"> to the world of venture!</div>
+                            <div  className="A3-3"  >Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </div>
+                            <div  className="A3-4" > Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</div>
+                        </div>
                     </Modal>
                     <Navbar color="light" light expand="md">
                         <NavbarBrand href="/">venture</NavbarBrand>
@@ -106,16 +108,16 @@ class Content extends Component {
                         </Collapse>
                     </Navbar>
 
-                    <div className="introContainer" id="introId1">
+                    <div className="container introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label id="intro1" for="ventureWelcome">Welcome to Venture</Label>
+                                <Label id="intro1">Welcome to Venture</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label id="intro2" for="ventureWelcome2">A choose your own...</Label>
+                                <Label id="intro2">A choose your own...</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label id="intro3" for="ventureWelcome3">Enter your name:</Label>
+                                <Label id="intro3">Enter your name:</Label>
                             </Col>
                             <Col sm={{ size: 4, offset: 4 }}>
                                 <Input onChange={this.handleUsername}
@@ -177,7 +179,7 @@ class Content extends Component {
                                     onChange={this.handleUsername}
                                     name="name"
                                     value={this.inputUsername}
-                                    />
+                                />
                             </Col>
                         </Row>
                         <Row>
