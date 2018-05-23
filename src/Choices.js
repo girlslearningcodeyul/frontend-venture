@@ -90,7 +90,7 @@ class Content extends Component {
 
                     <div className="choicesContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
-                            <Label>{this.props.username}, a choose your own!</Label>
+                            <Label><h3>{this.props.username}, choose your own adventure!</h3></Label>
                         </Col>
                         <Row>
                             <Col sm={{ size: 4, offset: 2 }}>
