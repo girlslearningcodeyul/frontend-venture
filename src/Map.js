@@ -73,7 +73,7 @@ export default class Map extends Component {
     //console.log(this.props.step);
     if (this.props.step === 0) {
       //console.log(this.props.sessionId);
-      fetch('/getSecondActivity?sessionId=' + this.props.sessionId)
+      fetch('https://venturemtl.club:4000/getSecondActivity?sessionId=' + this.props.sessionId)
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);
@@ -88,7 +88,7 @@ export default class Map extends Component {
     }
     else if (this.props.step === 1) {
       //restaurant options
-      fetch('/getThirdActivity?sessionId=' + this.props.sessionId)
+      fetch('https://venturemtl.club:4000/getThirdActivity?sessionId=' + this.props.sessionId)
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);
@@ -112,7 +112,7 @@ export default class Map extends Component {
     }
 
     else if (this.props.step === 2) {
-      fetch('/getFourthActivity?sessionId=' + this.props.sessionId)
+      fetch('https://venturemtl.club:4000/getFourthActivity?sessionId=' + this.props.sessionId)
         .then(response => response.text())
         .then(responseBody => {
           let parsedBody = JSON.parse(responseBody);

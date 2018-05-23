@@ -397,7 +397,7 @@ class Preferences extends Component {
 
         })
         console.log(body);
-        fetch('/userPreferenceFirstActivity', { method: "POST", body: body })
+        fetch('https://venturemtl.club:4000/userPreferenceFirstActivity', { method: "POST", body: body })
             .then(response => response.text())
             .then(responseBody => {
                 let firstTwoInterests = JSON.parse(responseBody);

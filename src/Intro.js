@@ -49,7 +49,7 @@ class Content extends Component {
 
     handleRandom = (e) => {
         e.preventDefault();
-        fetch('/feelingLucky')
+        fetch('https://venturemtl.club:4000/feelingLucky')
             .then(response => response.text())
             .then(responseBody => {
                 let parsedBody = JSON.parse(responseBody);
