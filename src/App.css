@@ -101,6 +101,15 @@ img{
   }
   
 
+.rules-fade{
+  animation: fadein 4.4s; 
+  animation-timing-function: cubic-bezier(1,-0.09,.91,.76)
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .foodContainer, .introContainer, .funContainer, .priceContainer {
   margin-top: 25px;
   margin-left: 150px;
