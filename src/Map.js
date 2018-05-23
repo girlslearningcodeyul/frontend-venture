@@ -32,6 +32,7 @@ import {
 import mapTheme from './mapTheme';
 import TypeWriter from './TypeWriter';
 
+
 export default class Map extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +61,12 @@ export default class Map extends Component {
 
   componentDidMount() {
     this.getGeoLocation();
+  }
+
+  //typerwriter sound for loading
+  playAudio = () => {
+    const audio = new Audio('TypeWriter.mp3');
+    audio.play();
   }
 
   generateNext = () => {
@@ -208,6 +215,7 @@ export default class Map extends Component {
 
   render() {
     if (!this.state.center) {
+      this.playAudio();
       return <div className="loadingContainer"><div><img src={logo} alt="loading..." /></div><TypeWriter><h3>Loading...</h3></TypeWriter></div>
       
     }
