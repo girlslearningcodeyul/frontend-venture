@@ -109,13 +109,13 @@ class Content extends Component {
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome">Welcome to Venture</Label>
+                                <Label id="intro1" for="ventureWelcome">Welcome to Venture</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome2">A choose your own...</Label>
+                                <Label id="intro2" for="ventureWelcome2">A choose your own...</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome3">Enter your name:</Label>
+                                <Label id="intro3" for="ventureWelcome3">Enter your name:</Label>
                             </Col>
                             <Col sm={{ size: 4, offset: 4 }}>
                                 <Input onChange={this.handleUsername}
@@ -164,13 +164,13 @@ class Content extends Component {
                     <div className="introContainer" id="introId1">
                         <Row>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome">Bienvenue à venture!</Label>
+                                <Label id="intro1" for="ventureWelcome">Bienvenue à venture!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome2">A vous le choix!</Label>
+                                <Label id="intro2" for="ventureWelcome2">A vous le choix!</Label>
                             </Col>
                             <Col sm={{ size: 8, offset: 2 }}>
-                                <Label for="ventureWelcome3">Votre nom s'il vous plait:</Label>
+                                <Label id="intro3" for="ventureWelcome3">Votre nom s'il vous plait:</Label>
                             </Col>
                             <Col sm={{ size: 4, offset: 4 }}>
                                 <Input id="introId"

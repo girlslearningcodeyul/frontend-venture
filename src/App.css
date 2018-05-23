@@ -34,6 +34,16 @@ body .introModal {
     text-align: center;
     direction: ltr;
   }
+  #intro1{
+    -webkit-animation: fadein 1s;
+  }
+  #intro2{
+    -webkit-animation: fadein 2s;
+  }
+  #intro3{
+    -webkit-animation: fadein 3s;
+  }
+
 /*-------------------------------------------------------------------- */
 
 /* the following  components are found on the navbar in the maps page*/
