@@ -78,7 +78,7 @@ class Content extends Component {
                         <Col sm={{ size: 8, offset: 2 }}>
                             <Label for="ventureWelcome2">
                                 <TypeWriter><h1>to the world of venture!</h1></TypeWriter>
-                                <div classN ame="rules-fade">
+                                <div className="rules-fade">
                                     <h4>We will start by asking you questions in order to tailor your experience.</h4>
                                 <h4>You may answer more than once.</h4>
                                 <h4> So silence your phone, take a deep breath and throw yourself to greatness!</h4>
