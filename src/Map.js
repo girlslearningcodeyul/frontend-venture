@@ -65,8 +65,8 @@ export default class Map extends Component {
 
   //typerwriter sound for loading
   playAudio = () => {
-    const audio = new Audio('TypeWriter.mp3');
-    audio.play();
+    this.audio = new Audio('TypeWriter.mp3');
+    this.audio.play();
   }
 
   generateNext = () => {
@@ -128,6 +128,7 @@ export default class Map extends Component {
   }
 
   handleNavigation = ({ map, maps }) => {
+    this.audio.pause();
     var styledMapType = new maps.StyledMapType(mapTheme)
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
