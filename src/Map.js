@@ -243,7 +243,7 @@ export default class Map extends Component {
           <GoogleMapReact
             onGoogleApiLoaded={this.handleNavigation}
             yesIWantToUseGoogleMapApiInternals
-            bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8"/* YOUR KEY HERE */ }}
+            bootstrapURLKeys={{ key: "AIzaSyCfV_m5N06dCKzTUdXeUlJy6O5Va_0TbQ8" }}
             defaultCenter={this.state.center}
             defaultZoom={this.state.zoom}
             options={{

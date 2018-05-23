@@ -81,7 +81,7 @@ class Content extends Component {
                                 <div className="rules-fade">
                                     <h4>We will start by asking you questions in order to tailor your experience.</h4>
                                 <h4>You may answer more than once.</h4>
-                                <h4> So silence your phone, take a deep breath and throw yourselves to greatness!</h4>
+                                <h4> So silence your phone, take a deep breath and throw yourself to greatness!</h4>
                                 </div>
                             </Label>
                         </Col>

@@ -57,6 +57,14 @@ class App extends Component {
       </BrowserRouter>
     )
   }
+
+}
+
+//PWA: the following code checks if the browser supports service workers, and if it does, register the service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('./service-worker.js')
+    .then(function () { console.log('Service Worker Registered'); });
 }
 
 export default App;
