@@ -59,12 +59,14 @@ class Content extends Component {
     render() {
         if (this.props.english === true) {
             return (
-                <div>
-                    <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Welcome traveller,</h2>
-                        <h2 id="h2Modal" align="center"> to the world of venture!</h2>
-                        <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
-                        <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
+                <div className="introDiv">
+                    <Modal name="A1" className="introModal introChange" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                        <div name="A2" style={{ padding: "1px 56px 43px" }}>
+                            <div className="A3-1"  >Welcome traveller,</div>
+                            <div className="A3-2" id="h2Modal"> to the world of venture!</div>
+                            <div className="A3-3"  >Crafted by a scrappy team of three aspiring web-developers, venture is the brain-child of Aly Neumann, Ksenia Nadkina and Jordan Lahmy! </div>
+                            <div className="A3-4" > Built with react/react-strap using express & written in javascript, what you see is the culmination of 10 days of intensive work!</div>
+                        </div>
                     </Modal>
 
                     <Navbar color="light" light expand="md">
@@ -85,7 +87,7 @@ class Content extends Component {
                         </Collapse>
                     </Navbar>
 
-                    <div className="priceContainer">
+                    <div className="container priceContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username}, a choose your price range!</Label>
                         </Col>
@@ -117,12 +119,14 @@ class Content extends Component {
             );
         } else {
             return (
-                <div>
-                    <Modal className="introModal" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
-                        <h2 align="center">Bienvenue voyageur,</h2>
-                        <h2 id="h2Modal" align="center"> au monde de venture!</h2>
-                        <h4 align="center">Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </h4>
-                        <h4 align="center"> Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</h4>
+                <div className="introDiv">
+                   <Modal name="A1" className="introModal introChange" isOpen={this.state.modalOpen} toggle={this.toggleModal}>
+                        <div name="A2" style={{ padding: "1px 56px 43px" }}>
+                            <div className="A3-1"  >Bienvenue voyageur intrepid,</div>
+                            <div className="A3-2" id="h2Modal">  au monde de venture!</div>
+                            <div className="A3-3"  >Créer avec amour par Aly Neumann, Ksenia Nadkina et Jordan Lahmy ! venture est née à base de React/react-strap utilisant express écrit en Javascript!  </div>
+                            <div className="A3-4" >Ce que vous voyez est le produit de 10 jours intenses dans le but de redonner le sens de l'aventure en explorant votre ville!</div>
+                        </div>
                     </Modal>
 
                     <Navbar color="light" light expand="md">
@@ -143,7 +147,7 @@ class Content extends Component {
                         </Collapse>
                     </Navbar>
 
-                    <div className="priceContainer">
+                    <div className="container priceContainer">
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label>{this.props.username}, choisis ton prix!</Label>
                         </Col>
